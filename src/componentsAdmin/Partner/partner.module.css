@@ -1,0 +1,208 @@
+.styleBox {
+  border-left: 4px solid #FF6262;
+  border-right: 4px solid #FF6262;
+  padding-top: 50px;
+  padding-left: 70px;
+  padding-right: 412px;
+  height: 830px;
+  padding-bottom: 40px;
+  position: relative;
+}
+
+.boxButton {
+  display: flex;
+  align-items: center;
+  gap: 79px;
+  margin-bottom: 40px;
+}
+
+.buttonAdd {
+  width: 288px;
+  height: 63px;
+  padding: 5px 0px 10px 0px;
+  border-radius: 5px ;
+  border: 2px solid rgb(129, 126, 126);
+  background: white;
+  font-family: Jost;
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+  color: rgb(129, 126, 126);
+}
+
+.active {
+  width: 341px;
+  height: 63px;
+  padding: 5px 0px 10px 0px;
+  border-radius: 5px;
+  border: 2px solid rgb(0, 0, 0);
+  color: black;
+}
+
+
+
+
+
+.submit {
+  display: flex;
+  align-items: end;
+  gap: 50px;
+  margin-bottom: 80px;
+}
+
+.buttonSubmit {
+  width: 272px;
+  height: 73px;
+  padding: 15px 90px 15px 90px;
+  text-align: center;
+  border: 2px solid black;
+  outline: none;
+  background: white;
+  font-size: 25px;
+  font-family: Jost;
+  border-radius: 3px;
+  border-radius: 5px;
+  font-weight: 500;
+  position: absolute;
+  right: 70px;
+  bottom: 35px;
+}
+
+.parentPhoto {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid black;
+  width: 840px;
+  height: 93px;
+  padding: 20px 30px 20px 30px;
+  outline: none;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+
+.photo {
+  outline: none;
+  font-size: 30px;
+  font-weight: 400;
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  border: none;
+}
+
+.buttonPhoto {
+  width: 265px;
+  height: 53px;
+  padding: px 0px 5px 0px;
+  text-align: center;
+  border-radius: 5px;
+  border: 2px solid black;
+  font-family: Jost;
+  font-size: 30px;
+  font-weight: 500;
+
+
+}
+
+/* -------------- get ---*/
+.getDiv {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+  width: 299px;
+  height: 388.5px;
+  border: 2px solid black;
+  padding: 30px 20px 0 20px;
+  border-left: none;
+  border-top: none;
+}
+
+.getImg {
+  width: 259px;
+  height: 250px;
+}
+
+
+
+.delete {
+  text-align: center;
+  border: none;
+  color: white;
+  outline: none;
+  background: none;
+  font-family: Jost;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.fadeIn {
+  opacity: 0;
+  transform: translateX(0px);
+  /* Сдвиг вниз */
+  animation: fadeInAnimation 1s forwards ease-in-out;
+  border: none;
+
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+    /* Начальная позиция - сдвиг */
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+    /* Конечная позиция */
+  }
+}
+
+
+.fadeOut {
+  opacity: 1;
+  transform: translateX(30px);
+  animation: fadeOutAnimation 1s;
+  border: none;
+}
+
+@keyframes fadeOutAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(30px);
+    /* Сдвиг вниз при исчезновении */
+  }
+}
+
+.getButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 199.58px;
+  height: 53px;
+  padding: 5px 40px 5px 40px;
+  border-radius: 5px;
+  background: #FF6262;
+  border: 2px solid black;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 299px);
+  border-left: 2px solid black;
+
+
+  border-top: 2px solid black;
+}

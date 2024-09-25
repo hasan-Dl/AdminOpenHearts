@@ -1,0 +1,412 @@
+.styleBox {
+    border-left: 4px solid #FF6262;
+    border-right: 4px solid #FF6262;
+    padding-top: 50px;
+    padding-left: 70px;
+    padding-right: 70px;
+    margin-right: 85px;
+    height: 900px;
+}
+
+.boxButton {
+    display: flex;
+    align-items: center;
+    gap: 76px;
+    margin-bottom: 40px;
+}
+
+.buttonAdd {
+    width: 292px;
+    height: 63px;
+    padding: 5px 0px 10px 0px;
+    gap: 10px;
+    border-radius: 5px;
+    border: 2px solid rgb(129, 126, 126);
+    background: white;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    color: rgb(129, 126, 126);
+}
+
+.active {
+    width: 344px;
+    height: 63px;
+    padding: 5px 0px 10px 0px;
+    border-radius: 5px;
+    border: 2px solid black;
+    color: black;
+}
+
+
+
+.parent {
+    display: flex;
+    align-items: start;
+
+}
+
+.boxStr {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    position: relative;
+    padding: 10px;
+    border: 2px solid #9E9E9E;
+    border-right: none;
+    padding: 20px 80px 20px 20px;
+    gap: 15px;
+}
+
+.boxStr::after {
+    position: absolute;
+    content: "";
+    border-right: 2px solid #9E9E9E;
+    height: 360px;
+    right: 0;
+    bottom: 0;
+}
+
+.inputStr {
+    border: 2px solid black;
+    outline: none;
+    font-size: 30px;
+    font-weight: 400;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    width: 942px;
+    height: 93px;
+    padding: 0px 0px 0px 30px;
+}
+
+.inputMain {
+    outline: none;
+    font-size: 30px;
+    font-weight: 400;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    width: 100%;
+    height: 100%;
+    padding: 0px 0px 0px 30px;
+    border: none;
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid black;
+    width: 942px;
+    height: 93px;
+}
+
+.mainText {
+    font-family: Jost;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+ul {
+    list-style: none;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #E7E7E7;
+    max-width: 500px;
+    margin-bottom: 10px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+}
+
+.plus {
+    margin-right: 30px;
+    /* border:3px solid black;
+     border-radius: 10px; */
+}
+
+.x {
+    width: 14.16px;
+    height: 14.26px;
+    margin-top: 2px;
+}
+
+
+
+.BoxPhone {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid black;
+    padding: 0px 30px 0px 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    width: 750px;
+    height: 93px;
+    padding: 0px 0px 0px 30px;
+}
+
+.inputPhone {
+    font-size: 30px;
+    font-weight: 400;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.text {
+    font-size: 30px;
+    font-weight: 400;
+    border-right: 2px solid black;
+    padding-right: 15px;
+}
+
+
+.En_Ru {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    position: relative;
+    right: 2px;
+}
+
+.button {
+    text-align: center;
+    width: 121px;
+    height: 63px;
+    left: 15px;
+    padding: 10px 0px 10px 0px;
+    gap: 10px;
+    border-radius: 5px;
+    border: 2px solid #9E9E9E;
+    border-left: 2px solid #9E9E9E;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    opacity: 0px;
+    background: white;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    color: #9E9E9E;
+}
+
+.activeB {
+    color: black;
+    border-left: none;
+}
+
+.b {
+  text-align: end; 
+    margin-top: 31px;
+}
+
+.buttonSubmit {
+    text-align: center;
+    width: 272px;
+    height: 73px;
+    padding: 10px 0px 10px 0px;
+    border-radius: 5px;
+    border: 2px solid black;
+    background: white;
+    outline: none;
+    color: black;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+
+
+.parentPhoto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid black;
+    outline: none;
+    font-weight: 400;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin-left: 20px;
+    width: 750px;
+    height: 93px;
+    padding: 0px 30px 0px 30px;
+
+}
+
+.photo {
+    outline: none;
+    font-size: 30px;
+    font-weight: 400;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    border: none;
+}
+
+.buttonPhoto {
+    width: 265px;
+    height: 53px;
+    padding: 2px 0px 5px 0px;
+    border-radius: 5px;
+    border: 2px solid black;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    border-radius: 5px;
+    width: 265px;
+    height: 53px;
+}
+
+.buttonPhoto:hover {
+    background: rgb(241, 123, 123);
+}
+
+
+
+/* /* -Get------ */
+
+
+.getDiv {
+    border-top: 2px solid black;
+}
+
+.getParent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid black;
+    width: 1190px;
+    height: 99px;
+    padding: 0px 30px 0px 0px;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+
+.boxGet {
+    display: flex;
+    align-items: center;
+}
+
+.getImg {
+    width: 99px;
+    height: 95px;
+
+}
+
+.texGet {
+    text-align: left;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    padding: 28px 20px 28px 30px;
+    border-left: 2px solid black;
+    text-decoration: none;
+    color: black;
+
+}
+
+
+
+.delete {
+    text-align: center;
+    border: none;
+    color: white;
+    outline: none;
+    background: none;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.fadeIn {
+    opacity: 0;
+    transform: translateX(0px);
+    animation: fadeInAnimation 1s forwards ease-in-out;
+    border: none;
+
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+        /* Начальная позиция - сдвиг */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+        /* Конечная позиция */
+    }
+}
+
+
+.fadeOut {
+    opacity: 1;
+    transform: translateX(30px);
+    animation: fadeOutAnimation 1s;
+}
+
+@keyframes fadeOutAnimation {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(30px);
+        /* Сдвиг вниз при исчезновении */
+    }
+}
+
+.getButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 199.58px;
+    height: 53px;
+    padding: 5px 40px 5px 40px;
+    border-radius: 5px;
+    background: #FF6262;
+    border: 2px solid black;
+}
+.textList {
+    font-family: Jost;
+    font-size: 20px;
+    font-weight: 400;
+    color: #9E9E9E;
+    margin-left: 30px;
+
+}
+
+
+.lsDOCTORS {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.main {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    background: #E7E7E7;
+    margin-bottom: 10px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+}

@@ -1,0 +1,142 @@
+.parent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid black;
+}
+
+.img {
+    width: 220px;
+    height: 99px;
+    margin-left: 155px;
+}
+
+.boxLang {
+    border-right: 4px solid #FF6262;
+    margin-right: 85px;
+    height: 120px;
+    padding-top: 28px;
+    padding-right: 70px;
+}
+
+.box {
+    text-align: center;
+    border-right: 4px solid #FF6262;
+    margin-right: 85px;
+    height:831px;
+    padding-top: 30px;
+}
+
+.text {
+    height: 80px;
+    padding: 17px 10px 17px 10px;
+    border-radius: 10px 0px 0px 0px;
+    font-family: Jost;
+    font-size: 32px;
+    font-weight: 500;
+    text-align: center;
+
+}
+
+.boxx {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 20px;
+
+    margin-bottom: 30px;
+}
+
+.input {
+    width: 840px;
+    height: 95px;
+    padding: 25px 30px 25px 30px;
+    border: 2px solid black;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 400;
+    text-align: left;
+    outline: none;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    border: 2px solid black;
+    font-family: Jost;
+    font-size: 26px;
+    font-weight: 400;
+    text-align: center;
+    outline: none;
+    width: 275px;
+    height: 48px;
+    padding: 2px 0px 5px 0px;
+    border-radius: 5px;
+
+}
+
+.code {
+    width: 140px;
+    height: 95px;
+    gap: 10px;
+    border: 2px solid black;
+    text-align: center;
+    margin-left: 20px;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+    outline: none;
+}
+
+.DivCode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 163px;
+    position: relative;
+}
+
+.boxSub{
+    text-align: end;
+    padding-right: 71.5px;
+    margin-top: 310px;
+    padding-bottom:  40px;
+}
+.submit {
+    text-align: center;
+    width: 272px;
+    height: 63px;
+    padding: 7px 0px 10px 0px;
+    border-radius: 5px;
+    border: 2px solid black;
+    background: white;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    
+}
+
+.submitEmail {
+    outline: none;
+    border: 2px solid black;
+    width: 272px;
+    height: 60px;
+    padding: 5px 50px 10px 50px;
+    border-radius: 5px;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    background: white;
+    text-decoration: none;
+    position: absolute;
+    right: 170px;
+    bottom: 150px;
+}

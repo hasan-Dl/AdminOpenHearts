@@ -1,0 +1,281 @@
+.styleBox {
+    border-left: 4px solid #FF6262;
+    border-right: 4px solid #FF6262;
+    padding-top: 50px;
+    padding-left: 70px;
+    padding-right: 43.2px;
+    height: 830px;
+}
+
+.boxButton {
+    display: flex;
+    align-items: center;
+    gap: 96.5px;
+    margin-bottom: 40px;
+}
+
+.buttonAdd {
+    width: 293px;
+    height: 63px;
+    padding: 8px 0px 10px 0px;
+    width: 350px;
+    height: 63px;
+    border-radius: 5px;
+    border: 2px solid rgb(129, 126, 126);
+    background: white;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    color: rgb(129, 126, 126);
+}
+
+.active {
+    border: 2px solid rgb(0, 0, 0);
+    color: black;
+    width: 354px;
+    height: 63px;
+    top: 169px;
+    left: 575px;
+    padding: 8px 0px 10px 0px;
+    gap: 10px;
+    border-radius: 5px;
+}
+
+/* - AddStatistic */
+.inputStatistic {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+/* __add input */
+
+.add {
+    display: flex;
+    align-items: start;
+}
+
+.divEN_RU {
+    position: relative;
+    border: 2px solid #9E9E9E;
+    border-right: none;
+    padding: 20px 80px 20px 20px;
+}
+
+.divEN_RU::after {
+    position: absolute;
+    content: "";
+    border-right: 2px solid #9E9E9E;
+    height: 30px;
+    right: 0;
+    bottom: 0;
+}
+
+
+.inputNumber {
+    width: 198px;
+    height: 93px;
+    padding: 25px 30px 25px 30px;
+    border: 2px 0px 0px 0px;
+    border: 2px solid black;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 400;
+    outline: none;
+}
+
+.inputDescription {
+    width: 753px;
+    height: 93px;
+    padding: 25px 30px 25px 30px;
+    border: 2px solid black;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+
+
+
+.En_RU {
+    display: flex;
+    flex-direction: column;
+    width: 136px;
+    height: 124px;
+    position: relative;
+    right: 2px;
+}
+
+.button {
+    text-align: center;
+    width: 121px;
+    height: 63px;
+    left: 15px;
+    padding: 10px 0px 10px 0px;
+    gap: 10px;
+    border-radius: 5px;
+    border: 2px solid #9E9E9E;
+    border-left: 2px solid #9E9E9E;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    opacity: 0px;
+    background: white;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    color: #9E9E9E;
+}
+
+.activeB {
+    color: black;
+    border-left: none;
+}
+
+.buttonSubmit {
+    text-align: center;
+    width: 272px;
+    height: 73px;
+    padding: 10px 0px 15px 10px;
+    border-radius: 5px;
+    border: 2px solid black;
+    background-color: white;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    outline: none;
+}
+
+/* GET */
+
+
+.get {
+    margin-top: 20px;
+    border-top: 3px solid black;
+}
+
+
+.GitItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid black;
+    border-top: none;
+    width: 1190px;
+    height: 99px;
+}
+
+.getBox {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.descriptionGet {
+    font-weight: 400;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 43.35px;
+    text-align: left;
+}
+
+.getText {
+    border-right: 3px solid black;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    padding: 28px 20px 28px 30px;
+    width: 120px;
+}
+
+.getButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 199.58px;
+    height: 53px;
+    padding: 5px 0px 5px 0px;
+    border-radius: 5px;
+    border: none;
+    background: #FF6262;
+    margin-right: 30px;
+    border: 3px solid black;
+}
+
+.del {
+    text-align: center;
+    border: 3px solid black;
+    width: 98.58px;
+    height: 53px;
+    padding: 5px 40px 5px 40px;
+    border-radius: 5px;
+    margin-right: 30px;
+    background: white;
+}
+
+.deleteBox:hover {
+    padding: 5px 50px;
+    background: #FF6262;
+    transition: all 1s;
+}
+
+.delete {
+    text-align: center;
+    border: none;
+    color: white;
+    outline: none;
+    background: none;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+
+
+.fadeIn {
+    opacity: 0;
+    transform: translateX(0px);
+    /* Сдвиг вниз */
+    animation: fadeInAnimation 1s forwards ease-in-out;
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+        /* Начальная позиция - сдвиг */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+        /* Конечная позиция */
+    }
+}
+
+
+.fadeOut {
+    opacity: 1;
+    transform: translateX(30px);
+    animation: fadeOutAnimation 1s;
+}
+
+@keyframes fadeOutAnimation {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(30px);
+        /* Сдвиг вниз при исчезновении */
+    }
+}

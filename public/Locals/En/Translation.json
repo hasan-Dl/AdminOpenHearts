@@ -1,0 +1,87 @@
+{
+    "Home": {
+        "Navbar": {
+            "home": "Home",
+            "About": "About the center",
+            "Specialists": "Specialists",
+            "Direction": "Direction",
+            "Stories": "Stories of mentees",
+            "Support": "Support Us"
+        },
+        "description": {
+            "Good": "Good,",
+            "Good1": "Support,",
+            "Good2": "Friendship",
+            "text": "We are  ",
+            "name": "[Open Hearts]",
+            "text1": ", a team of dedicated professionals committed,",
+            "text2": " to improve the lives of people with disabilities. Our mission is ",
+            "text3": "providing quality services and support aimed at integration and ",
+            "text4": "inclusion.",
+            "text5": "a team of dedicated professionals committed,to improve the lives of",
+            "text6": "people with disabilities. Our mission is providing quality services and ",
+            "text7": "support aimed at integration and inclusion."
+        },
+        "Props": {
+            "Success": "Success Stories",
+            "main": "Main directions of our work",
+            "partners": "Our partners",
+            "branches": "Branches",
+            "specialist": "Specialist",
+            "specialists": "Specialists",
+            "back": "Back"
+        },
+        "footer": {
+            "contact": "Contacts",
+            "network": "Social network",
+            "console": "[ console ]"
+        }
+    },
+    "About": {
+        "Missions": {
+            "mission": "Mission",
+            "values": "Values",
+            "projects": "Projects",
+            "text": "Support. Equality. Integration. Our ",
+            "text1": " mission - is to provide equal opportunities for ",
+            "text2": "people with disabilities,",
+            "text3": "giving them the resources to achieve."
+        },
+        "Values": {
+            "text": "We believe that equality of opportunity is",
+            "text1": "  the basis of a just society, and our goal is ",
+            "text2": " help each of our wards gain ",
+            "text3": "independence and confidence in the future."
+        },
+        "branches": {
+            "dushanbe": "Dushanbe",
+            "city": "Khorog",
+            "ush": "Ush",
+            "center": "Central branch"
+        }
+    },
+    "Admin": {
+        "title":"Title",
+        "description":"Description",
+        "number":"Number",
+        "submit":"Submit"  ,
+        "statistic":"Statistics",
+        "story":"Patient story",
+        "partner":"Partners",
+        "project":"Projects",
+        "services":"Services",
+        "doctor":"Doctors",
+        "report":"Reports",
+        "addSta" :"Add statistic",
+        "addSto" :"Add story",
+        "addP" :"Add partner",
+        "addPro" :"Add project",
+        "addSer" :" Add services",
+        "addDoc" :"Add doctor",
+        "addRe" :"Add report",
+        "en":"EN",
+        "ru":"RU"
+    }
+
+
+}

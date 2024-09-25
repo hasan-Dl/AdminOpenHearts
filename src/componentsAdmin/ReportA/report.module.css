@@ -1,0 +1,197 @@
+.styleBox {
+    border-left: 4px solid  #FF6262;
+    border-right: 4px solid  #FF6262;
+    padding-top: 50px;
+    padding-left: 70px;
+    padding-right: 70px;
+    margin-right: 85px;
+    height: 1000px;
+}
+
+.boxButton {
+    display: flex;
+    align-items: center;
+    gap: 96.5px;
+    margin-bottom: 40px;
+}
+
+.buttonAdd {
+    width: 350px;
+    height: 63px;
+    border-radius: 5px;
+    border: 2px solid rgb(129, 126, 126);
+    background: white;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    color: rgb(129, 126, 126);
+}
+
+
+.subDiv {
+    text-align: end;
+    margin-top: 345px;
+}
+
+.buttonSubmit {
+    width: 272px;
+    height: 79px;
+    padding: 8px 0px 15px 0px;
+    border-radius: 5px;
+    border: 2px solid black;
+    background: white;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+
+}
+
+
+
+.active {
+    border: 2px solid rgb(0, 0, 0);
+    color: black;
+}
+
+
+.parent {
+    display: flex;
+    align-items: start;
+
+}
+
+.boxStr {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    position: relative;
+    padding: 10px;
+    border: 2px solid #9E9E9E;
+    border-right: none;
+    padding: 20px 80px 20px 20px;
+    gap: 15px;
+}
+
+.boxStr::after {
+    position: absolute;
+    content: "";
+    border-right: 2px solid #9E9E9E;
+    height: 50px;
+    right: 0;
+    bottom: 0;
+}
+
+.inputStr {
+    border: 2px solid black;
+    outline: none;
+    font-size: 30px;
+    font-weight: 400;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    width: 942px;
+    height: 93px;
+    padding: 0px 0px 0px 30px;
+
+}
+
+
+
+.En_Ru {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    position: relative;
+    right: 2px;
+}
+
+.button {
+    text-align: center;
+    width: 121px;
+    height: 63px;
+    left: 15px;
+    padding: 10px 0px 10px 0px;
+    gap: 10px;
+    border-radius: 5px;
+    border: 2px solid #9E9E9E;
+    border-left: 2px solid #9E9E9E;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    opacity: 0px;
+    background: white;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 400;
+    color: #9E9E9E;
+}
+
+.activeB {
+    color: black;
+    border-left: none;
+}
+
+
+
+
+.parentPhoto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid black;
+    width: 820px;
+    height: 93px;
+    padding: 0px 30px 0px 30px;
+    outline: none;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin-top: 20px;
+}
+
+
+.photo {
+    outline: none;
+    font-size: 30px;
+    font-weight: 400;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    border: none;
+}
+
+.buttonPhoto {
+    width: 265px;
+    height: 53px;
+    border-radius: 5px;
+    border: 2px solid black;
+    padding: 3px 0px 0px 5px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+/* .date{
+    display: flex;
+    justify-content: space-between;
+
+} */
+
+.time {
+    width: 820px;
+    height: 93px;
+    gap: 50px;
+    border: 2px solid black;
+    padding: 10px 30px 10px 30px;
+    margin-top: 20px;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 400;
+}
+
