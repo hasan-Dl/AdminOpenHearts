@@ -5,11 +5,16 @@ import AdminNavbar from '../src/componentsAdmin/AdminNavbar/adminNavbar'
 import styles from  './layout.module.css'
 export default function LayoutAdmin() {
     return (
-        <div>
+        <div className={styles.parentC}>
+            <div>
             <AdminHeader />
+            <div className={styles.hrBox}>
+   <hr className={styles.hr} />
+    </div>
             <div className={styles.parent}>
                 <AdminNavbar/>
                 <Outlet />
+            </div>
             </div>
         </div>
     )

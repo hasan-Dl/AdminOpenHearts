@@ -50,59 +50,62 @@ export default function AddStatistic() {
 
     return (
         <div>
-        <div className={styles.inputStatistic}>
-            <input
-                type="text"
-                className={styles.inputNumber}
-                placeholder='Number'
-                onChange={(e) => setNumber(e.target.value)}
-                value={number}
-            />
+            <div className={styles.inputStatistic}>
+                <input
+                    type="text"
+                    className={styles.inputNumber}
+                    placeholder='Number'
+                    onChange={(e) => setNumber(e.target.value)}
+                    value={number}
+                />
 
-            <div className={styles.add}>
-                {!language ? (
-                    <div className={classNames(styles.divEN_RUactive,
-                        { [styles.divEN_RU]: language === false })}>
-                        <input
-                            type="text"
-                            className={styles.inputDescription}
-                            placeholder='Description'
-                            onChange={(e) => setDescriptionEn(e.target.value)}
-                            value={descriptionEn}
-                        />
-                    </div>
-                ) :
-                    (
-                        <div className={styles.divEN_RU}>
+                <div className={styles.add}>
+                    {!language ? (
+                        <div className={classNames(styles.divEN_RUactive,
+                            { [styles.divEN_RU]: language === false })}>
                             <input
                                 type="text"
                                 className={styles.inputDescription}
-                                onChange={(e) => setDescriptionRu(e.target.value)}
-                                value={descriptionRu}
-                                placeholder='Описания'
-                                />
+                                placeholder='Description'
+                                onChange={(e) => setDescriptionEn(e.target.value)}
+                                value={descriptionEn}
+                            />
                         </div>
-                    )}
-                <div className={styles.En_RU}>
-                    <button
-                        className={classNames(styles.button,
-                            { [styles.activeB]: language === false })}
-                        onClick={() => clickButton(false)}
-                    >{t("Admin.en")}</button>
-                    <button
-                        className={classNames(styles.button,
-                            { [styles.activeB]: language === true })}
+                    ) :
+                        (
+                            <div className={styles.divEN_RU}>
+                                <input
+                                    type="text"
+                                    className={styles.inputDescription}
+                                    onChange={(e) => setDescriptionRu(e.target.value)}
+                                    value={descriptionRu}
+                                    placeholder='Описания'
+                                />
+                            </div>
+                        )}
+                    <div className={styles.En_RU}>
+                        <button
+                            className={classNames(styles.button,
+                                { [styles.activeB]: language === false })}
+                            onClick={() => clickButton(false)}
+                        >{t("Admin.en")}</button>
+                        <button
+                            className={classNames(styles.button,
+                                { [styles.activeB]: language === true })}
                             onClick={() => clickButton(true)}
-                            >{t("Admin.ru")}</button>
+                        >{t("Admin.ru")}</button>
+                    </div>
                 </div>
             </div>
-        </div>
-            <button
-                onClick={Submit}
-                className={styles.buttonSubmit}
+            <div className={styles.boxSub}>
+
+                <button
+                    onClick={Submit}
+                    className={styles.buttonSubmit}
                 >
-                {t("Admin.submit")}
-            </button>
-                </div>
+                    {t("Admin.submit")}
+                </button>
+            </div>
+        </div>
     )
 }

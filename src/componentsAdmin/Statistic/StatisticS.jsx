@@ -5,6 +5,7 @@ import del from '../../assets/Vector (3).png'
 import del2 from '../../assets/Vector (4).png'
 
 export default function StatisticS() {
+  
   const [deleteShow, setDeleteShow] = useState({});
 
   const lng = localStorage.getItem("i18nextLng")

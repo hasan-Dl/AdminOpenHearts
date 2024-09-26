@@ -1,10 +1,12 @@
 .styleBox {
+    text-align: center;
+    width: 1330px;
     border-left: 4px solid #FF6262;
     border-right: 4px solid #FF6262;
     padding-top: 50px;
     padding-left: 70px;
-    padding-right: 43.2px;
-    height: 830px;
+    padding-right: 70px;
+    height: 100vh;
 }
 
 .boxButton {
@@ -87,7 +89,7 @@
 }
 
 .inputDescription {
-    width: 753px;
+    width: 709.2px;
     height: 93px;
     padding: 25px 30px 25px 30px;
     border: 2px solid black;
@@ -146,7 +148,11 @@
     font-weight: 500;
     outline: none;
 }
-
+.boxSub{
+    text-align: end;
+    margin-top: 571px;
+    padding-bottom: 40px;
+}
 /* GET */
 
 

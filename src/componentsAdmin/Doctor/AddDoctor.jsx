@@ -47,8 +47,11 @@ export default function AddDoctor() {
     // ----- Email -- Phone  -- Photo -
     const [gmail, setGmail] = useState('')
     const [phone, setPhone] = useState("")
+
+
     const [starTime, setStartTime] = useState("")
-    const [endTime, setEndTime] = useState("")
+    const [end, setEnd] = useState("")
+
 
     const [days, setDays] = useState("")
     const [week, setWeek] = useState([])
@@ -104,14 +107,18 @@ export default function AddDoctor() {
     // Handle form submission
     const handleSubmit = (event) => {
         event.preventDefault();
-
+        console.log(week);
+        console.log(starTime);
+  
+  
         // Prepare the payload with the base64-encoded file
         const newPartner = {
             Photo: base64File,
             phone: Number(phone),
             days_of_week: week,
-            start_time:Number(starTime),
-            end_time:Number(endTime),
+            start_time:parseInt(starTime),
+            end_time:Number(starTime)
+            ,
             gmail:gmail,
             "ru": {
                 full_name :nameRu,
@@ -139,7 +146,7 @@ export default function AddDoctor() {
         };
 
         // POST request
-        fetch("http://127.0.0.1:2020/add/team'", {
+        fetch("http://127.0.0.1:2020/add/team", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -542,7 +549,6 @@ export default function AddDoctor() {
                         <h3 className={styles.textList}>Days of the week</h3>
                         <input
                             className={styles.inputMain}
-
                             type="text"
                             onChange={(e) => setDays(e.target.value)}
                             value={days}
@@ -577,8 +583,8 @@ export default function AddDoctor() {
                       <input
                      className={styles.start} 
                      type='time'
-                     onChang={(e)=>setEndTime(e.target.value)}
-                     value={endTime}
+                     onChange={(e)=>setEnd(e.target.value)}
+                     value={end}
                      />
                 </div>
 

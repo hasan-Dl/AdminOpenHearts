@@ -283,6 +283,7 @@ ul {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    padding-left: 20px;
 }
 
 .main {

@@ -26,7 +26,7 @@ export default function Stories() {
 
         <div className={styles.getParent} key={item.Id}>
           <div className={styles.boxGet}>
-            <img className={styles.getImg} src={`http://127.0.0.1:2020/read/photo?Path=${item.Photo}`} />
+            <img className={styles.getImg} src={`http://127.0.0.1:2020/read/photo?Path=PatientData${item.Photo}`} />
             <h1 className={styles.textGet}>{lng == "ru" ? item.ru.name : item.en.name}</h1>
             <p  className={styles.TitleGet}>{lng == "ru" ? item.ru.problemName : item.en.problemName}</p>
           </div>
@@ -48,7 +48,7 @@ export default function Stories() {
                   onClick={() => handleSecondButtonClick(item.Id)}
                   src={del} alt="delete icon" />
                 <button
-                  onClick={() => handleDelete(item.Id)}
+                  onClick={() => handleDelete()}
                   className={styles.delete}>
                   Delete
                 </button>

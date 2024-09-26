@@ -2,21 +2,23 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 3px solid black;
+    width: 1920px;
+    padding-right: 85px;
 }
 
 .img {
     height: 120px;
-    border-right : 4px solid #FF6262;
+    border-right: 4px solid #FF6262;
     padding-left: 155px;
     padding-right: 130px;
-   padding-top: 11px;
+    padding-top: 11px;
 }
 
-.box{
+.box {
+    text-align: center;
     height: 120px;
-    border-right : 4px solid #FF6262;
-    margin-right: 85px;
+    border-right: 4px solid #FF6262;
+   
     padding-right: 70px;
     padding-top: 30px;
 }
