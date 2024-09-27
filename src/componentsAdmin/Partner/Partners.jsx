@@ -47,7 +47,7 @@ export default function Partners() {
           <div>
             {!deleteShow[item.Id] && (
               <button
-                className={`${styles.del} ${styles.fadeIn}`}
+                className={`${styles.del} ${styles.fadeOut}`}
                 onClick={() => handleFirstButtonClick(item.Id)}
               >
                 <img src={del2} alt="delete icon" />

@@ -18,12 +18,12 @@ export default function ButtonsStatistic() {
     <div className={styles.styleBox}>
       <div className={styles.boxButton}>
         <button
-          className={`${styles.buttonAdd} ${activeStatistic === false ? styles.active : ''}`}
+          className={`${styles.buttonOne} ${activeStatistic === false ? styles.activeOne : ''}`}
           onClick={() => handleButtonClick(false)}
         >{t("Admin.addSta")}
         </button>
         <button
-          className={`${styles.buttonAdd} ${activeStatistic === true ? styles.active : ''}`}
+          className={`${styles.buttonTwo} ${activeStatistic === true ? styles.activeTwo : ''}`}
           onClick={() => handleButtonClick(true)}
         >{t("Admin.statistic")}
         </button>

@@ -15,11 +15,13 @@
     margin-bottom: 40px;
 }
 
-.buttonAdd {
-    width: 282px;
+/* ----- One Button Doctor */
+
+.buttonOne {
+    width: 344px;
     height: 63px;
     padding: 5px 0px 10px 0px;
-    border-radius: 5px ;
+    border-radius: 5px;
     border: 2px solid rgb(129, 126, 126);
     background: white;
     font-family: Jost;
@@ -29,14 +31,28 @@
     color: rgb(129, 126, 126);
 }
 
-.active {
-    width: 344px;
-    height: 63px;
-    padding: 5px 0px 10px 0px;
-    border-radius: 5px ;
+.activeOne {
     border: 2px solid rgb(0, 0, 0);
     color: black;
-    
+}
+
+.buttonTwo {
+    width: 282px;
+    height: 63px;
+    padding: 5px 0px 10px 0px;
+    border-radius: 5px;
+    border: 2px solid rgb(129, 126, 126);
+    background: white;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    color: rgb(129, 126, 126);
+}
+
+.activeTwo {
+    border: 2px solid rgb(0, 0, 0);
+    color: black;
 }
 
 /* add Doctor */
@@ -340,4 +356,237 @@ ul {
     font-weight: 400;
     text-align: left;
 
+}
+
+
+
+/* One Doctor GET */
+
+
+
+
+.parent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1920px;
+    padding-right: 85px;
+}
+
+.img {
+    height: 120px;
+    border-left: 4px solid #FF6262;
+    margin-left: 85px;
+    padding-left: 70px;
+    padding-top: 11px;
+}
+
+.box {
+    text-align: center;
+    height: 120px;
+    border-right: 4px solid #FF6262;
+    padding-right: 70px;
+    padding-top: 30px;
+}
+
+
+.oneParent {
+    width: 1920px;
+}
+
+.boxBody {
+    height: 200vh;
+    
+    border: 4px solid red;
+    border-top: none;
+    border-bottom: none;
+    margin: 0px 85px 0px 85px;
+    padding: 40px 70px 0px 70px;
+}
+
+.oneBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1609.58px;
+    height: 63px;
+}
+
+.back {
+    width: 243px;
+    height: 63px;
+    padding: 10px 90px 10px 90px;
+    border-radius: 5px;
+    border: 2px solid black;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    text-decoration: none;
+    color: black;
+}
+
+.line {
+    border-top: 4px solid black;
+    width: 200vh;
+}
+
+
+.divBody {
+    display: flex;
+    align-items: start;
+    margin-top: 50px;
+    gap: 64.76px;
+    margin-bottom: 32px;
+}
+
+.divText {
+    width: 841px;
+}
+
+.TitleText {
+    font-family: Jost;
+    font-size: 48px;
+    font-weight: 500;
+    margin-bottom: 1px;
+}
+
+.TitleText1 {
+    font-family: Jost;
+    font-size: 48px;
+    font-weight: 500;
+    color: #FF6262;
+    margin-bottom: 30px;
+}
+
+.NuberOne {
+    width: 288px;
+    height: 68px;
+    padding: 15px 20px 15px 20px;
+    border: 2px solid #FF6262;
+    font-family: Jost;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 30px;
+
+}
+
+.Doctor{
+    width: 1190px;
+}
+
+.TitleServices {
+    height: 46px;
+    font-family: Jost;
+    font-size: 32px;
+    font-weight: 500;
+    color: #FF6262;
+}
+
+.ol {
+    font-family: Jost;
+    font-size: 20px;
+    font-weight: 400;
+    margin-left: 25px;
+    margin-bottom: 22px;
+
+}
+
+.descriptionText {
+    width: 837.88px;
+    font-family: Jost;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+.Info{
+    width: 837.88px;
+    font-family: Jost;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+
+.doctorTitle {
+    font-family: Jost;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+.textContent {
+    font-family: Jost;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.oneImg {
+    width: 632px;
+    height: 569px;
+}
+
+
+.fadeInOne {
+    opacity: 0;
+    transform: translateX(60px);
+    animation: fadeInAnimation 1s forwards ease-in-out;
+    border: none;
+
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+        transform: translateX(70px);
+        /* Начальная позиция - сдвиг */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+        /* Конечная позиция */
+    }
+}
+
+
+.fadeOutOne {
+    opacity: 1;
+    transform: translateX(0px);
+    animation: fadeOutAnimation 1s;
+}
+
+@keyframes fadeOutAnimation {
+    from {
+        opacity: 0;
+        transform: translateX(0px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+        /* Сдвиг вниз при исчезновении */
+    }
+}
+
+.deleteOne {
+    text-align: center;
+    border: none;
+    color: white;
+    outline: none;
+    background: none;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.getButtonOne {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 298.58px;
+    height: 63px;
+    padding: 10px 90px 10px 90px;
+    border-radius: 5px;
+    border: 2px solid black;
+    background: #FF6262;
 }

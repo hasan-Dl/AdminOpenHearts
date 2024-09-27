@@ -20,6 +20,7 @@ import AddDoctor from './componentsAdmin/Doctor/AddDoctor'
 import DoctorAdmin from './pagesAdmin/DoctorAdmin'
 import ReportAdmin from './pagesAdmin/ReportAdmin'
 import ServicesOne from './pagesAdmin/ServicesOne'
+import DoctorOne from './pagesAdmin/DoctorOne'
 
 
 function App() {
@@ -67,40 +68,44 @@ function App() {
       element: <LayoutAdmin />,
       children: [
         {
-          path: 'statisticAdmin',
+          path: '/admin/statisticAdmin',
           element: <StatisticAdmin />
         },
         {
-          path: 'storyAdmin',
+          path: '/admin/storyAdmin',
           element: <StoryAdmin />
         },
         {
-          path: 'partnerAdmin',
+          path: '/admin/partnerAdmin',
           element: <PartnerAdmin />
         },
         {
-          path: 'projectAdmin',
+          path: '/admin/projectAdmin',
           element: <ProjectAdmin />
         },
         {
-          path: 'servicesAdmin',
+          path: '/admin/servicesAdmin',
           element: < Services/>
         },
         {
-          path: 'servicesAdmin/servicesOne:id',
-          element: < ServicesOne/>
-        },
-        {
-          path: 'doctorAdmin',
+          path: '/admin/doctorAdmin',
           element: < DoctorAdmin/>
         },
         {
-          path: 'reportAdmin',
+          path: '/admin/reportAdmin',
           element: < ReportAdmin/>
         },
       ]
 
-    }
+    },
+    {
+      path: '/admin/servicesAdmin/:id',
+      element: < ServicesOne/>
+    },
+    {
+      path: '/admin/doctorAdmin/:idDoctor',
+      element: < DoctorOne/>
+    },
   ])
 
   return (

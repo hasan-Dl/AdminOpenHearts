@@ -15,7 +15,28 @@
     margin-bottom: 40px;
 }
 
-.buttonAdd {
+.buttonOne {
+    width: 337px;
+    height: 63px;
+    padding: 5px 0px 10px 0px;
+    border-radius: 5px;
+    border: 2px solid rgb(129, 126, 126);
+    background: white;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    color: rgb(129, 126, 126);
+}
+
+.activeOne {
+    border: 2px solid rgb(0, 0, 0);
+    color: black;
+}
+
+/* Two Button Project */
+
+.buttonTwo {
     width: 284px;
     height: 63px;
     padding: 5px 0px 10px 0px;
@@ -29,18 +50,7 @@
     color: rgb(129, 126, 126);
 }
 
-.active {
-
-    width: 337px;
-    height: 63px;
-    top: 160px;
-    left: 995px;
-    padding: 5px 0px 10px 0px;
-    gap: 10px;
-    border-radius: 5px;
-    border: 2px 0px 0px 0px;
-    opacity: 0.6px;
-
+.activeTwo {
     border: 2px solid rgb(0, 0, 0);
     color: black;
 }
@@ -334,7 +344,7 @@
 
 .fadeOut {
     opacity: 1;
-    transform: translateX(30px);
+    transform: translateX(0px);
     animation: fadeOutAnimation 1s;
     border: none;
 }
@@ -342,12 +352,12 @@
 @keyframes fadeOutAnimation {
     from {
         opacity: 0;
-        transform: translateX(30px);
+        transform: translateX(0px);
     }
 
     to {
         opacity: 1;
-        transform: translateX(30px);
+        transform: translateX(0px);
         /* Сдвиг вниз при исчезновении */
     }
 }

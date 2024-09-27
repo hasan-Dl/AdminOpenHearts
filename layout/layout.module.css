@@ -7,6 +7,8 @@
 .parent {
     display: flex;
     align-items: start;
+    width: 1920px;
+  
 }
 
 .hrBox{

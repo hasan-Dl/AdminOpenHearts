@@ -23,42 +23,42 @@ export default function ServicesA() {
 
   return (
     <div className={styles.getDiv}>
-    {data.map((item)=>(
-     
-<div className={styles.getParent} key={item.Id}>
-        <div className={styles.boxGet}>
-          <img className={styles.getImg} src={`http://127.0.0.1:2020/read/photo?Path=${item.Photo}`} />
-          <Link to={`services/${item.Id}`} className={styles.texGet }>{lng == "ru" ? item.ru.title : item.en.title}</Link>
-        </div>
-        <div>
-          {!deleteShow[item.Id] && (
-            <button
-              className={`${styles.del} ${styles.fadeIn}`}
-              onClick={() => handleFirstButtonClick(item.Id)}
-            >
-              <img src={del2} alt="delete icon" />
-            </button>
-          )}
+      {data.map((item) => (
 
-          {deleteShow[item.Id] && (
-            <div
-            className={`${styles.getButton} ${styles.fadeIn}`}
-            >
-              <img
-                onClick={() => handleSecondButtonClick(item.Id)}
-                src={del} alt="delete icon" />
+        <div className={styles.getParent} key={item.Id} >
+          <div className={styles.boxGet}>
+            <img className={styles.getImg} src={`http://127.0.0.1:2020/read/photo?Path=${item.Photo}`} />
+            <Link to={`/admin/servicesAdmin/${item.Id}`} className={styles.texGet}>{lng == "ru" ? item.ru.title : item.en.title}</Link>
+          </div>
+          <div>
+            {!deleteShow[item.Id] && (
               <button
-                onClick={() => handleDelete(item.Id)}
-                className={styles.delete}>
-                Delete
+                className={`${styles.del} ${styles.fadeIn}`}
+                onClick={() => handleFirstButtonClick(item.Id)}
+              >
+                <img src={del2} alt="delete icon" />
               </button>
-            </div>
-          )}
+            )}
+
+            {deleteShow[item.Id] && (
+              <div
+                className={`${styles.getButton} ${styles.fadeIn}`}
+              >
+                <img
+                  onClick={() => handleSecondButtonClick(item.Id)}
+                  src={del} alt="delete icon" />
+                <button
+                  onClick={() => handleDelete(item.Id)}
+                  className={styles.delete}>
+                  Delete
+                </button>
+              </div>
+            )}
+          </div>
         </div>
-      </div>
 
 
-    ))}
-  </div>
+      ))}
+    </div>
   )
 }

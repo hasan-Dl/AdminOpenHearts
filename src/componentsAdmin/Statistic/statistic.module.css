@@ -16,12 +16,11 @@
     margin-bottom: 40px;
 }
 
-.buttonAdd {
-    width: 293px;
+/* ------------- */
+.buttonOne {
+    width: 354px;
     height: 63px;
     padding: 8px 0px 10px 0px;
-    width: 350px;
-    height: 63px;
     border-radius: 5px;
     border: 2px solid rgb(129, 126, 126);
     background: white;
@@ -32,17 +31,71 @@
     color: rgb(129, 126, 126);
 }
 
-.active {
+.activeOne {
     border: 2px solid rgb(0, 0, 0);
     color: black;
     width: 354px;
     height: 63px;
-    top: 169px;
-    left: 575px;
     padding: 8px 0px 10px 0px;
     gap: 10px;
     border-radius: 5px;
 }
+
+/* -------------- */
+
+
+.buttonTwo {
+    width: 293px;
+    height: 63px;
+    padding: 8px 0px 10px 0px;
+    border-radius: 5px;
+    border: 2px solid rgb(129, 126, 126);
+    background: white;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    color: rgb(129, 126, 126);
+}
+
+.activeTwo {
+    width: 293px;
+    height: 63px;
+    border: 2px solid rgb(0, 0, 0);
+    color: black;
+    padding: 8px 0px 10px 0px;
+    gap: 10px;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* - AddStatistic */
 .inputStatistic {
@@ -66,14 +119,7 @@
     padding: 20px 80px 20px 20px;
 }
 
-.divEN_RU::after {
-    position: absolute;
-    content: "";
-    border-right: 2px solid #9E9E9E;
-    height: 30px;
-    right: 0;
-    bottom: 0;
-}
+
 
 
 .inputNumber {
@@ -105,21 +151,19 @@
     display: flex;
     flex-direction: column;
     width: 136px;
-    height: 124px;
-    position: relative;
-    right: 2px;
 }
 
-.button {
+/* One Button */
+
+.oneButton {
     text-align: center;
     width: 121px;
     height: 63px;
-    left: 15px;
     padding: 10px 0px 10px 0px;
-    gap: 10px;
     border-radius: 5px;
-    border: 2px solid #9E9E9E;
-    border-left: 2px solid #9E9E9E;
+    border: none;
+    border-top: 2px solid #9E9E9E;
+    border-right: 2px solid #9E9E9E;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     opacity: 0px;
@@ -128,12 +172,67 @@
     font-size: 30px;
     font-weight: 500;
     color: #9E9E9E;
+    position: relative;
+    top: 9px;
 }
 
-.activeB {
+.oneActive {
+    color: black;
+    border-left: none;
+    position: static;
+}
+ .one{
+    border-left: 2px solid #9E9E9E;
+    border-bottom: 2px solid #9E9E9E;
+    width: 121px;
+    height: 74px;
+    /* height: 74px; */
+}
+.oneNone{
+    border: none;
+    height: 63px;
+ }
+
+/* Two Button */
+
+.twoButton {
+    width: 121px;
+    height: 63px;
+    padding: 10px 0px 10px 0px;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    border-right: 2px solid  #9E9E9E;
+    border-bottom: 2px solid  #9E9E9E;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background: white;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    color: #9E9E9E;
+}
+
+.twoActive {
     color: black;
     border-left: none;
 }
+
+.gray {
+    border-left: 2px solid #9E9E9E;
+    border-top: 2px solid #9E9E9E;
+    height: 74px;
+    width: 121px;
+}
+
+.noneGray{
+    border-left: none;
+    border-top: none;
+    height: 63px;
+}
+
+
+/*  */
 
 .buttonSubmit {
     text-align: center;
@@ -148,11 +247,13 @@
     font-weight: 500;
     outline: none;
 }
-.boxSub{
+
+.boxSub {
     text-align: end;
     margin-top: 571px;
     padding-bottom: 40px;
 }
+
 /* GET */
 
 
@@ -269,19 +370,19 @@
 
 .fadeOut {
     opacity: 1;
-    transform: translateX(30px);
+    transform: translateX(0px);
     animation: fadeOutAnimation 1s;
 }
 
 @keyframes fadeOutAnimation {
     from {
         opacity: 0;
-        transform: translateX(30px);
+        transform: translateX(0px);
     }
 
     to {
         opacity: 1;
-        transform: translateX(30px);
+        transform: translateX(0px);
         /* Сдвиг вниз при исчезновении */
     }
 }

@@ -10,24 +10,24 @@ export default function AdminNavbar() {
         className={({ isActive }) =>
           isActive ? `${styles.link} ${styles.link}` : styles.links
         }
-        to={'statisticAdmin'}
+        to={'/admin/statisticAdmin'}
       >{t('Admin.statistic')}</NavLink>
 
       <NavLink
         className={({ isActive }) =>
           isActive ? `${styles.link} ${styles.link}` : styles.links
         }
-        to={'storyAdmin'}
+        to={'/admin/storyAdmin'}
       > {t("Admin.story")}</NavLink>
 
       <NavLink
         className={({ isActive }) =>
           isActive ? `${styles.link} ${styles.link}` : styles.links
         }
-        to={'partnerAdmin'}
+        to={'/admin/partnerAdmin'}
       >{t("Admin.partner")}</NavLink>
       <NavLink
-      to={'projectAdmin'}
+      to={'/admin/projectAdmin'}
         className={({ isActive }) =>
           isActive ? `${styles.link} ${styles.link}` : styles.links
         }
@@ -35,7 +35,7 @@ export default function AdminNavbar() {
       </NavLink>
 
       <NavLink
-      to={'servicesAdmin'}
+      to={'/admin/servicesAdmin'}
         className={({ isActive }) =>
           isActive ? `${styles.link} ${styles.link}` : styles.links
         }
@@ -44,14 +44,14 @@ export default function AdminNavbar() {
       </NavLink>
 
       <NavLink 
-      to={'doctorAdmin'}
+      to={'/admin/doctorAdmin'}
        className={({ isActive }) =>
         isActive ? `${styles.link} ${styles.link}` : styles.links
       }
       >{t("Admin.doctor")}</NavLink>
 
       <NavLink 
-       to={'reportAdmin'}
+       to={'/admin/reportAdmin'}
        className={({ isActive }) =>
         isActive ? `${styles.link} ${styles.link}` : styles.links
       }

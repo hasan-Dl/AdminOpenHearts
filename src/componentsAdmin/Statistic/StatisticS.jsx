@@ -5,7 +5,7 @@ import del from '../../assets/Vector (3).png'
 import del2 from '../../assets/Vector (4).png'
 
 export default function StatisticS() {
-  
+
   const [deleteShow, setDeleteShow] = useState({});
 
   const lng = localStorage.getItem("i18nextLng")
@@ -56,7 +56,7 @@ export default function StatisticS() {
           <div>
             {!deleteShow[item.Id] && (
               <button
-                className={`${styles.del} ${styles.fadeIn}`}
+                className={`${styles.del} ${styles.fadeOut}`}
                 onClick={() => handleFirstButtonClick(item.Id)}
               >
                 <img src={del2} alt="delete icon" />

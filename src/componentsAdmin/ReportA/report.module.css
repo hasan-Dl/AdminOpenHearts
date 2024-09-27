@@ -15,7 +15,7 @@
     margin-bottom: 40px;
 }
 
-.buttonAdd {
+.buttonOne{
     width: 350px;
     height: 63px;
     border-radius: 5px;
@@ -28,6 +28,41 @@
     color: rgb(129, 126, 126);
 }
 
+
+
+.activeOne {
+    width: 350px;
+    height: 63px;
+    border: 2px solid rgb(0, 0, 0);
+    color: black;
+}
+
+
+.buttonTwo {
+    width: 282px;
+    height: 63px;
+    border-radius: 5px;
+    border: 2px solid rgb(129, 126, 126);
+    background: white;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    color: rgb(129, 126, 126);
+}
+
+
+
+.activeTwo {
+    width: 282px;
+    height: 63px;
+    border: 2px solid rgb(0, 0, 0);
+    color: black;
+}
+
+
+
+/* Report GET */
 
 .subDiv {
     text-align: end;
@@ -48,11 +83,6 @@
 }
 
 
-
-.active {
-    border: 2px solid rgb(0, 0, 0);
-    color: black;
-}
 
 
 .parent {

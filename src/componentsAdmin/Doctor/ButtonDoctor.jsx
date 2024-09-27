@@ -16,12 +16,12 @@ export default function ButtonDoctor() {
     <div className={styles.styleBox}>
           <div className={styles.boxButton}>
               <button
-                  className={`${styles.buttonAdd} ${active === false ? styles.active : ''}`}
+                  className={`${styles.buttonOne} ${active === false ? styles.activeOne : ''}`}
                   onClick={() => handleButtonClick(false)}
               >    {t("Admin.addDoc")}
               </button>
               <button
-                  className={`${styles.buttonAdd} ${active === true ? styles.active : ''}`}
+                  className={`${styles.buttonTwo} ${active === true ? styles.activeTwo : ''}`}
                   onClick={() => handleButtonClick(true)}
               > {t("Admin.doctor")}
               </button>

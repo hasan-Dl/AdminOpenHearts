@@ -84,16 +84,24 @@ export default function AddStatistic() {
                             </div>
                         )}
                     <div className={styles.En_RU}>
-                        <button
-                            className={classNames(styles.button,
-                                { [styles.activeB]: language === false })}
-                            onClick={() => clickButton(false)}
-                        >{t("Admin.en")}</button>
-                        <button
-                            className={classNames(styles.button,
-                                { [styles.activeB]: language === true })}
-                            onClick={() => clickButton(true)}
-                        >{t("Admin.ru")}</button>
+
+                        <div className={classNames(styles.one,
+                            { [styles.oneNone]: language === false })} >
+                            <button
+                                className={classNames(styles.oneButton,
+                                    { [styles.oneActive]: language === false })}
+                                onClick={() => clickButton(false)}
+                            >{t("Admin.en")}</button>
+                        </div>
+
+                        <div className={classNames(styles.gray,
+                            { [styles.noneGray]: language === true })}>
+                            <button
+                                className={classNames(styles.twoButton,
+                                    { [styles.twoActive]: language === true })}
+                                onClick={() => clickButton(true)}
+                            >{t("Admin.ru")}</button>
+                        </div>
                     </div>
                 </div>
             </div>
