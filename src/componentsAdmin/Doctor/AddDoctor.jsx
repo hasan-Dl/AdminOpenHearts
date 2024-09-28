@@ -118,7 +118,7 @@ export default function AddDoctor() {
             "time":{
                 days_of_week: week,
                 start_time:starTime,
-                end_time:starTime
+                end_time:end
             }
             ,
             gmail:gmail,
@@ -561,10 +561,10 @@ export default function AddDoctor() {
 
                 </div>
                 <ul className={styles.lsDOCTORS}>
-                    {week.map((serviceEn, index) => (
+                    {week.map((children, index) => (
                         <div className={styles.main}>
                             <li key={index} className={styles.mainText}>
-                                {serviceEn}
+                                {children}
                             </li>
                             <img src={X}
                                 className={styles.x}

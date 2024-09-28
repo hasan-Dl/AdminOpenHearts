@@ -7,8 +7,10 @@ import logo from '../../assets/openHearts.png'
 import del2 from '../../assets/Admin botton (2).png'
 import surat from '../../assets/ос-10.png'
 import LanguageSelector from '../../Languages/LanguageSelector'
+import { useTranslation } from 'react-i18next'
 export default function OneServices() {
-
+    const { t } = useTranslation()
+    const lng = localStorage.getItem("i18nextLng")
     const [deleteShow, setDeleteShow] = useState({});
     const { data, loading, error } = useFetch("http://127.0.0.1:2020/get/main/diraction")
     const { id } = useParams()
@@ -27,6 +29,34 @@ export default function OneServices() {
         setDeleteShow((prevState) => ({ ...prevState, [id]: false }));
     };
 
+    const handleDelete = (id,Logo) => {
+        fetch(`http://127.0.0.1:2020/delete/main/diraction?id=${id}&Path=${Logo}`, {
+          method: 'DELETE',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+      
+          credentials: 'include', // Если нужно передавать cookie
+      })
+          .then(response => {
+              if (response.ok) {
+                  alert("Susses")
+              } else {
+                  alert("Error")
+              }
+      
+          })
+          fetch(`http://127.0.0.1:2020/get/main/diraction`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        
+            credentials: 'include', // Если нужно передавать cookie
+        })
+      }
+    
+
     return (
         <div className={styles.oneParent}>
             <div className={styles.parent1}>
@@ -38,10 +68,10 @@ export default function OneServices() {
                 </div>
             </div>
             <h1 className={styles.line}></h1>
-            
+
             <div key={item.Id} className={styles.boxBody}>
                 <div className={styles.oneBox}>
-                    <Link to={"/admin/servicesAdmin"} className={styles.back}>Back</Link>
+                    <Link to={"/admin/servicesAdmin"} className={styles.back}>{t("Home.Props.back")}</Link>
                     <div>
                         {!deleteShow[item.Id] && (
 
@@ -57,27 +87,30 @@ export default function OneServices() {
                                     onClick={() => handleSecondButtonClick(item.Id)}
                                     src={del} alt="delete icon" />
                                 <button
-                                    onClick={() => handleDelete(item.Id)}
+                                   onClick={() => handleDelete(item.Id,item.Logo)}
                                     className={styles.deleteOne}>
-                                    Delete
+                                    {t("Admin.delete")}
                                 </button>
                             </div>
                         )}
                     </div>
                 </div>
                 <div className={styles.divBody}>
-                    <img className={styles.oneImg} src={surat} alt="" />
-                    {/* <img className={styles.oneImg} src={`http://127.0.0.1:2020/read/photo?Path=${item.Photo}`} /> */}
+                    <img className={styles.oneImg} src={`http://127.0.0.1:2020/read/photo?Path=${item.photo}`} />
                     <div className={styles.divText}>
-                        <h1 className={styles.TitleText}>Психологическая поддержка</h1>
-                        <h4 className={styles.NuberOne}>+992 90 900 90 90</h4>
+                        <h1 className={styles.TitleText}>{lng == "ru" ? item.ru.title : item.en.title}</h1>
+                        <h4 className={styles.NuberOne}>+992 {item.phone}</h4>
                         <p className={styles.TitleServices}>Описание направления:</p>
-                        <p className={styles.descriptionText}>Психологическая поддержка – это важнейшее направление нашего центра, направленное на помощь людям с ограниченными возможностями в преодолении эмоциональных и психологических трудностей. Наши квалифицированные психологи работают как с индивидуальными клиентами, так и с семьями, помогая справляться с депрессией, тревогой, стрессом и посттравматическими расстройствами.</p>
+                        <p className={styles.descriptionText}>{lng == "ru" ? item.ru.description : item.en.description}</p>
                         <p className={styles.TitleServices}>Основные услуги:</p>
-                        <h4 className={styles.textContent}>Индивидуальные консультации.</h4>
-                        <h4 className={styles.textContent}> Групповые сеансы психотерапии.</h4>
-                        <h4 className={styles.textContent}>Арт-терапия.</h4>
-                        <h4 className={styles.textContent}>Поддержка семей.</h4>
+                       
+                        <ol className={styles.textContent}>
+                            {item[lng === "ru" ? "ru" : "en"].mainServeses.map((text, index) => (
+                                <li key={index}>
+                                  {text}
+                                </li>
+                            ))}
+                        </ol>
                     </div>
                     <div>
 

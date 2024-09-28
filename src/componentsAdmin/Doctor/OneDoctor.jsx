@@ -7,15 +7,21 @@ import del2 from '../../assets/Admin botton (2).png'
 import surat from '../../assets/Artboard 5.png'
 import styles from './doctor.module.css'
 import LanguageSelector from '../../Languages/LanguageSelector';
-import { data } from '../../data/data';
+import { useTranslation } from 'react-i18next';
+import { IoTennisball } from 'react-icons/io5';
+// import { data } from '../../data/data';
+
 export default function OneDoctor() {
+
+    const lng = localStorage.getItem("i18nextLng")
+    const { t } = useTranslation()
     const [deleteShow, setDeleteShow] = useState({});
-    // const { data, loading, error } = useFetch("http://127.0.0.1:2020/get/main/diraction")
+    const { data, loading, error, } = useFetch("http://127.0.0.1:2020/get/team")
 
     const { idDoctor } = useParams()
     const item = data.find((each) => each.Id === idDoctor)
-    // if (loading) return <p>Loading ...!</p>
-    // if (error) return <p>Error:{error.message}</p>
+    if (loading) return <p>Loading ...!</p>
+    if (error) return <p>Error:{error.message}</p>
 
 
     const handleFirstButtonClick = (id) => {
@@ -27,9 +33,30 @@ export default function OneDoctor() {
         setDeleteShow((prevState) => ({ ...prevState, [id]: false }));
     };
 
+    const handleDelete = (id, Logo) => {
+        fetch(`http://127.0.0.1:2020/delete/team?id=${id}&Path=${Logo}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+
+            credentials: 'include', // Если нужно передавать cookie
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert("Susses")
+                } else {
+                    alert("Error")
+                }
+
+            })
+    }
+
+
+
     return (
-        <div className={styles.oneParent}>
-            <div className={styles.parent}>
+        <div className={styles.oneParent} >
+            <div className={styles.parent1}>
                 <div className={styles.img}>
                     <img src={logo} alt="" />
                 </div>
@@ -39,14 +66,12 @@ export default function OneDoctor() {
             </div>
             <h1 className={styles.line}></h1>
 
-            <div key={item.Id} className={styles.boxBody}>
+            <div className={styles.boxBody}>
                 <div className={styles.oneBox}>
-                    <Link to={"/admin/doctorAdmin"} className={styles.back}>Back</Link>
+                    <Link to={"/admin/doctorAdmin"} className={styles.back}>{t("Home.Props.back")}</Link>
                     <div>
                         {!deleteShow[item.Id] && (
-
                             <img src={del2} alt="delete icon" onClick={() => handleFirstButtonClick(item.Id)} className={styles.fadeOutOne} />
-
                         )}
 
                         {deleteShow[item.Id] && (
@@ -57,9 +82,9 @@ export default function OneDoctor() {
                                     onClick={() => handleSecondButtonClick(item.Id)}
                                     src={del} alt="delete icon" />
                                 <button
-                                    onClick={() => handleDelete(item.Id)}
+                                    onClick={() => handleDelete(item.Id, item.Logo)}
                                     className={styles.deleteOne}>
-                                    Delete
+                                    {t("Admin.delete")}
                                 </button>
                             </div>
                         )}
@@ -67,45 +92,66 @@ export default function OneDoctor() {
                 </div>
 
                 <div className={styles.divBody}>
-                    <img className={styles.oneImg} src={surat} alt="" />
+                    <img className={styles.oneImg}
+                        src={`http://127.0.0.1:2020/read/photo?Path=${item.photo}`}
+                        alt="" />
                     <div className={styles.divText}>
-                        <h1 className={styles.TitleText}>Саидов Саид</h1>
-                        <h1 className={styles.TitleText1}>Психолог</h1>
-                        <p className={styles.TitleServices}>Образование:</p>
-                        <h4 className={styles.textContent}>Московский государственный университет, факультет психологии, 2010 год
-                            Специализация: Клиническая психология</h4>
-                        <p className={styles.TitleServices}>Дополнительные курсы и сертификаты:</p>
-                        <ol className={styles.ol}>
-                            <li>Курс "Когнитивно-поведенческая терапия", 2015 год</li>
-                            <li>Сертификат "Работа с травмой и стрессом", 2018 год</li>
+                        <h1 className={styles.TitleText}>{lng == "ru" ? item.ru.full_name : item.en.full_name}</h1>
+                        <h1 className={styles.TitleText1}>{lng == "ru" ? item.ru.profession : item.en.profession}</h1>
+                        <p className={styles.TitleServices}>{t("Admin.education")}</p>
+                        <h4 className={styles.textContent}>{lng == "ru" ? item.ru.education : item.en.education}</h4>
+                        <p className={styles.TitleServices}>{t("Admin.additional")}</p>
+                        {/* <ol className={styles.ol} >
+                            <li>{lng == "ru" ? item.ru.additional_information : item.en.additional_information}</li>
                         </ol>
-                        <p className={styles.TitleServices}>Контактная информация:</p>
-                        <p className={styles.Info}>Электронная почта: my.accaunt@gmail.com</p>
-                        <p className={styles.Info}> Телефон: +992 90 900 90 90</p>
-                        <p className={styles.Info}>Часы приема: Пн | Ср | Пт - с 8:00 ло 16:00</p>
+                     */}
+                        <ol className={styles.ol}>
+                            {item[lng === "ru" ? "ru" : "en"].additional_information.map((text, index) => (
+                                <li key={index}>
+                                    {index+1}. {text}
+                                </li>
+                            ))}
+                        </ol>
+
+                        <p className={styles.TitleServices}>{t("Admin.contact")}</p>
+                        <p className={styles.Info}>Электронная почта: {item.gmail}</p>
+                        <p className={styles.Info}> Телефон: +992 {item.phone}</p>
+                        <div className={styles.Info1} key={item}> Часы приема:
+                            <li
+                                style={{
+                                    listStyle: "none"
+                                }}
+                            >
+                                {item.time.days_of_week[0]} | {item.time.days_of_week[1]} | {item.time.days_of_week[2]} -
+                            </li>
+                            <h1 className={styles.StarIsEnd}>{item.time.start_time} </h1> до <h3 className={styles.StarIsEnd}>{item.time.end_time}</h3>
+                        </div>
                     </div>
                 </div>
 
                 <div className={styles.Doctor}>
-                    <p className={styles.TitleServices}>О специалисте:</p>
-                    <p className={styles.doctorTitle}>Саид Саидов – это высококвалифицированный психолог с более чем 10-летним опытом работы в области психологии. Он является сертифицированным специалистом в области клинической психологии, что позволяет ему профессионально и эффективно оказывать психологическую поддержку людям с ограниченными возможностями. Саид известен своим индивидуальным подходом к каждому клиенту, глубокой эмпатией и стремлением помочь людям справиться с психологическими трудностями и обрести внутреннюю гармонию.</p>
+                    <p className={styles.TitleServices}>{t("Admin.about")}</p>
+                    <p className={styles.doctorTitle}>{lng == "ru" ? item.ru.about_specialist : item.en.about_specialist}</p>
                     <p className={styles.TitleServices}>Опыт работы:</p>
                     <ol className={styles.ol}>
-                        <li>Центр психологической помощи, психолог-консультант, 2011-2015 годы</li>
-                        <li> Клиника психологической поддержки, ведущий психолог, 2016-2021 годы</li>
-                        <li>Центр поддержки людей с ограниченными возможностями, психолог, с 2021 года по настоящее время</li>
-                        <li>    Проекты: Руководитель проекта по оказанию психологической помощи ветеранам, участие в разработке программы психологической поддержки людей с инвалидностью</li>
-                    </ol>
+                            {item[lng === "ru" ? "ru" : "en"].expirence.map((text, index) => (
+                                <li key={index}>
+                                    {index+1}. {text}
+                                </li>
+                            ))}
+                        </ol>
 
                     <p className={styles.TitleServices}>Услуги, предоставляемые специалистом:</p>
 
                     <ol className={styles.ol}>
-                        <li>Психологическая поддержка: Саид Саидов предоставляет индивидуальные консультации, помогает справиться с тревогой, депрессией, стрессом и другими психологическими проблемами. Он специализируется на работе с людьми, пережившими травмы, и тех, кто испытывает сложности в социальной адаптации.</li>
-                        <li>Когнитивно-поведенческая терапия: Использует методы когнитивно-поведенческой терапии для изменения негативных мыслей и моделей поведения.</li>
-                        <li>Консультирование семей: Оказывает помощь семьям в улучшении внутрисемейных отношений, решении конфликтов и создании поддерживающей среды для людей с ограниченными возможностями.</li>
-                    </ol>
-                   
-                    </div>
+                            {item[lng === "ru" ? "ru" : "en"].services.map((text, index) => (
+                                <li key={index}>
+                                    {index+1}. {text}
+                                </li>
+                            ))}
+                        </ol>
+
+                </div>
             </div>
 
 

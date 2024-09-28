@@ -83,7 +83,7 @@
     position: absolute;
     content: "";
     border-right: 2px solid #9E9E9E;
-    height: 330px;
+    height: 100%;
     right: 0;
     bottom: 0;
 }
@@ -286,7 +286,6 @@
 }
 
 .textGet {
-
     text-align: left;
     font-family: Jost;
     font-size: 30px;

@@ -558,12 +558,14 @@ ul {
     font-family: Jost;
     font-size: 20px;
     font-weight: 400;
+    list-style: none;
+    margin-left: 5px;
 }
 
 .oneImg {
     width: 707.36px;
     height: 568px;
-   
+    object-fit: cover;
 }
 
 
@@ -594,6 +596,7 @@ ul {
     opacity: 1;
     transform: translateX(0px);
     animation: fadeOutAnimation 1s;
+    object-fit: cover;
 }
 
 @keyframes fadeOutAnimation {
@@ -631,4 +634,5 @@ ul {
     border-radius: 5px ;    
     border: 2px solid black;
     background: #FF6262;
+    object-fit: cover;
 }    
