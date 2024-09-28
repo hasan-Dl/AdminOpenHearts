@@ -20,7 +20,7 @@ export default function Partners() {
   };
   
   const handleDelete = (id,Logo) => {
-    fetch(`http://127.0.0.1:2020/delete/partner?id=${id}&Path=${Logo}`, {
+    fetch(`http://127.0.0.1:2020/delete/partner?id=${id}&Partners=${Logo}`, {
       method: 'DELETE',
       headers: {
           'Content-Type': 'application/json',

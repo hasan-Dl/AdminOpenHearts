@@ -59,6 +59,7 @@ export default function Code() {
                 </div>
             </div>
             <h1 className={styles.text}>Enter the code</h1>
+    
             <div className={styles.DivCode}>
                 <OtpInput
                     onChange={setOtp}

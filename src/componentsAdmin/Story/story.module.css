@@ -1,6 +1,7 @@
 .styleBox {
     border-left: 4px solid #FF6262;
     border-right: 4px solid #FF6262;
+    width: 1330px;
     padding-top: 50px;
     padding-left: 70px;
     padding-right: 70px;
@@ -14,19 +15,20 @@
     gap: 111px;
     margin-bottom: 60px;
 }
+
 /* --One Button and Story */
 
 .buttonOne {
     width: 342px;
     height: 63px;
     padding: 5px 0px 10px 0px;
-    border-radius: 5px ;
-    border: 2px solid  #9E9E9E;
+    border-radius: 5px;
+    border: 2px solid #9E9E9E;
     font-family: Jost;
     font-size: 30px;
     font-weight: 500;
     text-align: center;
-    color:  #9E9E9E;
+    color: #9E9E9E;
     background: white;
 }
 
@@ -50,13 +52,13 @@
     width: 309px;
     height: 63px;
     padding: 5px 0px 10px 0px;
-    border-radius: 5px ;
-    border: 2px solid  #9E9E9E;
+    border-radius: 5px;
+    border: 2px solid #9E9E9E;
     font-family: Jost;
     font-size: 30px;
     font-weight: 500;
     text-align: center;
-    color:  #9E9E9E;
+    color: #9E9E9E;
     background: white;
 }
 
@@ -99,7 +101,7 @@
     position: absolute;
     content: "";
     border-right: 2px solid #9E9E9E;
-    height: 560px;
+    height: 50vh;
     right: 0;
     bottom: 0;
 }
@@ -107,7 +109,7 @@
 
 
 .inputDescription {
-    width: 927px;
+    width: 947px;
     height: 93px;
     padding: 25px 30px 25px 30px;
     border: 2px solid black;
@@ -176,7 +178,7 @@
 .buttonSubmit {
     width: 272px;
     height: 73px;
-    padding: 15px 0px 15px 0px;
+    padding: 10px 0px 15px 0px;
     border-radius: 5px;
     text-align: center;
     border: 2px solid black;
@@ -193,7 +195,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 3px solid black;
+    border: 2px solid black;
     width: 820px;
     height: 93px;
     padding: 0px 30px 0px 30px;
@@ -221,14 +223,14 @@
     width: 265px;
     height: 53px;
     border-radius: 5px;
-    border: 3px solid black;
-    padding: 5px 0px 0px 5px;
+    border: 2px solid black;
+    padding: 2px 0px 0px 5px;
     font-size: 15px;
     font-weight: 600;
     text-align: center;
     font-family: Jost;
     font-size: 30px;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 /* --------get == */

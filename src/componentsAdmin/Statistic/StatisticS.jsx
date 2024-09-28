@@ -24,23 +24,30 @@ export default function StatisticS() {
   };
 
   const handleDelete = (id) => {
-  fetch(`http://127.0.0.1:2020/delete/statistic?id=${id}`, {
-    method: 'DELETE',
-    headers: {
-        'Content-Type': 'application/json',
-    },
 
-    credentials: 'include', // Если нужно передавать cookie
-})
-    .then(response => {
+    fetch(`http://127.0.0.1:2020/delete/statistic?id=${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include', // Если нужно передавать cookie
+    })
+      .then(response => {
         if (response.ok) {
-            alert("Susses")
+          alert("Susses")
         } else {
-            alert("Error")
+          alert("Error")
         }
 
-    })
-}
+      })
+      fetch(`http://127.0.0.1:2020/get/statistic`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include', 
+      })
+  }
 
 
   return (

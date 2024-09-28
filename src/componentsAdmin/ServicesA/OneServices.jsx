@@ -29,7 +29,7 @@ export default function OneServices() {
 
     return (
         <div className={styles.oneParent}>
-            <div className={styles.parent}>
+            <div className={styles.parent1}>
                 <div className={styles.img}>
                     <img src={logo} alt="" />
                 </div>

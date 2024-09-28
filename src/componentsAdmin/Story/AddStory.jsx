@@ -229,7 +229,7 @@ export default function AddStory() {
           <input
             className={styles.photo}
             type="text"
-            placeholder="Image"
+            placeholder={t("Admin.photo")}
             value={photoPath}
             readOnly
           />
@@ -241,7 +241,7 @@ export default function AddStory() {
             id="photo-upload"
           />
           <label className={styles.buttonPhoto} htmlFor="photo-upload">
-            Choose photo
+            {t("Admin.choose")}
           </label>
         </div>
         

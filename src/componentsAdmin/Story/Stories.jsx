@@ -23,10 +23,9 @@ export default function Stories() {
     <div >
       <div className={styles.getDiv}>
       {data.map((item) => (
-
         <div className={styles.getParent} key={item.Id}>
           <div className={styles.boxGet}>
-            <img className={styles.getImg} src={`http://127.0.0.1:2020/read/photo?Path=PatientData${item.Photo}`} />
+            <img className={styles.getImg} src={`http://127.0.0.1:2020/read/photo?Path=${item.Photo}`} />
             <h1 className={styles.textGet}>{lng == "ru" ? item.ru.name : item.en.name}</h1>
             <p  className={styles.TitleGet}>{lng == "ru" ? item.ru.problemName : item.en.problemName}</p>
           </div>

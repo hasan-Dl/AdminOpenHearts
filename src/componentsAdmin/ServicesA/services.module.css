@@ -6,6 +6,7 @@
     padding-right: 70px;
     margin-right: 85px;
     height: 900px;
+    width: 1330px;
 }
 
 .boxButton {
@@ -69,7 +70,6 @@
 .parent {
     display: flex;
     align-items: start;
-
 }
 
 .boxStr {
@@ -89,7 +89,7 @@
     position: absolute;
     content: "";
     border-right: 2px solid #9E9E9E;
-    height: 360px;
+    height: 100%;
     right: 0;
     bottom: 0;
 }
@@ -443,7 +443,7 @@ ul {
 
 /* One Services Get */
 
-.parent {
+.parent1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -490,9 +490,10 @@ ul {
 }
 
 .back {
+    text-align: center;
     width: 243px;
     height: 63px;
-    padding: 10px 90px 10px 90px;
+    padding: 5px 0px 10px 0px;
     border-radius: 5px;
     border: 2px solid black;
     font-family: Jost;

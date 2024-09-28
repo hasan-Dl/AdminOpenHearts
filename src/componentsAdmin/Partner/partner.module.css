@@ -3,8 +3,8 @@
   border-right: 4px solid #FF6262;
   padding-top: 50px;
   padding-left: 70px;
-  padding-right: 412px;
-  height: 830px;
+  width: 1330px;
+  height: 960px;
   padding-bottom: 40px;
   position: relative;
 }
@@ -15,13 +15,14 @@
   gap: 79px;
   margin-bottom: 40px;
 }
- /* One Button Partner */
+
+/* One Button Partner */
 
 .buttonOne {
   width: 341px;
   height: 63px;
   padding: 5px 0px 10px 0px;
-  border-radius: 5px ;
+  border-radius: 5px;
   border: 2px solid rgb(129, 126, 126);
   background: white;
   font-family: Jost;
@@ -42,7 +43,7 @@
   width: 288px;
   height: 63px;
   padding: 5px 0px 10px 0px;
-  border-radius: 5px ;
+  border-radius: 5px;
   border: 2px solid rgb(129, 126, 126);
   background: white;
   font-family: Jost;
@@ -61,29 +62,22 @@
 
 
 
-.submit {
-  display: flex;
-  align-items: end;
-  gap: 50px;
-  margin-bottom: 80px;
+.divSub {
+  text-align: end;
+  margin-right: 70px;
+  margin-top: 600px;
 }
 
 .buttonSubmit {
   width: 272px;
   height: 73px;
-  padding: 15px 90px 15px 90px;
-  text-align: center;
-  border: 2px solid black;
-  outline: none;
-  background: white;
-  font-size: 25px;
-  font-family: Jost;
-  border-radius: 3px;
+  padding: 10px 0px 15px 0px;
   border-radius: 5px;
+  border: 2px solid black;
+  font-family: Jost;
+  font-size: 30px;
   font-weight: 500;
-  position: absolute;
-  right: 70px;
-  bottom: 35px;
+  background: white;
 }
 
 .parentPhoto {
@@ -91,7 +85,7 @@
   align-items: center;
   justify-content: space-between;
   border: 2px solid black;
-  width: 840px;
+  width: 844px;
   height: 93px;
   padding: 20px 30px 20px 30px;
   outline: none;
@@ -100,6 +94,7 @@
   font-family: "Jost", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+  margin-right: 410px;
 }
 
 
@@ -114,9 +109,10 @@
 }
 
 .buttonPhoto {
+  text-align: center;
   width: 265px;
   height: 53px;
-  padding: px 0px 5px 0px;
+  padding: 2px 0px 5px 0px;
   text-align: center;
   border-radius: 5px;
   border: 2px solid black;

@@ -54,7 +54,7 @@ export default function AddStatistic() {
                 <input
                     type="text"
                     className={styles.inputNumber}
-                    placeholder='Number'
+                    placeholder={t("Admin.quantity")}
                     onChange={(e) => setNumber(e.target.value)}
                     value={number}
                 />

@@ -40,7 +40,7 @@ export default function AddPartner() {
     // Handle form submission
     const handleSubmit = (event) => {
         event.preventDefault();
-        
+
         // Prepare the payload with the base64-encoded file
         const newPartner = {
             Logo: base64File
@@ -68,33 +68,38 @@ export default function AddPartner() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div className={styles.submit}>
-                <div className={styles.parentPhoto}>
-                    <input
-                        className={styles.photo}
-                        type="text"
-                        placeholder="Photo"
-                        value={photoPath}
-                        readOnly
-                    />
-                    <input
-                        type="file"
-                        accept="image/*"
-                        onChange={handleFileChange}
-                        style={{ display: 'none' }}
-                        id="photo-upload"
-                    />
-                    <label className={styles.buttonPhoto} htmlFor="photo-upload">
-                        Choose photo
-                    </label>
+
+
+            <div>
+                <div className={styles.submit}>
+                    <div className={styles.parentPhoto}>
+                        <input
+                            className={styles.photo}
+                            type="text"
+                            placeholder={t("Admin.photo")}
+                            value={photoPath}
+                            readOnly
+                        />
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={handleFileChange}
+                            style={{ display: 'none' }}
+                            id="photo-upload"
+                        />
+                        <label className={styles.buttonPhoto} htmlFor="photo-upload">
+                      {t("Admin.choose")}
+                        </label>
+                    </div>
                 </div>
+            <div className={styles.divSub}>
                 <button
+                onClick={handleSubmit}
                     type="submit"
                     className={styles.buttonSubmit}>
                     {t("Admin.submit")}
                 </button>
             </div>
-        </form>
+            </ div>
     );
 }

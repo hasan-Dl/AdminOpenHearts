@@ -19,11 +19,45 @@
     padding-right: 70px;
 }
 
+
+.error {
+    color: #FF0000;
+    font-family: Jost;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28.9px;
+    text-align: left;
+
+}
+
+
+.eye{
+    position:absolute;
+    z-index:500;
+    top:23px;
+    right:30px;
+}
+.eyes{
+    width:50px;
+    height:50px;
+}
+
+.errorEmail {
+    color: #FF0000;
+    font-family: Jost;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28.9px;
+    text-align: center;
+
+}
+
+
 .box {
     text-align: center;
     border-right: 4px solid #FF6262;
     margin-right: 85px;
-    height:831px;
+    height: 831px;
     padding-top: 30px;
 }
 
@@ -55,6 +89,18 @@
 }
 
 .input {
+    width: 840px;
+    height: 95px;
+    padding: 25px 30px 25px 30px;
+    border: 2px solid black;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 400;
+    text-align: left;
+    outline: none;
+}
+
+.inputPass {
     width: 840px;
     height: 95px;
     padding: 25px 30px 25px 30px;
@@ -104,12 +150,13 @@
     position: relative;
 }
 
-.boxSub{
+.boxSub {
     text-align: end;
     padding-right: 71.5px;
     margin-top: 310px;
-    padding-bottom:  40px;
+    padding-bottom: 40px;
 }
+
 .submit {
     text-align: center;
     width: 272px;
@@ -121,7 +168,7 @@
     font-family: Jost;
     font-size: 30px;
     font-weight: 500;
-    
+
 }
 
 .submitEmail {
