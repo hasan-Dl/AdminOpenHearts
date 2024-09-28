@@ -54,6 +54,45 @@ export default function AddReport() {
 
     }
 
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        // Prepare the payload with the base64-encoded file
+        const newPartner = {
+            file: base64File,
+            date: date,
+            "ru": {
+                title: titleRu,
+            },
+            "en": {
+                title: titleEn,
+            },
+
+
+        };
+
+        // POST request
+        fetch("http://127.0.0.1:2020/add/report", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newPartner),
+            credentials: 'include', // If cookies are needed
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert("Success");
+                } else {
+                    alert("Error");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+    };
+
     return (
         <div>
 
@@ -112,6 +151,8 @@ export default function AddReport() {
                         className={styles.time}
                         type="datetime-local"
                         id="date-time"
+                        onChange={(e) => setDate(e.target.value)}
+                        value={date}
                     />
                 </div>
                 <div className={styles.parentPhoto}>
@@ -124,7 +165,7 @@ export default function AddReport() {
                     />
                     <input
                         type="file"
-                        accept="image/*"
+                        accept="PGF"
                         onChange={handleFileChange}
                         style={{ display: 'none' }}
                         id="photo-upload"
@@ -137,6 +178,7 @@ export default function AddReport() {
             <div className={styles.subDiv}>
 
                 <button
+                onClick={handleSubmit}
                     type="submit"
                     className={styles.buttonSubmit}>
                     {t("Admin.submit")}

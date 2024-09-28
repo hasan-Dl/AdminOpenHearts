@@ -21,6 +21,25 @@ export default function Projects() {
     setDeleteShow((prevState) => ({ ...prevState, [id]: false }));
   };
   
+ 
+  const handleDelete = (id,Logo) => {
+    fetch(`http://127.0.0.1:2020/delete/project?id=${id}&Path=${Logo}`, {
+      method: 'DELETE',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+  
+      credentials: 'include', // Если нужно передавать cookie
+  })
+      .then(response => {
+          if (response.ok) {
+              alert("Susses")
+          } else {
+              alert("Error")
+          }
+  
+      })
+  }
 
   return (
     <div className={styles.getDiv}>
@@ -50,7 +69,7 @@ export default function Projects() {
                   onClick={() => handleSecondButtonClick(item.Id)}
                   src={del} alt="delete icon" />
                 <button
-                  onClick={() => handleDelete(item.Id)}
+                  onClick={() => handleDelete(item.Id,item.Logo)}
                   className={styles.delete}>
                   Delete
                 </button>

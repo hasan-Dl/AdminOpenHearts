@@ -5,8 +5,8 @@ import LanguageSelector from '../../Languages/LanguageSelector'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 // import { PiEyeSlashLight } from 'react-icons/pi'; 
-import { AiOutlineEye } from "react-icons/ai";
-import { BsFillEyeSlashFill } from "react-icons/bs";
+import { GoEyeClosed } from "react-icons/go";
+import { GoEye } from "react-icons/go";
 import iconError from '../../assets/!.png';
 import susses from  '../../assets/susses.png'
 
@@ -146,7 +146,7 @@ export default function StylesLogin() {
                 onClick={() => setShowPassword(!showPassword)}
                 className={styles.eye}
               >
-                {showPassword ? <BsFillEyeSlashFill className={styles.eyes} /> : <AiOutlineEye className={styles.eyes} />}
+                {showPassword ? <GoEyeClosed className={styles.eyes} /> : <GoEye className={styles.eyes} />}
               </span>
             </div>
             <Link to={'/email'} className={styles.link}>Forgote password</Link>

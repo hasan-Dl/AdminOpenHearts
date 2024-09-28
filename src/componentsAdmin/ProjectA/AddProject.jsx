@@ -30,9 +30,6 @@ export default function AddProject() {
 
   }
 
-
-
-
   const [base64File, setBase64File] = useState(""); // To store base64-encoded file
 
   // Handle file selection and conversion to base64
@@ -75,7 +72,7 @@ export default function AddProject() {
     // Prepare the payload with the base64-encoded file
     const newPartner = {
       Photo: base64File,
-      phone: Number(phone),
+      phone: phone,
       email: email,
       "ru": {
         name: titleRu,

@@ -114,15 +114,17 @@ export default function AddDoctor() {
         // Prepare the payload with the base64-encoded file
         const newPartner = {
             Photo: base64File,
-            phone: Number(phone),
-            days_of_week: week,
-            start_time:parseInt(starTime),
-            end_time:Number(starTime)
+            phone: phone,
+            "time":{
+                days_of_week: week,
+                start_time:starTime,
+                end_time:starTime
+            }
             ,
             gmail:gmail,
             "ru": {
                 full_name :nameRu,
-                educationL:educationRu,
+                education:educationRu,
                 specialization:specializationRu,
                 additional_information:InfoRu,
                 expirence:expInfoRu,
@@ -133,7 +135,7 @@ export default function AddDoctor() {
             },
             "en": {
                 full_name :nameEn,
-                educationL:educationEn,
+                education:educationEn,
                 specialization:specializationEn,
                 additional_information:InfoEn,
                 expirence:expInfoEn,

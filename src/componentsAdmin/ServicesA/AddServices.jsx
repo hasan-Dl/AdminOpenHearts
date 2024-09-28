@@ -83,7 +83,7 @@ export default function AddServices() {
     // Prepare the payload with the base64-encoded file
     const newPartner = {
       Photo: base64File,
-      phone: Number(phone),
+      phone: phone,
       "ru": {
         title: titleRu,
         description: descriptionRu,

@@ -20,6 +20,26 @@ export default function ServicesA() {
   const handleSecondButtonClick = (id) => {
     setDeleteShow((prevState) => ({ ...prevState, [id]: false }));
   };
+  
+  const handleDelete = (id,Logo) => {
+    fetch(`http://127.0.0.1:2020/delete/main/diraction?id=${id}&Path=${Logo}`, {
+      method: 'DELETE',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+  
+      credentials: 'include', // Если нужно передавать cookie
+  })
+      .then(response => {
+          if (response.ok) {
+              alert("Susses")
+          } else {
+              alert("Error")
+          }
+  
+      })
+  }
+
 
   return (
     <div className={styles.getDiv}>
@@ -27,7 +47,7 @@ export default function ServicesA() {
 
         <div className={styles.getParent} key={item.Id} >
           <div className={styles.boxGet}>
-            <img className={styles.getImg} src={`http://127.0.0.1:2020/read/photo?Path=${item.Photo}`} />
+            <img className={styles.getImg} src={`http://127.0.0.1:2020/read/photo?Path=${item.photo}`} />
             <Link to={`/admin/servicesAdmin/${item.Id}`} className={styles.texGet}>{lng == "ru" ? item.ru.title : item.en.title}</Link>
           </div>
           <div>
@@ -48,7 +68,7 @@ export default function ServicesA() {
                   onClick={() => handleSecondButtonClick(item.Id)}
                   src={del} alt="delete icon" />
                 <button
-                  onClick={() => handleDelete(item.Id)}
+                onClick={() => handleDelete(item.Id,item.Logo)}
                   className={styles.delete}>
                   Delete
                 </button>

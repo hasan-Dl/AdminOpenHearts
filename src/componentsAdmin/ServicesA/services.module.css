@@ -357,7 +357,7 @@ ul {
 .fadeIn {
     opacity: 0;
     transform: translateX(0px);
-    animation: fadeInAnimation 1s forwards ease-in-out;
+    animation: fadeInAnimation 0.5s forwards ease-in-out;
     border: none;
 
 }

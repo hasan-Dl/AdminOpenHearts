@@ -6,7 +6,7 @@ import del2 from '../../assets/Vector (4).png'
 export default function Stories() {
   const [deleteShow, setDeleteShow] = useState({});
   const lng = localStorage.getItem("i18nextLng")
-  const { data, loading, error } = useFetch("http://127.0.0.1:2020/get/pationt/story")
+  const { data, loading, error,setData } = useFetch("http://127.0.0.1:2020/get/pationt/story")
   if (loading) return <p>Loadind ...!</p>
   if (error) return <p>Error:{error.message}</p>
 
@@ -18,6 +18,33 @@ export default function Stories() {
   const handleSecondButtonClick = (id) => {
     setDeleteShow((prevState) => ({ ...prevState, [id]: false }));
   };
+
+  const handleDelete = (id,Logo) => {
+    fetch(`http://127.0.0.1:2020/delete/pationt/story?id=${id}&Path=${Logo}`, {
+      method: 'DELETE',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+  
+      credentials: 'include', // Если нужно передавать cookie
+  })
+      .then(response => {
+          if (response.ok) {
+              alert("Susses")
+          } else {
+              alert("Error")
+          }
+  
+      })
+      fetch(`http://127.0.0.1:2020/get/pationt/story`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    
+        credentials: 'include', // Если нужно передавать cookie
+    })
+  }
 
   return (
     <div >
@@ -47,7 +74,7 @@ export default function Stories() {
                   onClick={() => handleSecondButtonClick(item.Id)}
                   src={del} alt="delete icon" />
                 <button
-                  onClick={() => handleDelete()}
+                  onClick={() => handleDelete(item.Id,item.Photo)}
                   className={styles.delete}>
                   Delete
                 </button>
