@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import styles from './project.module.css'
 import classNames from 'classnames';
+import MyModal from '../../modal/MyModal';
+import ErrorModal from '../../modal/ErrorModal';
 export default function AddProject() {
 
   const { t } = useTranslation()
@@ -18,11 +20,12 @@ export default function AddProject() {
 
   // ---------------Photo  useState --- 
 
-  const [photoPath, setPhotoPath] = useState(""); 
+  const [photoPath, setPhotoPath] = useState("");
   // ----
   const [language, setLanguage] = useState(false);
 
-
+  const [modalActive, setModalActive] = useState(false)
+  const [errorM, setError] = useState(false)
 
   // ----- EN-RU--Button
   const handleLanguageChange = (lang) => {
@@ -99,9 +102,11 @@ export default function AddProject() {
     })
       .then(response => {
         if (response.ok) {
-          alert("Success");
+          setModalActive(true)
+          setError(false)
         } else {
-          alert("Error");
+          setModalActive(false)
+          setError(true)
         }
       })
       .catch(error => {
@@ -113,7 +118,14 @@ export default function AddProject() {
 
   return (
     <div>
-
+      <MyModal
+        active={modalActive}
+        setActive={setModalActive}
+      />
+      <ErrorModal
+        error={errorM}
+        setError={setError}
+      />
       {!language ? (
         <div className={styles.parent} >
           <div className={styles.boxStr} >
@@ -240,8 +252,8 @@ export default function AddProject() {
           </div>
         </div>
 
-    </div>
-        <div className={styles.boxSub}>
+      </div>
+      <div className={styles.boxSub}>
         <button
           className={styles.buttonSubmit}
           onClick={handleSubmit}
@@ -249,7 +261,7 @@ export default function AddProject() {
           {t("Admin.submit")}</button>
       </div>
 
-        </div>
+    </div>
   )
 }
 

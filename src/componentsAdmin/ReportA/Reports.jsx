@@ -5,7 +5,13 @@ import { useTranslation } from 'react-i18next';
 import del from '../../assets/Vector (3).png'
 import del2 from '../../assets/Admin botton (1).png'
 import PDF from "../../assets/pGF.png"
+import MyModal from '../../modal/MyModal';
+import ErrorModal from '../../modal/ErrorModal';
 export default function Reports() {
+
+
+  const [modalActive, setModalActive] = useState(false)
+  const [errorM, setError] = useState(false)
 
   const [deleteShow, setDeleteShow] = useState({});
   const lng = localStorage.getItem("i18nextLng")
@@ -31,14 +37,20 @@ export default function Reports() {
   
     // Исправлено: используем обратные кавычки для интерполяции переменных
     fetch(`http://127.0.0.1:2020/delete/report?id=${id}&Path=${Logo}`, requestOptions)
-      .then((response) => response.text())
-      .then((result) => {
-        console.log(result);
-  
-        // Обновляем локальные данные без повторного GET-запроса
+    .then(response => {
+      if (response.ok) {
+        setModalActive(true)
         const updatedData = data.filter(item => item.Id !== id);
         setData(updatedData);
-      })
+        setError(false)
+      } else {
+        setModalActive(false)
+        setError(true)
+      }
+
+    })
+       
+
       .catch((error) => console.error(error));
   };
 
@@ -54,6 +66,14 @@ export default function Reports() {
 
   return (
     <div className={styles.reportParent}>
+        <MyModal
+                active={modalActive}
+                setActive={setModalActive}
+            />
+            <ErrorModal
+                error={errorM}
+                setError={setError}
+            />
       {data.map((item) => (
         <div key={item.Id} className={styles.reportD}>
           <div>

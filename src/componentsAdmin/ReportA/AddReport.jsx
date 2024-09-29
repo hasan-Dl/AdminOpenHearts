@@ -4,10 +4,12 @@ import classNames from 'classnames';
 import { useTranslation } from 'react-i18next'
 import date_time from "../../assets/date_time.png"
 import PDF from "../../assets/pGF.png"
+import MyModal from '../../modal/MyModal';
+import ErrorModal from '../../modal/ErrorModal';
 export default function AddReport() {
 
     const dateTimeRef = useRef()
-    
+
     const { t } = useTranslation()
     const [titleEn, setTitleEn] = useState("")
     const [titleRu, setTitleRu] = useState("")
@@ -59,6 +61,8 @@ export default function AddReport() {
 
     }
 
+    const [modalActive, setModalActive] = useState(false)
+    const [errorM, setError] = useState(false)
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -86,13 +90,16 @@ export default function AddReport() {
             body: JSON.stringify(newPartner),
             credentials: 'include', // If cookies are needed
         })
-            .then(response => {
-                if (response.ok) {
-                    alert("Success");
-                } else {
-                    alert("Error");
-                }
-            })
+        .then(response => {
+            if (response.ok) {
+              setModalActive(true)
+              setError(false)
+            } else {
+              setModalActive(false)
+              setError(true)
+            }
+    
+          })
             .catch(error => {
                 console.error("Error:", error);
             });
@@ -100,7 +107,14 @@ export default function AddReport() {
 
     return (
         <div>
-
+            <MyModal
+                active={modalActive}
+                setActive={setModalActive}
+            />
+            <ErrorModal
+                error={errorM}
+                setError={setError}
+            />
             {!language ? (
                 <div className={styles.parent} >
                     <div className={styles.boxStr} >
@@ -153,12 +167,12 @@ export default function AddReport() {
 
                 <div className={styles.date}>
                     <input type="text"
-                    placeholder='Date'
-                    value={date}
-                    className={styles.time1}
-                    readOnly
+                        placeholder='Date'
+                        value={date}
+                        className={styles.time1}
+                        readOnly
                     />
-                    
+
                     <input
                         type="datetime-local"
                         placeholder='Date'
@@ -166,20 +180,20 @@ export default function AddReport() {
                         onChange={(e) => setDate(e.target.value)}
                         value={date}
                         ref={dateTimeRef}
-                        style={{opacity:"0"}}
+                        style={{ opacity: "0" }}
                     />
-                  <button
-                  style={{border:"none" ,background:"white"}}
-                  >
-                    <img
-                    style={{objectFit: "cover"}} 
-                      onClick={() => { dateTimeRef.current.showPicker() }}
-                    src={date_time} 
-                    alt="" />
-                  </button>
-                   
+                    <button
+                        style={{ border: "none", background: "white" }}
+                    >
+                        <img
+                            style={{ objectFit: "cover" }}
+                            onClick={() => { dateTimeRef.current.showPicker() }}
+                            src={date_time}
+                            alt="" />
+                    </button>
+
                 </div>
-                
+
                 <div className={styles.parentPhoto}>
                     <input
                         className={styles.photo}
@@ -195,17 +209,17 @@ export default function AddReport() {
                         style={{ display: 'none' }}
                         id="photo-upload"
                     />
-                    <label 
-                    className={styles.buttonPhoto}
-                     htmlFor="photo-upload">
-                       <img src={PDF} alt="" />
+                    <label
+                        className={styles.buttonPhoto}
+                        htmlFor="photo-upload">
+                        <img src={PDF} alt="" />
                     </label>
                 </div>
             </div>
             <div className={styles.subDiv}>
 
                 <button
-                onClick={handleSubmit}
+                    onClick={handleSubmit}
                     type="submit"
                     className={styles.buttonSubmit}>
                     {t("Admin.submit")}

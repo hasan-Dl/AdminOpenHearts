@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import styles from './statistic.module.css'
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import MyModal from '../../modal/MyModal';
+import ErrorModal from '../../modal/ErrorModal';
 export default function AddStatistic() {
     const { t } = useTranslation()
     const [number, setNumber] = useState("")
@@ -20,6 +22,8 @@ export default function AddStatistic() {
 
 
 
+    const [modalActive, setModalActive] = useState(false)
+    const [errorM, setError] = useState(false)
 
 
     const Submit = (e) => {
@@ -76,9 +80,11 @@ export default function AddStatistic() {
         })
             .then(response => {
                 if (response.ok) {
-                    alert("Susses")
+                    setModalActive(true)
+                    setError(false)
                 } else {
-                    alert("Error")
+                    setModalActive(false)
+                    setError(true)
                 }
 
             })
@@ -86,6 +92,17 @@ export default function AddStatistic() {
 
     return (
         <div>
+
+
+            <MyModal
+                active={modalActive}
+                setActive={setModalActive}
+            />
+            <ErrorModal
+                error={errorM}
+                setError={setError}
+            />
+
             <div className={styles.inputStatistic}>
                 <div>
                     <input
@@ -96,7 +113,7 @@ export default function AddStatistic() {
                         value={number}
                         style={{
                             borderColor: errorNumber ? '#FF0000' : '',
-                           
+
                         }}
                     />
                     {errorNumber && <p className={styles.error}>{t("Admin.error")}</p>}
@@ -106,8 +123,8 @@ export default function AddStatistic() {
                     {!language ? (
                         <div className={classNames(styles.divEN_RUactive,
                             { [styles.divEN_RU]: language === false })}
-                         
-                            >
+
+                        >
                             <input
                                 type="text"
                                 className={styles.inputDescription}
@@ -133,14 +150,14 @@ export default function AddStatistic() {
                                         borderColor: errorDescriptionRu ? '#FF0000' : '',
                                     }}
                                 />
-                                 {errorDescriptionRu && <p className={styles.error}>{t("Admin.error")}</p>}
+                                {errorDescriptionRu && <p className={styles.error}>{t("Admin.error")}</p>}
                             </div>
                         )}
                     <div className={styles.En_RU}>
 
                         <div
-                         className={classNames(styles.one,
-                            { [styles.oneNone]: language === false })} >
+                            className={classNames(styles.one,
+                                { [styles.oneNone]: language === false })} >
                             <button
                                 className={classNames(styles.oneButton,
                                     { [styles.oneActive]: language === false })}

@@ -4,6 +4,8 @@ import styles from './services.module.css'
 import { useTranslation } from 'react-i18next';
 import Plus from '../../assets/Admin botton.png'
 import X from '../../assets/Group 110@2x.png'
+import MyModal from '../../modal/MyModal';
+import ErrorModal from '../../modal/ErrorModal';
 export default function AddServices() {
 
   const { t } = useTranslation()
@@ -32,6 +34,11 @@ export default function AddServices() {
 
   // ----lang
   const [language, setLanguage] = useState(false);
+
+
+
+  const [modalActive, setModalActive] = useState(false)
+  const [errorM, setError] = useState(false)
 
   // ----- EN-RU--Button
 
@@ -105,13 +112,16 @@ export default function AddServices() {
       body: JSON.stringify(newPartner),
       credentials: 'include', // If cookies are needed
     })
-      .then(response => {
-        if (response.ok) {
-          alert("Success");
-        } else {
-          alert("Error");
-        }
-      })
+    .then(response => {
+      if (response.ok) {
+        setModalActive(true)
+        setError(false)
+      } else {
+        setModalActive(false)
+        setError(true)
+      }
+    })
+
       .catch(error => {
         console.error("Error:", error);
       });
@@ -144,6 +154,14 @@ export default function AddServices() {
   return (
     <div>
 
+      <MyModal
+        active={modalActive}
+        setActive={setModalActive}
+      />
+      <ErrorModal
+        error={errorM}
+        setError={setError}
+      />
       {!language ? (
         <div className={styles.parent} >
           <div className={styles.boxStr} >
@@ -165,25 +183,25 @@ export default function AddServices() {
 
             <div className={styles.list}>
               <div>
-              <h3 className={styles.textList}>Main services</h3>
-              <input
-                className={styles.inputMain}
-                type="text"
-                onChange={(e) => setMainEn(e.target.value)}
-                value={mainEn}
+                <h3 className={styles.textList}>Main services</h3>
+                <input
+                  className={styles.inputMain}
+                  type="text"
+                  onChange={(e) => setMainEn(e.target.value)}
+                  value={mainEn}
                 />
-                </div>
-                <img src={Plus} alt=""  onClick={addServiceEn}  className={styles.plus}/>
-             
+              </div>
+              <img src={Plus} alt="" onClick={addServiceEn} className={styles.plus} />
+
             </div>
             <ul className={styles.lsDOCTORS}>
               {servicesEn.map((children, item) => (
                 <div className={styles.main}>
                   <li key={item} className={styles.mainText}>
                     {children}
-                  </li>  
-                  <img className={styles.x} 
-                   src={X} alt="" onClick={() => removeServiceEn(item)}/>
+                  </li>
+                  <img className={styles.x}
+                    src={X} alt="" onClick={() => removeServiceEn(item)} />
                 </div>
               ))}
             </ul>
@@ -222,18 +240,18 @@ export default function AddServices() {
 
             <div className={styles.list}>
               <div>
-              <h3 className={styles.textList}>Глание услиги</h3>
-              <input
-                className={styles.inputMain}
-                type="text"
-                onChange={(e) => setMainRu(e.target.value)}
-                value={mainRu}
+                <h3 className={styles.textList}>Глание услиги</h3>
+                <input
+                  className={styles.inputMain}
+                  type="text"
+                  onChange={(e) => setMainRu(e.target.value)}
+                  value={mainRu}
                 />
 
-                </div>
-          
-                <img onClick={addServiceRu}  className={styles.plus} src={Plus} alt="" />
-            
+              </div>
+
+              <img onClick={addServiceRu} className={styles.plus} src={Plus} alt="" />
+
             </div>
             <ul className={styles.lsDOCTORS}>
               {servicesRu.map((children, index) => (
@@ -299,13 +317,13 @@ export default function AddServices() {
           </div>
         </div>
       </div>
-        <div className={styles.b}>
-          <button
-            className={styles.buttonSubmit}
-            onClick={handleSubmit}
-          >
-            {t("Admin.submit")}</button>
-        </div>
+      <div className={styles.b}>
+        <button
+          className={styles.buttonSubmit}
+          onClick={handleSubmit}
+        >
+          {t("Admin.submit")}</button>
+      </div>
     </div>
   )
 }

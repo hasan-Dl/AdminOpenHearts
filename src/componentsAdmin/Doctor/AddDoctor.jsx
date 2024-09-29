@@ -6,6 +6,8 @@ import Plus from '../../assets/Admin botton.png'
 import X from '../../assets/Group 110@2x.png'
 import { CiTimer } from "react-icons/ci";
 import { RxTimer } from "react-icons/rx";
+import MyModal from '../../modal/MyModal';
+import ErrorModal from '../../modal/ErrorModal';
 export default function AddDoctor() {
     const timeRef = useRef()
     const timeRefEnd = useRef()
@@ -61,7 +63,8 @@ export default function AddDoctor() {
 
     const [photoPath, setPhotoPath] = useState(""); // Путь к фото (имя файла)
 
-
+    const [modalActive, setModalActive] = useState(false)
+    const [errorM, setError] = useState(false)
     // ----
     const [language, setLanguage] = useState(false);
 
@@ -110,9 +113,6 @@ export default function AddDoctor() {
     // Handle form submission
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(week);
-        console.log(starTime);
-
 
         // Prepare the payload with the base64-encoded file
         const newPartner = {
@@ -159,13 +159,16 @@ export default function AddDoctor() {
             body: JSON.stringify(newPartner),
             credentials: 'include', // If cookies are needed
         })
-            .then(response => {
-                if (response.ok) {
-                    alert("Success");
-                } else {
-                    alert("Error");
-                }
-            })
+        .then(response => {
+            if (response.ok) {
+              setModalActive(true)
+              setError(false)
+            } else {
+              setModalActive(false)
+              setError(true)
+            }
+    
+          })
             .catch(error => {
                 console.error("Error:", error);
             });
@@ -261,7 +264,14 @@ export default function AddDoctor() {
 
     return (
         <div>
-
+            <MyModal
+                active={modalActive}
+                setActive={setModalActive}
+            />
+            <ErrorModal
+                error={errorM}
+                setError={setError}
+            />
             {!language ? (
                 <div className={styles.parent} >
                     <div className={styles.boxStr} >

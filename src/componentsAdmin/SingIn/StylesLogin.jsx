@@ -4,13 +4,15 @@ import styles from './login.module.css'
 import LanguageSelector from '../../Languages/LanguageSelector'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-// import { PiEyeSlashLight } from 'react-icons/pi'; 
 import { GoEyeClosed } from "react-icons/go";
 import { GoEye } from "react-icons/go";
-import iconError from '../../assets/!.png';
-import susses from  '../../assets/susses.png'
+import MyModal from '../../modal/MyModal'
+import { use } from 'i18next'
+import ErrorModal from '../../modal/ErrorModal'
+
 
 export default function StylesLogin() {
+
   const { t } = useTranslation()
   const [password, setPassword] = useState("")
   const [phone, setPhone] = useState("")
@@ -19,22 +21,17 @@ export default function StylesLogin() {
   // ----- Error and Susses ---
   const [errorPhone, setErrorPhone] = useState(false)
   const [errorPAssword, setErrorPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
 
   // Modal-----
-  const [modalMessage, setModalMessage] = useState(''); // Состояние для сообщения в модальном окне
-  const [showModal, setShowModal] = useState(false);
-  const [modalClass, setModalClass] = useState('');
 
-  const [showPassword, setShowPassword] = useState(false);
-  const [ShowImg,setShowImg]=useState()
-
-  const handleClickOutside = (e) => {
-    if (e.target.classList.contains('modal')) {
-      setShowModal(false);
-    }
-  };
+  const [modalActive, setModalActive] = useState(false)
+  const [errorM, setError] = useState(false)
 
   const Login = (e) => {
+
+    e.preventDefault();
+
     let hasError = false;
     if (!password) {
       setErrorPassword(true);
@@ -55,10 +52,9 @@ export default function StylesLogin() {
     if (hasError) {
       return;
     }
-    
-    e.preventDefault();
+
     const data = {
-      "Phone":phone,
+      "Phone": phone,
       "Password": password,
     };
 
@@ -75,32 +71,29 @@ export default function StylesLogin() {
     })
       .then(response => {
         if (response.ok) {
-          setModalMessage(t("Admin.susses"));
-          setModalClass('modal-success'); 
-          setShowImg (susses)
+          // setModalActive(true);
           navigate("/admin/statisticAdmin")
+          setModalActive(true);
+          setError(false);
         } else {
-          setModalMessage(t('Admin.send'));
-          setModalClass('modal-error'); // Применяем класс для ошибочного состояния
-          setShowImg (iconError)
+          setModalActive(false);
+          setError(true);
         }
-        setShowModal(true);
+
       })
   }
 
   return (
     <div>
 
-      {showModal && (
-        <div className="modal" onClick={handleClickOutside}>
-          <div className={`modal-content ${modalClass}`}>
-            <div className={`iconError`} >
-            {ShowImg && <img src={ShowImg} alt="Response status" />}
-            </div>
-            <p className='textModal'>{modalMessage}</p>
-          </div>
-        </div>
-      )}
+      <MyModal
+        active={modalActive}
+        setActive={setModalActive}
+      />
+      <ErrorModal
+      error={errorM}
+      setError={setError}
+      />
 
       <div className={styles.parent}>
         <img src={logo} className={styles.img} alt="" />
@@ -157,7 +150,8 @@ export default function StylesLogin() {
           <button
             onClick={Login}
             className={styles.submit}
-          > {t("Admin.submit")}</button>
+          > {t("Admin.submit")}
+          </button>
 
         </div>
       </div>

@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import styles from './story.module.css'
 import classNames from 'classnames';
+import MyModal from '../../modal/MyModal';
+import ErrorModal from '../../modal/ErrorModal';
 export default function AddStory() {
   const { t } = useTranslation()
   const [titleRu, setTitleRu] = useState("")
@@ -22,12 +24,14 @@ export default function AddStory() {
 
   const [photoPath, setPhotoPath] = useState(""); // Путь к фото (имя файла)
 
+
   const clickButton = (e) => {
     setLanguage(e)
   }
 
 
-
+  const [modalActive, setModalActive] = useState(false)
+  const [errorM, setError] = useState(false)
 
   const [base64File, setBase64File] = useState("");
 
@@ -97,10 +101,13 @@ export default function AddStory() {
     })
       .then(response => {
         if (response.ok) {
-          alert("Success");
+          setModalActive(true)
+          setError(false)
         } else {
-          alert("Error");
+          setModalActive(false)
+          setError(true)
         }
+
       })
       .catch(error => {
         console.error("Error:", error);
@@ -109,6 +116,17 @@ export default function AddStory() {
 
   return (
     <div>
+
+      <MyModal
+        active={modalActive}
+        setActive={setModalActive}
+      />
+      <ErrorModal
+        error={errorM}
+        setError={setError}
+      />
+
+
       {!language ? (
 
         <div className={styles.add}>
@@ -244,7 +262,7 @@ export default function AddStory() {
             {t("Admin.choose")}
           </label>
         </div>
-        
+
       </div>
       <div className={styles.divSubmit}>
         <button
@@ -253,7 +271,7 @@ export default function AddStory() {
           className={styles.buttonSubmit}>
           {t("Admin.submit")}
         </button>
-            </div>
+      </div>
     </div>
   )
 }

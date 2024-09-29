@@ -9,6 +9,8 @@ import styles from './doctor.module.css'
 import LanguageSelector from '../../Languages/LanguageSelector';
 import { useTranslation } from 'react-i18next';
 import { IoTennisball } from 'react-icons/io5';
+import MyModal from '../../modal/MyModal';
+import ErrorModal from '../../modal/ErrorModal';
 // import { data } from '../../data/data';
 
 export default function OneDoctor() {
@@ -16,6 +18,9 @@ export default function OneDoctor() {
     const lng = localStorage.getItem("i18nextLng")
     const { t } = useTranslation()
     const [deleteShow, setDeleteShow] = useState({});
+    const [modalActive, setModalActive] = useState(false)
+    const [errorM, setError] = useState(false)
+
     const { data, loading, error, } = useFetch("http://127.0.0.1:2020/get/team")
 
     const { idDoctor } = useParams()
@@ -44,9 +49,13 @@ export default function OneDoctor() {
         })
             .then(response => {
                 if (response.ok) {
-                    alert("Susses")
+                    setModalActive(true)
+                    const updatedData = data.filter(item => item.Id !== id);
+                    setData(updatedData);
+                    setError(false)
                 } else {
-                    alert("Error")
+                    setModalActive(false)
+                    setError(true)
                 }
 
             })
@@ -56,6 +65,14 @@ export default function OneDoctor() {
 
     return (
         <div className={styles.oneParent} >
+            <MyModal
+                active={modalActive}
+                setActive={setModalActive}
+            />
+            <ErrorModal
+                error={errorM}
+                setError={setError}
+            />
             <div>
                 <div className={styles.parent1}>
                     <div className={styles.img}>

@@ -87,12 +87,12 @@
         "email": "Email",
         "phone": "Phone",
         "error": "*Required field",
-        "send": "Send error!",
-        "susses": "Sent successfully!",
+        "send": "Send error !",
+        "susses": "Sent successfully !",
         "delete": "Delete",
-        "education": "Education:",
-        "additional": "Additional courses and certificates:",
-        "contact":"Contact information:",
-        "about":"About the specialist:"
+        "education": "Education :",
+        "additional": "Additional courses and certificates :",
+        "contact":"Contact information :",
+        "about":"About the specialist :"
     }
 }

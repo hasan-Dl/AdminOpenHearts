@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import styles from './partner.module.css';
 import { useTranslation } from 'react-i18next';
+import MyModal from '../../modal/MyModal';
+import ErrorModal from '../../modal/ErrorModal';
 
 export default function AddPartner() {
     const { t } = useTranslation();
     const [photoPath, setPhotoPath] = useState(""); // To store file name
     const [base64File, setBase64File] = useState(""); // To store base64-encoded file
-
+ 
+    const [modalActive, setModalActive] = useState(false)
+    const [errorM, setError] = useState(false)
+    
     // Handle file selection and conversion to base64
     const handleFileChange = (event) => {
         const file = event.target.files[0]; // Get the first uploaded file
@@ -55,51 +60,61 @@ export default function AddPartner() {
             body: JSON.stringify(newPartner),
             credentials: 'include', // If cookies are needed
         })
-            .then(response => {
-                if (response.ok) {
-                    alert("Success");
-                } else {
-                    alert("Error");
-                }
-            })
+        .then(response => {
+            if (response.ok) {
+              setModalActive(true)
+              setError(false)
+            } else {
+              setModalActive(false)
+              setError(true)
+            }
+    
+          })
             .catch(error => {
                 console.error("Error:", error);
             });
     };
 
     return (
+        <div>
+            <MyModal
+                active={modalActive}
+                setActive={setModalActive}
+            />
+            <ErrorModal
+                error={errorM}
+                setError={setError}
+            />
 
-
-            <div>
-                <div className={styles.submit}>
-                    <div className={styles.parentPhoto}>
-                        <input
-                            className={styles.photo}
-                            type="text"
-                            placeholder={t("Admin.photo")}
-                            value={photoPath}
-                            readOnly
-                        />
-                        <input
-                            type="file"
-                            accept="image/*"
-                            onChange={handleFileChange}
-                            style={{ display: 'none' }}
-                            id="photo-upload"
-                        />
-                        <label className={styles.buttonPhoto} htmlFor="photo-upload">
-                      {t("Admin.choose")}
-                        </label>
-                    </div>
+            <div className={styles.submit}>
+                <div className={styles.parentPhoto}>
+                    <input
+                        className={styles.photo}
+                        type="text"
+                        placeholder={t("Admin.photo")}
+                        value={photoPath}
+                        readOnly
+                    />
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileChange}
+                        style={{ display: 'none' }}
+                        id="photo-upload"
+                    />
+                    <label className={styles.buttonPhoto} htmlFor="photo-upload">
+                        {t("Admin.choose")}
+                    </label>
                 </div>
+            </div>
             <div className={styles.divSub}>
                 <button
-                onClick={handleSubmit}
+                    onClick={handleSubmit}
                     type="submit"
                     className={styles.buttonSubmit}>
                     {t("Admin.submit")}
                 </button>
             </div>
-            </ div>
+        </ div>
     );
 }

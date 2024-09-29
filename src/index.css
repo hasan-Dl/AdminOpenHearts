@@ -45,71 +45,107 @@ body {
 
 
 /* MODAL  */
-
+/*  */
 
 .modal {
   position: fixed;
-  bottom: 43.5%;
+  top: 0;
   left: 0;
-  width: 100%;
   height: 100%;
+  width: 100%;
   display: flex;
+  align-items: start;
   justify-content: center;
-  align-items: center;
-  transition: 2s;
-  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+  z-index: 10000;
 }
 
+.modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
 
 .modal-content {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  background: #69C372;
   width: 491px;
   height: 73px;
-  top: 21px;
-  left: 715px;
   padding: 15px 0px 15px 0px;
   gap: 20px;
   border-radius: 10px;
-  text-align: center;
-  transform: scale(0.1);
-  transition: 2s all;
+  font-family: Jost;
+  transform: scale(0.3);
+  transition: 0.4s all;
+  margin-top: 21px;
+  color: white;
+  z-index: 5000;
 }
 
-.iconError {
-  background: white;
+.modal-content.active {
+  transform: scale(1);
+}
+
+.susses-error {
   width: 40px;
   height: 40px;
+  background: white;
   border-radius: 50%;
-  padding-top: 10px;
+  padding: 10px 11px;
 }
 
-
-.modal-success {
-  background: #69C372;
-  transition: 2s all;
-}
+/* error */
 
 
 .modal-error {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+  z-index: 10000;
+}
+
+.modal-error.error {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-content-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: #FF4141;
-  transition: 2s all;
-}
-
-.modal-content.modal-error {
-  transform: scale(1);
-}
-
-.modal-content.modal-success {
-  transform: scale(1);
-}
-
-.textModal {
-  color: white;
+  width: 491px;
+  height: 73px;
+  padding: 15px 0px 15px 0px;
+  gap: 20px;
+  border-radius: 10px;
   font-family: Jost;
-  font-size: 22px;
-  font-weight: 600;
-  text-align: center;
+  transform: scale(0.3);
+  transition: 0.4s all;
+  margin-top: 21px;
+  color: white;
 
+}
+
+.modal-content-error.error {
+  transform: scale(1);
+}
+
+.er {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  padding: 10px 13px 10px 13px;
 }
