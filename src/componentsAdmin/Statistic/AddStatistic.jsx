@@ -8,15 +8,51 @@ export default function AddStatistic() {
     const [descriptionEn, setDescriptionEn] = useState("")
     const [descriptionRu, setDescriptionRu] = useState("")
     const [language, setLanguage] = useState(false);
+    // error === Submit
+    const [errorNumber, setErrorNumber] = useState(false)
+    const [errorDescriptionRu, setErrorDescriptionRu] = useState(false)
+    const [errorDescriptionEn, setErrorDescriptionEn] = useState(false)
 
+    // =-
     const clickButton = (e) => {
         setLanguage(e)
     }
 
 
+
+
+
     const Submit = (e) => {
 
-        e.preventDefault();
+        e.preventDefault(e);
+
+        let hasError = false;
+        if (!number) {
+            setErrorNumber(true);
+            hasError = true;
+        } else {
+            setErrorNumber(false);
+        }
+
+        if (!descriptionRu) {
+            setErrorDescriptionRu(true);
+            hasError = true;
+        } else {
+            setErrorDescriptionRu(false);
+        }
+        if (!descriptionEn) {
+            setErrorDescriptionEn(true);
+            hasError = true;
+        } else {
+            setErrorDescriptionEn(false);
+        }
+
+
+        // Если есть ошибка, отменяем отправку
+        if (hasError) {
+            return;
+        }
+
         const submitStatistic = {
             quantity: Number(number),
             ru: {
@@ -51,25 +87,38 @@ export default function AddStatistic() {
     return (
         <div>
             <div className={styles.inputStatistic}>
-                <input
-                    type="text"
-                    className={styles.inputNumber}
-                    placeholder={t("Admin.quantity")}
-                    onChange={(e) => setNumber(e.target.value)}
-                    value={number}
-                />
+                <div>
+                    <input
+                        type="text"
+                        className={styles.inputNumber}
+                        placeholder={t("Admin.quantity")}
+                        onChange={(e) => setNumber(e.target.value)}
+                        value={number}
+                        style={{
+                            borderColor: errorNumber ? '#FF0000' : '',
+                           
+                        }}
+                    />
+                    {errorNumber && <p className={styles.error}>{t("Admin.error")}</p>}
+                </div>
 
                 <div className={styles.add}>
                     {!language ? (
                         <div className={classNames(styles.divEN_RUactive,
-                            { [styles.divEN_RU]: language === false })}>
+                            { [styles.divEN_RU]: language === false })}
+                         
+                            >
                             <input
                                 type="text"
                                 className={styles.inputDescription}
                                 placeholder='Description'
                                 onChange={(e) => setDescriptionEn(e.target.value)}
                                 value={descriptionEn}
+                                style={{
+                                    borderColor: errorDescriptionEn ? '#FF0000' : '',
+                                }}
                             />
+                            {errorDescriptionEn && <p className={styles.error}>{t("Admin.error")}</p>}
                         </div>
                     ) :
                         (
@@ -80,12 +129,17 @@ export default function AddStatistic() {
                                     onChange={(e) => setDescriptionRu(e.target.value)}
                                     value={descriptionRu}
                                     placeholder='Описания'
+                                    style={{
+                                        borderColor: errorDescriptionRu ? '#FF0000' : '',
+                                    }}
                                 />
+                                 {errorDescriptionRu && <p className={styles.error}>{t("Admin.error")}</p>}
                             </div>
                         )}
                     <div className={styles.En_RU}>
 
-                        <div className={classNames(styles.one,
+                        <div
+                         className={classNames(styles.one,
                             { [styles.oneNone]: language === false })} >
                             <button
                                 className={classNames(styles.oneButton,

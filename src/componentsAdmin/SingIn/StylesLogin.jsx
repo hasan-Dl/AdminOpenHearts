@@ -55,6 +55,7 @@ export default function StylesLogin() {
     if (hasError) {
       return;
     }
+    
     e.preventDefault();
     const data = {
       "Phone":phone,

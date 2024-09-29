@@ -6,11 +6,10 @@ import logo from '../../assets/openHearts.png'
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 export default function Code() {
-    const {t} =useTranslation()
+    const { t } = useTranslation()
     const [otp, setOtp] = useState('');
     const navigate = useNavigate()
     const [otpError, setOtpError] = useState(false);
-    const [codeE, setCodeE] = useState([])
 
     const Submit = (e) => {
         e.preventDefault();
@@ -58,30 +57,37 @@ export default function Code() {
                     <LanguageSelector />
                 </div>
             </div>
-            <h1 className={styles.text}>Enter the code</h1>
-    
-            <div className={styles.DivCode}>
-                <OtpInput
-                    onChange={setOtp}
-                    value={otp}
-                    numInputs={5}
-                    renderInput={(props) => <input  {...props} className={styles.code} placeholder='-'
-                        style={{
-                            borderColor: otpError ? 'red' : '',
-                        }}
-                    />}
-                />
+            <div className={styles.styleCode}>
+                <h1 className={styles.text}>Enter the code</h1>
+
+
+                <div className={styles.DivCode}>
+                    <h1 className={styles.text1}>Enter code </h1>
+                    <OtpInput
+                        onChange={setOtp}
+                        value={otp}
+                        numInputs={5}
+                        renderInput={(props) => <input
+                            {...props}
+                            className={styles.code}
+                            placeholder='-'
+                            style={{
+                                borderColor: otpError ? 'red' : '',
+                            }}
+                        />}
+                    />
+                </div>
+                {otpError && <p style={{ color: 'red' }}>Code </p>}
+                <div className={styles.boxSub}>
+
+                    <button
+                        onClick={Submit}
+                        className={styles.submit}
+                    > {t("Admin.submit")}</button>
+
+                </div>
             </div>
-            {otpError && <p style={{ color: 'red' }}>Code </p>}
-            <div className={styles.boxSub}>
 
-          <button
-            onClick={Submit}
-            className={styles.submit}
-          > {t("Admin.submit")}</button>
-
-        </div>
-           
         </div>
     )
 }

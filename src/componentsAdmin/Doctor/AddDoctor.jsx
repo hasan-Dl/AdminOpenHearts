@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import classNames from 'classnames';
 import styles from './doctor.module.css'
 import { useTranslation } from 'react-i18next';
 import Plus from '../../assets/Admin botton.png'
 import X from '../../assets/Group 110@2x.png'
+import { CiTimer } from "react-icons/ci";
+import { RxTimer } from "react-icons/rx";
 export default function AddDoctor() {
-
+    const timeRef = useRef()
+    const timeRefEnd = useRef()
     const { t } = useTranslation()
     // --------- En----
     const [nameEn, setNameEn] = useState("")
@@ -109,39 +112,39 @@ export default function AddDoctor() {
         event.preventDefault();
         console.log(week);
         console.log(starTime);
-  
-  
+
+
         // Prepare the payload with the base64-encoded file
         const newPartner = {
             Photo: base64File,
             phone: phone,
-            "time":{
+            "time": {
                 days_of_week: week,
-                start_time:starTime,
-                end_time:end
+                start_time: starTime,
+                end_time: end
             }
             ,
-            gmail:gmail,
+            gmail: gmail,
             "ru": {
-                full_name :nameRu,
-                education:educationRu,
-                specialization:specializationRu,
-                additional_information:InfoRu,
-                expirence:expInfoRu,
-                services:servicesInfoRu,
+                full_name: nameRu,
+                education: educationRu,
+                specialization: specializationRu,
+                additional_information: InfoRu,
+                expirence: expInfoRu,
+                services: servicesInfoRu,
                 profession: professionRu,
-                about_specialist:aboutRu
-                
+                about_specialist: aboutRu
+
             },
             "en": {
-                full_name :nameEn,
-                education:educationEn,
-                specialization:specializationEn,
-                additional_information:InfoEn,
-                expirence:expInfoEn,
-                services:servicesInfoEn,
+                full_name: nameEn,
+                education: educationEn,
+                specialization: specializationEn,
+                additional_information: InfoEn,
+                expirence: expInfoEn,
+                services: servicesInfoEn,
                 profession: professionEn,
-                about_specialist:aboutEn
+                about_specialist: aboutEn
             },
 
 
@@ -533,7 +536,7 @@ export default function AddDoctor() {
                     <p className={styles.text}>+992</p>
                     <input
                         className={styles.inputPhone}
-                        placeholder="Phone"
+                        placeholder={t("Admin.phone")}
                         type="text"
                         onChange={(e) => setPhone(e.target.value)}
                         value={phone}
@@ -541,7 +544,7 @@ export default function AddDoctor() {
                 </div>
                 <input
                     className={styles.inputPro}
-                    placeholder="Email"
+                    placeholder={t("Admin.email")}
                     type="text"
                     onChange={(e) => setGmail(e.target.value)}
                     value={gmail}
@@ -550,7 +553,7 @@ export default function AddDoctor() {
                     <div>
                         <h3 className={styles.textList}>Days of the week</h3>
                         <input
-                            className={styles.inputMain}
+                            className={styles.inputMain1}
                             type="text"
                             onChange={(e) => setDays(e.target.value)}
                             value={days}
@@ -560,7 +563,7 @@ export default function AddDoctor() {
                     <img onClick={addDays} src={Plus} alt="" className={styles.plus} />
 
                 </div>
-                <ul className={styles.lsDOCTORS}>
+                <ul className={styles.lsDOCTORS1}>
                     {week.map((children, index) => (
                         <div className={styles.main}>
                             <li key={index} className={styles.mainText}>
@@ -575,45 +578,73 @@ export default function AddDoctor() {
                 </ul>
 
                 <div className={styles.StartEndTime}>
-                    <input
-                     className={styles.start} 
-                     type="time"
-                     onChange={(e)=>setStartTime(e.target.value)}
-                     value={starTime}
-                     />
+                    <div className={styles.start} >
 
-                      <input
-                     className={styles.start} 
-                     type='time'
-                     onChange={(e)=>setEnd(e.target.value)}
-                     value={end}
-                     />
+                        <input
+                            className={styles.time}
+                            type="text"
+                            placeholder='Start time'
+                            value={starTime}
+                            readOnly
+                        />
+
+                        <input
+                            type="time"
+                            onChange={(e) => setStartTime(e.target.value)}
+                            value={starTime}
+                            ref={timeRef}
+                            style={{ opacity: "0", width: "0px" }}
+                        />
+                        <p><RxTimer
+                            className={styles.timeStyle}
+                            onClick={() => { timeRef.current.showPicker() }}
+                        /></p>
+                    </div>
+                    <div className={styles.start} >
+                        <input
+                            className={styles.time}
+                            type="text"
+                            placeholder='End time'
+                            value={end}
+                            readOnly
+                        />
+                        <input
+                            type='time'
+                            onChange={(e) => setEnd(e.target.value)}
+                            value={end}
+                            ref={timeRefEnd}
+                            style={{ opacity: "0", width: "0px" }}
+                        />
+                        <p>< RxTimer className={styles.timeStyle}
+                            onClick={() => { timeRefEnd.current.showPicker() }}
+                        /></p>
+                    </div>
                 </div>
 
 
-                <div className={styles.parentPhoto}>
-                    <input
-                        className={styles.photo}
-                        type="text"
-                        placeholder="Photo"
-                        value={photoPath}
-                        readOnly
-                    />
-                    <input
-                        type="file"
-                        accept="image/*"
-                        onChange={handleFileChange}
-                        style={{ display: 'none' }}
-                        id="photo-upload"
-                    />
-                    <label className={styles.buttonPhoto} htmlFor="photo-upload">
-                        Choose photo
-                    </label>
-                </div>
                 <div className={styles.b}>
+                    <div className={styles.parentPhoto}>
+                        <input
+                            className={styles.photo}
+                            type="text"
+                            placeholder={t("Admin.photo")}
+                            value={photoPath}
+                            readOnly
+                        />
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={handleFileChange}
+                            style={{ display: 'none' }}
+                            id="photo-upload"
+                        />
+                        <label className={styles.buttonPhoto} htmlFor="photo-upload">
+                            {t("Admin.choose")}
+                        </label>
+                    </div>
                     <button
                         className={styles.buttonSubmit}
-                    onClick={handleSubmit}
+                        onClick={handleSubmit}
                     >
                         {t("Admin.submit")}</button>
                 </div>

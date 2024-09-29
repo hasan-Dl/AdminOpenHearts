@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import useFetch from '../../data/useFetch';
 import styles from './project.module.css'
 import del from '../../assets/Vector (3).png'
-import del2 from '../../assets/Vector (4).png'
+import del2 from '../../assets/Admin botton (1).png'
 export default function Projects() {
 
 
   const [deleteShow, setDeleteShow] = useState({});
   const lng = localStorage.getItem("i18nextLng")
-  const { data, loading, error } = useFetch("http://127.0.0.1:2020/get/project")
+  const { data, loading, error,setData } = useFetch("http://127.0.0.1:2020/get/project")
   if (loading) return <p>Loadind ...!</p>
   if (error) return <p>Error:{error.message}</p>
 
@@ -20,36 +20,42 @@ export default function Projects() {
   const handleSecondButtonClick = (id) => {
     setDeleteShow((prevState) => ({ ...prevState, [id]: false }));
   };
+
+
+  const handleDelete = (id, Logo) => {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
   
- 
-  const handleDelete = (id,Logo) => {
-    fetch(`http://127.0.0.1:2020/delete/project?id=${id}&Path=${Logo}`, {
-      method: 'DELETE',
-      headers: {
-          'Content-Type': 'application/json',
-      },
+    const requestOptions = {
+      method: "DELETE",
+      headers: myHeaders,
+      redirect: "follow",
+      credentials: 'include',
+    };
   
-      credentials: 'include', // Если нужно передавать cookie
-  })
-      .then(response => {
-          if (response.ok) {
-              alert("Susses")
-          } else {
-              alert("Error")
-          }
+    // Исправлено: используем обратные кавычки для интерполяции переменных
+    fetch(`http://127.0.0.1:2020/delete/project?id=${id}&Path=${Logo}`, requestOptions)
+      .then((response) => response.text())
+      .then((result) => {
+        console.log(result);
   
+        // Обновляем локальные данные без повторного GET-запроса
+        const updatedData = data.filter(item => item.Id !== id);
+        setData(updatedData);
       })
-  }
+      .catch((error) => console.error(error));
+  };
+
 
   return (
     <div className={styles.getDiv}>
-      {data.map((item)=>(
-       
- <div className={styles.getParent} key={item.Id}>
+      {data.map((item) => (
+
+        <div className={styles.getParent} key={item.Id}>
           <div className={styles.boxGet}>
             <img className={styles.getImg} src={`http://127.0.0.1:2020/read/photo?Path=${item.Photo}`} />
             <h1 className={styles.textGet}>{lng == "ru" ? item.ru.name : item.en.name}</h1>
-            <p  className={styles.TitleGet}>{lng == "ru" ? item.ru.description : item.en.description}</p>
+            <p className={styles.TitleGet}>{lng == "ru" ? item.ru.description : item.en.description}</p>
           </div>
           <div>
             {!deleteShow[item.Id] && (
@@ -63,13 +69,13 @@ export default function Projects() {
 
             {deleteShow[item.Id] && (
               <div
-              className={`${styles.getButton} ${styles.fadeIn}`}
+                className={`${styles.getButton} ${styles.fadeIn}`}
               >
                 <img
                   onClick={() => handleSecondButtonClick(item.Id)}
                   src={del} alt="delete icon" />
                 <button
-                  onClick={() => handleDelete(item.Id,item.Logo)}
+                  onClick={() => handleDelete(item.Id, item.Logo)}
                   className={styles.delete}>
                   Delete
                 </button>
@@ -79,7 +85,7 @@ export default function Projects() {
         </div>
 
       ))}
-      
+
     </div>
   )
 }

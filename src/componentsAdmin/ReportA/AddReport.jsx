@@ -1,8 +1,13 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import styles from './report.module.css'
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next'
+import date_time from "../../assets/date_time.png"
+import PDF from "../../assets/pGF.png"
 export default function AddReport() {
+
+    const dateTimeRef = useRef()
+    
     const { t } = useTranslation()
     const [titleEn, setTitleEn] = useState("")
     const [titleRu, setTitleRu] = useState("")
@@ -147,19 +152,39 @@ export default function AddReport() {
             <div className={styles.submit}>
 
                 <div className={styles.date}>
+                    <input type="text"
+                    placeholder='Date'
+                    value={date}
+                    className={styles.time1}
+                    readOnly
+                    />
+                    
                     <input
-                        className={styles.time}
                         type="datetime-local"
+                        placeholder='Date'
                         id="date-time"
                         onChange={(e) => setDate(e.target.value)}
                         value={date}
+                        ref={dateTimeRef}
+                        style={{opacity:"0"}}
                     />
+                  <button
+                  style={{border:"none" ,background:"white"}}
+                  >
+                    <img
+                    style={{objectFit: "cover"}} 
+                      onClick={() => { dateTimeRef.current.showPicker() }}
+                    src={date_time} 
+                    alt="" />
+                  </button>
+                   
                 </div>
+                
                 <div className={styles.parentPhoto}>
                     <input
                         className={styles.photo}
                         type="text"
-                        placeholder="Photo"
+                        placeholder="PDF"
                         value={photoPath}
                         readOnly
                     />
@@ -170,8 +195,10 @@ export default function AddReport() {
                         style={{ display: 'none' }}
                         id="photo-upload"
                     />
-                    <label className={styles.buttonPhoto} htmlFor="photo-upload">
-                        Choose photo
+                    <label 
+                    className={styles.buttonPhoto}
+                     htmlFor="photo-upload">
+                       <img src={PDF} alt="" />
                     </label>
                 </div>
             </div>

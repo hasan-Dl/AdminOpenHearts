@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import styles from './services.module.css'
 import useFetch from '../../data/useFetch'
 import del from '../../assets/Vector (3).png'
 import logo from '../../assets/openHearts.png'
 import del2 from '../../assets/Admin botton (2).png'
-import surat from '../../assets/ос-10.png'
+// import surat from '../../assets/ос-10.png'
 import LanguageSelector from '../../Languages/LanguageSelector'
 import { useTranslation } from 'react-i18next'
 export default function OneServices() {
+
+    const navigate = useNavigate()
+
     const { t } = useTranslation()
     const lng = localStorage.getItem("i18nextLng")
     const [deleteShow, setDeleteShow] = useState({});
@@ -41,6 +44,7 @@ export default function OneServices() {
           .then(response => {
               if (response.ok) {
                   alert("Susses")
+                 
               } else {
                   alert("Error")
               }

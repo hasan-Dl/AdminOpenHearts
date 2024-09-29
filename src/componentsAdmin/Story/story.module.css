@@ -1,11 +1,11 @@
 .styleBox {
     border-left: 4px solid #FF6262;
     border-right: 4px solid #FF6262;
-    width: 1330px;
+    width: 1415px;
     padding-top: 50px;
     padding-left: 70px;
     padding-right: 70px;
-    height: 1076px;
+    height: 115vh;
     padding-bottom: 40px;
 }
 
@@ -109,7 +109,7 @@
 
 
 .inputDescription {
-    width: 947px;
+    width: 1050px;
     height: 93px;
     padding: 25px 30px 25px 30px;
     border: 2px solid black;
@@ -117,6 +117,7 @@
     font-size: 30px;
     font-weight: 400;
     margin-top: 20px;
+    outline: none;
 }
 
 
@@ -236,6 +237,7 @@
 /* --------get == */
 .getDiv {
     border-top: 2px solid black;
+    width: 1190px;
 }
 
 .getParent {
@@ -243,7 +245,6 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 2px solid black;
-    width: 1165px;
     height: 99px;
     padding: 0px 30px 0px 0px;
     border-left: 2px solid black;
@@ -324,6 +325,8 @@
     transform: translateX(0px);
     animation: fadeOutAnimation 1s;
     border: none;
+    background: white;
+    padding-top: 5px;
 }
 
 @keyframes fadeOutAnimation {

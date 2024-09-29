@@ -2,13 +2,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .parent {
     display: flex;
     align-items: start;
-    width: 1920px;
-  
 }
 
 .hrBox{
@@ -19,7 +18,8 @@
 }
 
 .hr {
+    position: absolute;
     color: black;
     border: 2px solid black;
-    width: 200vh;
+    width: 100%;
 }

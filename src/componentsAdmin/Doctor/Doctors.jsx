@@ -8,7 +8,7 @@ export default function Doctors() {
 
   const [deleteShow, setDeleteShow] = useState({});
   const lng = localStorage.getItem("i18nextLng")
-  const { data, loading, error } = useFetch("http://127.0.0.1:2020/get/team")
+  const { data, loading, error,setData } = useFetch("http://127.0.0.1:2020/get/team")
   if (loading) return <p>Loadind ...!</p>
   if (error) return <p>Error:{error.message}</p>
 
@@ -22,39 +22,46 @@ export default function Doctors() {
     setDeleteShow((prevState) => ({ ...prevState, [id]: false }));
   };
 
+
   const handleDelete = (id, Logo) => {
-    fetch(`http://127.0.0.1:2020/delete/team?id=${id}&Path=${Logo}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-
-      credentials: 'include', // Если нужно передавать cookie
-    })
-      .then(response => {
-        if (response.ok) {
-          alert("Susses")
-        } else {
-          alert("Error")
-        }
-
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+  
+    const requestOptions = {
+      method: "DELETE",
+      headers: myHeaders,
+      redirect: "follow",
+      credentials: 'include',
+    };
+  
+    // Исправлено: используем обратные кавычки для интерполяции переменных
+    fetch(`http://127.0.0.1:2020/delete/team?id=${id}&Path=${Logo}`, requestOptions)
+      .then((response) => response.text())
+      .then((result) => {
+        console.log(result);
+  
+        // Обновляем локальные данные без повторного GET-запроса
+        const updatedData = data.filter(item => item.Id !== id);
+        setData(updatedData);
       })
-  }
+      .catch((error) => console.error(error));
+  };
 
-
+  
   return (
     <div style={{
      borderTop:"2px solid black"
     }}>
       {data.map((item) => (
-        <div key={item.Id}>
+        <div key={item.Id} className={styles.parentDoctorGet}>
           <Link
+          
           style={{
             textDecoration :"none",
             color:"black"
           }}
            to={`/admin/doctorAdmin/${item.Id}`}>
-            <div className={styles.parentDoctorGet}>
+
               <div className={styles.getNAmeImg}>
                 <img
                   className={styles.getImg}
@@ -62,6 +69,9 @@ export default function Doctors() {
                 <h2 className={styles.textGet}>{lng == "ru" ? item.ru.full_name : item.en.full_name}</h2>
                 <h4 className={styles.TitleGet}>{lng == "ru" ? item.ru.profession : item.en.profession}</h4>
               </div>
+                    </Link>
+            <div >
+
               <div>
                 {!deleteShow[item.Id] && (
                   <button
@@ -92,7 +102,6 @@ export default function Doctors() {
 
 
 
-          </Link>
         </div>
       ))}
     </div>

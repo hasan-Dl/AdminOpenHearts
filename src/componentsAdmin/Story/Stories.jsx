@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from './story.module.css'
 import useFetch from '../../data/useFetch'
 import del from '../../assets/Vector (3).png'
-import del2 from '../../assets/Vector (4).png'
+import del2 from '../../assets/Admin botton (1).png'
 export default function Stories() {
   const [deleteShow, setDeleteShow] = useState({});
   const lng = localStorage.getItem("i18nextLng")
@@ -18,33 +18,30 @@ export default function Stories() {
   const handleSecondButtonClick = (id) => {
     setDeleteShow((prevState) => ({ ...prevState, [id]: false }));
   };
-
-  const handleDelete = (id,Logo) => {
-    fetch(`http://127.0.0.1:2020/delete/pationt/story?id=${id}&Path=${Logo}`, {
-      method: 'DELETE',
-      headers: {
-          'Content-Type': 'application/json',
-      },
-  
-      credentials: 'include', // Если нужно передавать cookie
-  })
-      .then(response => {
-          if (response.ok) {
-              alert("Susses")
-          } else {
-              alert("Error")
-          }
-  
-      })
-      fetch(`http://127.0.0.1:2020/get/pationt/story`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
     
-        credentials: 'include', // Если нужно передавать cookie
-    })
-  }
+  const handleDelete = (id,Logo) => {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+  
+    const requestOptions = {
+      method: "DELETE",
+      headers: myHeaders,
+      redirect: "follow",
+      credentials: 'include',
+    };
+  
+    // Исправлено: используем обратные кавычки для интерполяции переменных
+    fetch(`http://127.0.0.1:2020/delete/pationt/story?id=${id}&Path=${Logo}`  , requestOptions)
+      .then((response) => response.text())
+      .then((result) => {
+        console.log(result);
+  
+        // Обновляем локальные данные без повторного GET-запроса
+        const updatedData = data.filter(item => item.Id !== id);
+        setData(updatedData);
+      })
+      .catch((error) => console.error(error));
+  };
 
   return (
     <div >

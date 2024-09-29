@@ -2,14 +2,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 1920px;
-    padding-right: 85px;
+    padding-left: 70px;
 }
 
 .img {
     height: 120px;
     border-right: 4px solid #FF6262;
-    padding-left: 155px;
+    /* padding-left: 155px; */
     padding-right: 130px;
     padding-top: 11px;
 }

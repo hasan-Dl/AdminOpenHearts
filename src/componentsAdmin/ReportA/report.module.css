@@ -1,11 +1,11 @@
 .styleBox {
-    border-left: 4px solid  #FF6262;
-    border-right: 4px solid  #FF6262;
+    border-left: 4px solid #FF6262;
+    border-right: 4px solid #FF6262;
     padding-top: 50px;
     padding-left: 70px;
     padding-right: 70px;
-    margin-right: 85px;
-    height: 1000px;
+    height: 106vh;
+    width: 1415px;
 }
 
 .boxButton {
@@ -15,7 +15,7 @@
     margin-bottom: 40px;
 }
 
-.buttonOne{
+.buttonOne {
     width: 350px;
     height: 63px;
     border-radius: 5px;
@@ -121,7 +121,7 @@
     font-family: "Jost", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    width: 942px;
+    width: 1042px;
     height: 93px;
     padding: 0px 0px 0px 30px;
 
@@ -142,7 +142,7 @@
     width: 121px;
     height: 63px;
     left: 15px;
-    padding: 10px 0px 10px 0px;
+    padding: px 0px 10px 0px;
     gap: 10px;
     border-radius: 5px;
     border: 2px solid #9E9E9E;
@@ -180,6 +180,7 @@
     font-optical-sizing: auto;
     font-style: normal;
     margin-top: 20px;
+    margin-left: 20px;
 }
 
 
@@ -194,24 +195,25 @@
 }
 
 .buttonPhoto {
-    width: 265px;
     height: 53px;
     border-radius: 5px;
-    border: 2px solid black;
-    padding: 3px 0px 0px 5px;
-    font-size: 15px;
-    font-weight: 600;
-    text-align: center;
-    font-family: Jost;
-    font-size: 30px;
-    font-weight: 500;
+    padding: 0px 0px 0px 5px;
 }
 
-/* .date{
+.date {
     display: flex;
     justify-content: space-between;
-
-} */
+    width: 820px;
+    height: 93px;
+    /* gap: 50px; */
+    border: 2px solid black;
+    padding: 10px 30px 10px 30px;
+    margin-top: 20px;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 400;
+    margin-left: 20px;
+}
 
 .time {
     width: 820px;
@@ -225,3 +227,122 @@
     font-weight: 400;
 }
 
+.time1 {
+    width: 100%;
+    border: none;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 400;
+    outline: none;
+}
+
+
+
+
+/* get */
+
+
+
+
+.delete {
+    text-align: center;
+    border: none;
+    color: white;
+    outline: none;
+    background: none;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.fadeIn {
+    opacity: 0;
+    transform: translateX(0px);
+    animation: fadeInAnimation 0.5s forwards ease-in-out;
+    border: none;
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+        /* Начальная позиция - сдвиг */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+        /* Конечная позиция */
+    }
+}
+
+
+.fadeOut {
+    opacity: 1;
+    transform: translateX(0px);
+    animation: fadeOutAnimation 1s;
+    border: none;
+    padding-top: 5px;
+    background: white;
+}
+
+@keyframes fadeOutAnimation {
+    from {
+        opacity: 0;
+        transform: translateX(0px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+        /* Сдвиг вниз при исчезновении */
+    }
+}
+
+
+.reportParent{
+border-top: 2px solid black;
+width: 1190px;
+}
+.getButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 199.58px;
+    height: 53px;
+    padding: 5px 40px 5px 40px;
+    border-radius: 5px;
+    background: #FF6262;
+    border: 2px solid black;
+}
+
+
+
+.reportD {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1190px;
+    padding: 0px 30px 0px 0px;
+    gap: 30px;
+    border: 2px solid black;
+    border-top: none;
+
+}
+
+.date_Time {
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    padding: 28px 20px 28px 20px;
+    border-right: 2px solid;
+}
+
+.titleReport {
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 400;
+    padding: 28px 20px 28px 20px;
+
+}

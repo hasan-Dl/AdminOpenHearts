@@ -167,7 +167,7 @@ export default function AddProject() {
 
             <input
               className={styles.inputStr}
-              placeholder="Имя"
+              placeholder="Описания"
               type="text"
               onChange={(e) => setDescriptionRu(e.target.value)}
               value={descriptionRu}
@@ -175,7 +175,7 @@ export default function AddProject() {
 
             <input
               className={styles.inputStr}
-              placeholder="Фамилия"
+              placeholder="Адресс"
               type="text"
               onChange={(e) => setAddressRu(e.target.value)}
               value={addressRu}
@@ -201,7 +201,7 @@ export default function AddProject() {
 
           <input
             className={styles.inputPro}
-            placeholder="Email"
+            placeholder={t('Admin.email')}
             type="text"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
@@ -211,7 +211,7 @@ export default function AddProject() {
             <p className={styles.text}>+992</p>
             <input
               className={styles.inputPhone}
-              placeholder="Phone"
+              placeholder={t("Admin.phone")}
               type="text"
               onChange={(e) => setPhone(e.target.value)}
               value={phone}
@@ -223,7 +223,7 @@ export default function AddProject() {
             <input
               className={styles.photo}
               type="text"
-              placeholder="Image"
+              placeholder={t("Admin.photo")}
               value={photoPath}
               readOnly
             />
@@ -235,7 +235,7 @@ export default function AddProject() {
               id="photo-upload"
             />
             <label className={styles.buttonPhoto} htmlFor="photo-upload">
-              Choose photo
+              {t("Admin.choose")}
             </label>
           </div>
         </div>

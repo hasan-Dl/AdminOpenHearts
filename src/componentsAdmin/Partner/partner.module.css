@@ -3,8 +3,8 @@
   border-right: 4px solid #FF6262;
   padding-top: 50px;
   padding-left: 70px;
-  width: 1330px;
-  height: 960px;
+  width: 1415px;
+  height: 102vh;
   padding-bottom: 40px;
   position: relative;
 }
@@ -214,9 +214,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 299px);
+  grid-template-columns: repeat(4, 299px);
   border-left: 2px solid black;
-
-
+  width: 1190px;
   border-top: 2px solid black;
 }

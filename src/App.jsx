@@ -21,6 +21,7 @@ import DoctorAdmin from './pagesAdmin/DoctorAdmin'
 import ReportAdmin from './pagesAdmin/ReportAdmin'
 import ServicesOne from './pagesAdmin/ServicesOne'
 import DoctorOne from './pagesAdmin/DoctorOne'
+import ServicesA from './componentsAdmin/ServicesA/ServicesA'
 
 
 function App() {
@@ -61,7 +62,7 @@ function App() {
     },
     {
       path: '/code',
-      element: <Code/>
+      element: <Code />
     },
     {
       path: '/admin',
@@ -85,26 +86,26 @@ function App() {
         },
         {
           path: '/admin/servicesAdmin',
-          element: < Services/>
+          element: < Services />
         },
         {
           path: '/admin/doctorAdmin',
-          element: < DoctorAdmin/>
+          element: < DoctorAdmin />
         },
         {
           path: '/admin/reportAdmin',
-          element: < ReportAdmin/>
+          element: < ReportAdmin />
         },
       ]
 
     },
     {
       path: '/admin/servicesAdmin/:id',
-      element: < ServicesOne/>
+      element: < ServicesOne />
     },
     {
       path: '/admin/doctorAdmin/:idDoctor',
-      element: < DoctorOne/>
+      element: < DoctorOne />
     },
   ])
 

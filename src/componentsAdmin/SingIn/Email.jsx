@@ -71,8 +71,11 @@ export default function Email() {
           />
           {errorEmail && <p className={styles.error}>{t("Admin.error")}</p>}
         </div>
-      </div>
+        <div className={styles.sub}>
+
       <button className={styles.submitEmail} onClick={Email} to={'/code'}> {t("Admin.submit")}</button>
+        </div>
+      </div>
     </div>
   )
 }

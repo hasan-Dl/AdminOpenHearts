@@ -214,7 +214,7 @@ export default function AddServices() {
 
             <input
               className={styles.inputStr}
-              placeholder="Имя"
+              placeholder="Описания"
               type="text"
               onChange={(e) => setDescriptionRu(e.target.value)}
               value={descriptionRu}
@@ -271,7 +271,7 @@ export default function AddServices() {
             <p className={styles.text}>+992</p>
             <input
               className={styles.inputPhone}
-              placeholder="Phone"
+              placeholder={t("Admin.phone")}
               type="text"
               onChange={(e) => setPhone(e.target.value)}
               value={phone}
@@ -282,7 +282,7 @@ export default function AddServices() {
             <input
               className={styles.photo}
               type="text"
-              placeholder="Photo"
+              placeholder={t("Admin.photo")}
               value={photoPath}
               readOnly
             />
@@ -294,7 +294,7 @@ export default function AddServices() {
               id="photo-upload"
             />
             <label className={styles.buttonPhoto} htmlFor="photo-upload">
-              Choose photo
+              {t("Admin.choose")}
             </label>
           </div>
         </div>

@@ -4,9 +4,8 @@
     padding-top: 50px;
     padding-left: 70px;
     padding-right: 70px;
-    margin-right: 85px;
-    height: 1100px;
-    width: 1330px;
+    height: 112vh;
+    width: 1415px;
 }
 
 .boxButton {
@@ -63,7 +62,6 @@
 .parent {
     display: flex;
     align-items: start;
-
 }
 
 .boxStr {
@@ -143,7 +141,7 @@
     font-family: "Jost", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    width: 942px;
+    width: 1045px;
     height: 93px;
     padding: 0px 0px 0px 30px;
 
@@ -197,7 +195,7 @@
 .buttonSubmit {
     width: 272px;
     height: 79px;
-    padding: 8px 0px 15px 0px;
+    padding: 7px 0px 10px 0px;
     border-radius: 5px;
     border: 2px solid black;
     background: white;
@@ -260,6 +258,7 @@
 /* --------get == */
 .getDiv {
     border-top: 2px solid black;
+    width: 1190px;
 }
 
 .getParent {
@@ -347,6 +346,8 @@
     transform: translateX(0px);
     animation: fadeOutAnimation 1s;
     border: none;
+    background: white;
+    padding-top: 5px;
 }
 
 @keyframes fadeOutAnimation {

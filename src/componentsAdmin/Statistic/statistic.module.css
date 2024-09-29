@@ -1,12 +1,11 @@
 .styleBox {
     text-align: center;
-    width: 1330px;
+    width: 1415px;
     height: 960px;
     border-left: 4px solid #FF6262;
     border-right: 4px solid #FF6262;
     padding: 50px 70px 04px 70px;
     height: 100vh;
-
 }
 
 
@@ -143,16 +142,26 @@
 }
 
 .inputDescription {
-    width: 709.2px;
+    width: 820px;
     height: 93px;
     padding: 25px 30px 25px 30px;
     border: 2px solid black;
     font-family: Jost;
     font-size: 30px;
     font-weight: 400;
+    outline: none;
 }
 
 
+
+.error {
+    color: #FF0000;
+    font-family: Jost;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28.9px;
+    text-align: left;
+}
 
 
 .En_RU {
@@ -231,7 +240,7 @@
 .gray {
     border-left: 2px solid #9E9E9E;
     border-top: 2px solid #9E9E9E;
-    height: 74px;
+    height: 7.6vh;
     width: 121px;
 }
 
@@ -252,6 +261,7 @@
 .get {
     margin-top: 20px;
     border-top: 3px solid black;
+    width: 1190px;
 }
 
 
@@ -263,6 +273,7 @@
     border-top: none;
     width: 1190px;
     height: 99px;
+    padding: 0px 30px 0px 0px 
 }
 
 .getBox {
@@ -290,34 +301,11 @@
     font-weight: 500;
     text-align: center;
     padding: 28px 20px 28px 30px;
-    width: 120px;
+    width: 200px;
 }
 
-.getButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    width: 199.58px;
-    height: 53px;
-    padding: 5px 0px 5px 0px;
-    border-radius: 5px;
-    border: none;
-    background: #FF6262;
-    margin-right: 30px;
-    border: 3px solid black;
-}
 
-.del {
-    text-align: center;
-    border: 3px solid black;
-    width: 98.58px;
-    height: 53px;
-    padding: 5px 40px 5px 40px;
-    border-radius: 5px;
-    margin-right: 30px;
-    background: white;
-}
+
 
 .deleteBox:hover {
     padding: 5px 50px;
@@ -343,6 +331,8 @@
     transform: translateX(0px);
     /* Сдвиг вниз */
     animation: fadeInAnimation 1s forwards ease-in-out;
+    border: none;
+    padding-top: 5px;
 }
 
 @keyframes fadeInAnimation {
@@ -351,7 +341,7 @@
         transform: translateX(30px);
         /* Начальная позиция - сдвиг */
     }
-
+    
     to {
         opacity: 1;
         transform: translateX(0px);
@@ -364,6 +354,8 @@
     opacity: 1;
     transform: translateX(0px);
     animation: fadeOutAnimation 1s;
+    border: none;
+    background: white ;
 }
 
 @keyframes fadeOutAnimation {
@@ -378,3 +370,20 @@
         /* Сдвиг вниз при исчезновении */
     }
 }
+
+
+
+    .getButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        width: 199.58px;
+        height: 53px;
+        padding: 5px 0px 5px 0px;
+        border-radius: 5px;
+        border: none;
+        background: #FF6262;
+        margin-right: 30px;
+        border: 3px solid black;
+    }
