@@ -394,7 +394,7 @@ export default function AddDoctor() {
 
                         {/* -------- */}
                     </div>
-                    <div className={styles.En_Ru}>
+                    {/* <div className={styles.En_Ru}>
                         <button
                             className={classNames(styles.button,
                                 { [styles.activeB]: language === false })}
@@ -403,7 +403,29 @@ export default function AddDoctor() {
                         <button className={classNames(styles.button,
                             { [styles.activeB]: language === true })}
                             onClick={() => handleLanguageChange(true)}>{t("Admin.ru")}</button>
-                    </div>
+                    </div> */}
+                       <div className={styles.En_Ru}>
+            <div
+              className={classNames(styles.buttonDiv1,
+                { [styles.activeBDiv1]: language === true })}
+            >
+              <button
+                className={classNames(styles.button1,
+                  { [styles.activeB1]: language === false })}
+                onClick={() => handleLanguageChange(false)}>{t("Admin.en")}</button>
+            </div>
+            <div
+              className={classNames(styles.buttonDiv,
+                { [styles.activeBDiv]: language === true })}
+            >
+
+              <button className={classNames(styles.button2,
+                { [styles.activeB2]: language === true })}
+                onClick={() => handleLanguageChange(true)}>{t("Admin.ru")}
+              </button>
+            </div>
+
+          </div>
                 </div>
             ) : (
                 <div className={styles.parent} >
@@ -411,7 +433,7 @@ export default function AddDoctor() {
 
                         <input
                             className={styles.inputStr}
-                            placeholder="Заголовок"
+                            placeholder="Имя Фамилия "
                             type="text"
                             onChange={(e) => setNameRu(e.target.value)}
                             value={nameRu}
@@ -419,7 +441,7 @@ export default function AddDoctor() {
 
                         <input
                             className={styles.inputStr}
-                            placeholder="Имя"
+                            placeholder="Профессия "
                             type="text"
                             onChange={(e) => setProfessionRu(e.target.value)}
                             value={professionRu}
@@ -427,7 +449,7 @@ export default function AddDoctor() {
 
                         <input
                             className={styles.inputStr}
-                            placeholder="Главные услуги"
+                            placeholder="Образование "
                             type="text"
                             onChange={(e) => setEducationRu(e.target.value)}
                             value={educationRu}
@@ -435,7 +457,7 @@ export default function AddDoctor() {
 
                         <input
                             className={styles.inputStr}
-                            placeholder="Specialization"
+                            placeholder="Специализация "
                             type="text"
                             onChange={(e) => setSpecializationRu(e.target.value)}
                             value={specializationRu}
@@ -443,7 +465,7 @@ export default function AddDoctor() {
 
                         <div className={styles.list}>
                             <div>
-                                <h3 className={styles.textList}>Additional </h3>
+                                <h3 className={styles.textList}>Дополнительная информация</h3>
                                 <input
                                     className={styles.inputMain}
 
@@ -466,14 +488,14 @@ export default function AddDoctor() {
                         </ul>
                         <input
                             className={styles.inputStr}
-                            placeholder="About the specialist"
+                            placeholder="О специалисте"
                             type="text"
                             onChange={(e) => setAboutRu(e.target.value)}
                             value={aboutRu}
                         />
                         <div className={styles.list}>
                             <div>
-                                <h3 className={styles.textList}>Expirence</h3>
+                                <h3 className={styles.textList}>Опыт работы :</h3>
                                 <input
                                     className={styles.inputMain}
 
@@ -498,7 +520,7 @@ export default function AddDoctor() {
                         </ul>
                         <div className={styles.list}>
                             <div>
-                                <h3 className={styles.textList}>Services</h3>
+                                <h3 className={styles.textList}>Услуги </h3>
                                 <input
                                     className={styles.inputMain}
 
@@ -527,7 +549,7 @@ export default function AddDoctor() {
 
 
                     </div>
-                    <div className={styles.En_Ru}>
+                    {/* <div className={styles.En_Ru}>
                         <button
                             className={classNames(styles.button,
                                 { [styles.activeB]: language === false })}
@@ -536,7 +558,29 @@ export default function AddDoctor() {
                         <button className={classNames(styles.button,
                             { [styles.activeB]: language === true })}
                             onClick={() => handleLanguageChange(true)}>{t("Admin.ru")}</button>
-                    </div>
+                    </div> */}
+                       <div className={styles.En_Ru}>
+            <div
+              className={classNames(styles.buttonDiv1,
+                { [styles.activeBDiv1]: language === true })}
+            >
+              <button
+                className={classNames(styles.button1,
+                  { [styles.activeB1]: language === false })}
+                onClick={() => handleLanguageChange(false)}>{t("Admin.en")}</button>
+            </div>
+            <div
+              className={classNames(styles.buttonDiv,
+                { [styles.activeBDiv]: language === true })}
+            >
+
+              <button className={classNames(styles.button2,
+                { [styles.activeB2]: language === true })}
+                onClick={() => handleLanguageChange(true)}>{t("Admin.ru")}
+              </button>
+            </div>
+
+          </div>
                 </div>
             )}
 
@@ -561,7 +605,7 @@ export default function AddDoctor() {
                 />
                 <div className={styles.list1}>
                     <div>
-                        <h3 className={styles.textList}>Days of the week</h3>
+                        <h3 className={styles.textList}>{t("Admin.days")}</h3>
                         <input
                             className={styles.inputMain1}
                             type="text"
@@ -593,7 +637,7 @@ export default function AddDoctor() {
                         <input
                             className={styles.time}
                             type="text"
-                            placeholder='Start time'
+                            placeholder={t("Admin.start")}
                             value={starTime}
                             readOnly
                         />
@@ -614,7 +658,7 @@ export default function AddDoctor() {
                         <input
                             className={styles.time}
                             type="text"
-                            placeholder='End time'
+                            placeholder={t("Admin.end")}
                             value={end}
                             readOnly
                         />

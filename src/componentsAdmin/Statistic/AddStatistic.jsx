@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import styles from './statistic.module.css'
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-import MyModal from '../../modal/MyModal';
-import ErrorModal from '../../modal/ErrorModal';
 export default function AddStatistic() {
     const { t } = useTranslation()
     const [number, setNumber] = useState("")
@@ -22,8 +20,6 @@ export default function AddStatistic() {
 
 
 
-    const [modalActive, setModalActive] = useState(false)
-    const [errorM, setError] = useState(false)
 
 
     const Submit = (e) => {
@@ -80,11 +76,9 @@ export default function AddStatistic() {
         })
             .then(response => {
                 if (response.ok) {
-                    setModalActive(true)
-                    setError(false)
+                    alert("Susses")
                 } else {
-                    setModalActive(false)
-                    setError(true)
+                    alert("Error")
                 }
 
             })
@@ -92,17 +86,6 @@ export default function AddStatistic() {
 
     return (
         <div>
-
-
-            <MyModal
-                active={modalActive}
-                setActive={setModalActive}
-            />
-            <ErrorModal
-                error={errorM}
-                setError={setError}
-            />
-
             <div className={styles.inputStatistic}>
                 <div>
                     <input
@@ -121,10 +104,7 @@ export default function AddStatistic() {
 
                 <div className={styles.add}>
                     {!language ? (
-                        <div className={classNames(styles.divEN_RUactive,
-                            { [styles.divEN_RU]: language === false })}
-
-                        >
+                        <div className={styles.divEN_RU}>
                             <input
                                 type="text"
                                 className={styles.inputDescription}
@@ -153,27 +133,30 @@ export default function AddStatistic() {
                                 {errorDescriptionRu && <p className={styles.error}>{t("Admin.error")}</p>}
                             </div>
                         )}
-                    <div className={styles.En_RU}>
 
+                    <div className={styles.En_Ru}>
                         <div
-                            className={classNames(styles.one,
-                                { [styles.oneNone]: language === false })} >
+                            className={classNames(styles.buttonDiv1,
+                                { [styles.activeBDiv1]: language === true })}
+                        >
                             <button
-                                className={classNames(styles.oneButton,
-                                    { [styles.oneActive]: language === false })}
-                                onClick={() => clickButton(false)}
-                            >{t("Admin.en")}</button>
+                                className={classNames(styles.button1,
+                                    { [styles.activeB1]: language === false })}
+                                onClick={() => clickButton(false)}>{t("Admin.en")}</button>
+                        </div>
+                        <div
+                            className={classNames(styles.buttonDiv,
+                                { [styles.activeBDiv]: language === true })}
+                        >
+
+                            <button className={classNames(styles.button2,
+                                { [styles.activeB2]: language === true })}
+                                onClick={() => clickButton(true)}>{t("Admin.ru")}
+                            </button>
                         </div>
 
-                        <div className={classNames(styles.gray,
-                            { [styles.noneGray]: language === true })}>
-                            <button
-                                className={classNames(styles.twoButton,
-                                    { [styles.twoActive]: language === true })}
-                                onClick={() => clickButton(true)}
-                            >{t("Admin.ru")}</button>
-                        </div>
                     </div>
+
                 </div>
             </div>
             <div className={styles.boxSub}>

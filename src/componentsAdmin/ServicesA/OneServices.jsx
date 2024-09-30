@@ -45,17 +45,17 @@ export default function OneServices() {
 
             credentials: 'include', // Если нужно передавать cookie
         })
-        .then(response => {
-            if (response.ok) {
-              setModalActive(true)
-              const updatedData = data.filter(item => item.Id !== id);
-              setData(updatedData);
-              setError(false)
-            } else {
-              setModalActive(false)
-              setError(true)
-            }
-          })
+            .then(response => {
+                if (response.ok) {
+                    setModalActive(true)
+                    const updatedData = data.filter(item => item.Id !== id);
+                    setData(updatedData);
+                    setError(false)
+                } else {
+                    setModalActive(false)
+                    setError(true)
+                }
+            })
         fetch(`http://127.0.0.1:2020/get/main/diraction`, {
             method: 'GET',
             headers: {
@@ -68,16 +68,19 @@ export default function OneServices() {
 
 
     return (
-        <div>
-            <MyModal
-                active={modalActive}
-                setActive={setModalActive}
-            />
-            <ErrorModal
-                error={errorM}
-                setError={setError}
-            />
-            <div className={styles.oneParent}>
+
+        <div className={styles.oneParent}>
+                <h1 className={styles.line}></h1>
+            <div>
+
+                <MyModal
+                    active={modalActive}
+                    setActive={setModalActive}
+                />
+                <ErrorModal
+                    error={errorM}
+                    setError={setError}
+                />
                 <div className={styles.parent1}>
                     <div className={styles.img}>
                         <img src={logo} alt="" />
@@ -86,7 +89,6 @@ export default function OneServices() {
                         <LanguageSelector />
                     </div>
                 </div>
-                <h1 className={styles.line}></h1>
 
                 <div key={item.Id} className={styles.boxBody}>
                     <div className={styles.oneBox}>
@@ -119,9 +121,9 @@ export default function OneServices() {
                         <div className={styles.divText}>
                             <h1 className={styles.TitleText}>{lng == "ru" ? item.ru.title : item.en.title}</h1>
                             <h4 className={styles.NuberOne}>+992 {item.phone}</h4>
-                            <p className={styles.TitleServices}>Описание направления:</p>
+                            <p className={styles.TitleServices}>{t("Admin.des")}</p>
                             <p className={styles.descriptionText}>{lng == "ru" ? item.ru.description : item.en.description}</p>
-                            <p className={styles.TitleServices}>Основные услуги:</p>
+                            <p className={styles.TitleServices}>{t("Admin.main")}</p>
 
                             <ol className={styles.textContent}>
                                 {item[lng === "ru" ? "ru" : "en"].mainServeses.map((text, index) => (
@@ -138,5 +140,6 @@ export default function OneServices() {
                 </div>
             </div>
         </div>
+
     )
 }

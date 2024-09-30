@@ -65,6 +65,7 @@ export default function OneDoctor() {
 
     return (
         <div className={styles.oneParent} >
+            <h1 className={styles.line}></h1>
             <MyModal
                 active={modalActive}
                 setActive={setModalActive}
@@ -82,7 +83,6 @@ export default function OneDoctor() {
                         <LanguageSelector />
                     </div>
                 </div>
-                <h1 className={styles.line}></h1>
                 <div className={styles.boxBody}>
                     <div className={styles.oneBox}>
                         <Link to={"/admin/doctorAdmin"} className={styles.back}>{t("Home.Props.back")}</Link>
@@ -145,7 +145,7 @@ export default function OneDoctor() {
                     <div className={styles.Doctor}>
                         <p className={styles.TitleServices}>{t("Admin.about")}</p>
                         <p className={styles.doctorTitle}>{lng == "ru" ? item.ru.about_specialist : item.en.about_specialist}</p>
-                        <p className={styles.TitleServices}>Опыт работы:</p>
+                        <p className={styles.TitleServices}>{t("Admin.work")}</p>
                         <ol className={styles.ol}>
                             {item[lng === "ru" ? "ru" : "en"].expirence.map((text, index) => (
                                 <li key={index}>
@@ -154,7 +154,7 @@ export default function OneDoctor() {
                             ))}
                         </ol>
 
-                        <p className={styles.TitleServices}>Услуги, предоставляемые специалистом:</p>
+                        <p className={styles.TitleServices}>{t("Admin.s")}</p>
 
                         <ol className={styles.ol}>
                             {item[lng === "ru" ? "ru" : "en"].services.map((text, index) => (

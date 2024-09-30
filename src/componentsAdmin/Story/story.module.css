@@ -35,7 +35,7 @@
 .activeOne {
     width: 342px;
     height: 63px;
-    padding: 4px 0px 10px 0px;
+    padding: 5px 0px 10px 0px;
     border-radius: 5px;
     border: 2px solid black;
     color: black;
@@ -65,7 +65,7 @@
 .activeTwo {
     width: 309px;
     height: 63px;
-    padding: 4px 0px 10px 0px;
+    padding: 5px 0px 10px 0px;
     border-radius: 5px;
     border: 2px solid black;
     color: black;
@@ -120,8 +120,105 @@
     outline: none;
 }
 
+/* ----en -ru */
+.En_Ru {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    right: 2px;
+}
+.buttonDiv1{
+    height: 63px;
+    width: 121px;
+    border: none;
+ 
+}
 
+.activeBDiv1 {
+    height: 74px;
+    width: 121px;
+    border-left: 2px solid #9E9E9E;
+    border-bottom: 1px solid #9E9E9E;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
 
+.button1 {
+    text-align: center;
+    width: 121px;
+    height: 63px;
+    left: 15px;
+    padding: 10px 0px 10px 0px;
+    border-radius: 0px 5px 5px 0px;
+    border-top: 2px solid #9E9E9E;
+    border-right: 2px solid #9E9E9E;
+    border-left: none;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    border-bottom: none;
+    margin-top: 10px;
+    margin-right: 4px;
+    background: white;
+}
+
+.activeB1 {
+  
+    border-left: none;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 0px;
+}
+
+/* ---- */
+.buttonDiv {
+    height: 74px;
+    width: 121px;
+    border-left: 2px solid #9E9E9E;
+    border-top: 1px solid #9E9E9E;
+    border-top-right-radius: 5px;
+}
+
+.activeBDiv {
+    height: 63px;
+    width: 121px;
+    border: none;
+}
+
+.button2 {
+    width: 121px;
+    background: white;
+    height: 63px;
+    padding: 10px 40px 10px 40px;
+    gap: 10px;
+    border-radius: 0px 5px 5px 0px;
+    border-bottom: 2px solid #9E9E9E;
+    border-right: 2px solid #9E9E9E;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    border-top: none;
+    border-left: none;
+   
+}
+
+.activeB2 {
+    width: 121px;
+    height: 63px;
+    left: 15px;
+    padding: 10px 40px 10px 40px;
+    gap: 10px;
+    border-radius: 0px 5px 5px 0px;
+    border-left: none;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+/* 
 .En_RU {
     display: flex;
     flex-direction: column;
@@ -154,7 +251,7 @@
 .activeB {
     color: black;
     border-left: none;
-}
+} */
 
 
 

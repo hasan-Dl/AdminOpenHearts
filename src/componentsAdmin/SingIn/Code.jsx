@@ -5,11 +5,18 @@ import LanguageSelector from '../../Languages/LanguageSelector';
 import logo from '../../assets/openHearts.png'
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import MyModal from '../../modal/MyModal';
+import ErrorModal from '../../modal/ErrorModal';
 export default function Code() {
     const { t } = useTranslation()
     const [otp, setOtp] = useState('');
     const navigate = useNavigate()
+
+    const [modalActive, setModalActive] = useState(false)
+    const [errorM, setError] = useState(false)
+
     const [otpError, setOtpError] = useState(false);
+
 
     const Submit = (e) => {
         e.preventDefault();
@@ -41,53 +48,68 @@ export default function Code() {
         })
             .then(response => {
                 if (response.ok) {
-                    alert("susses")
+                    setModalActive(true);
                     navigate('/login')
+                    setError(false);
                 } else {
-                    alert("Error")
+                    setModalActive(false);
+                    setError(true);
                 }
+
             })
     }
 
     return (
-        <div>
-            <div className={styles.parent}>
-                <img src={logo} className={styles.img} alt="" />
-                <div className={styles.boxLang}>
-                    <LanguageSelector />
+        <div className={styles.LoginParent} >
+            <MyModal
+                active={modalActive}
+                setActive={setModalActive}
+            />
+            <ErrorModal
+                error={errorM}
+                setError={setError}
+            />
+            <h1 className={styles.line}></h1>
+
+            <div>
+                <div className={styles.parent}>
+                    <img src={logo} className={styles.img} alt="" />
+                    <div className={styles.boxLang}>
+                        <LanguageSelector />
+                    </div>
                 </div>
+                <div className={styles.styleCode1}>
+                    <h1 className={styles.text}>Enter the code</h1>
+
+
+                    <div className={styles.DivCode}>
+                        <h1 className={styles.text1}>Enter code </h1>
+                        <OtpInput
+                            onChange={setOtp}
+                            value={otp}
+                            numInputs={5}
+                            renderInput={(props) => <input
+                                {...props}
+                                className={styles.code}
+                                placeholder='-'
+                                style={{
+                                    borderColor: otpError ? 'red' : '',
+                                }}
+                            />}
+                        />
+                    </div>
+                    {otpError && <p style={{ color: 'red' }}>Code </p>}
+                    <div className={styles.boxSub1}>
+
+                        <button
+                            onClick={Submit}
+                            className={styles.submit}
+                        > {t("Admin.submit")}</button>
+
+                    </div>
+                </div>
+
             </div>
-            <div className={styles.styleCode}>
-                <h1 className={styles.text}>Enter the code</h1>
-
-
-                <div className={styles.DivCode}>
-                    <h1 className={styles.text1}>Enter code </h1>
-                    <OtpInput
-                        onChange={setOtp}
-                        value={otp}
-                        numInputs={5}
-                        renderInput={(props) => <input
-                            {...props}
-                            className={styles.code}
-                            placeholder='-'
-                            style={{
-                                borderColor: otpError ? 'red' : '',
-                            }}
-                        />}
-                    />
-                </div>
-                {otpError && <p style={{ color: 'red' }}>Code </p>}
-                <div className={styles.boxSub}>
-
-                    <button
-                        onClick={Submit}
-                        className={styles.submit}
-                    > {t("Admin.submit")}</button>
-
-                </div>
-            </div>
-
         </div>
     )
 }

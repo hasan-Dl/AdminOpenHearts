@@ -168,7 +168,7 @@ export default function AddStory() {
             />
           </div>
 
-          <div className={styles.En_RU}>
+          {/* <div className={styles.En_RU}>
             <button
               className={classNames(styles.button,
                 { [styles.activeB]: language === false })}
@@ -179,6 +179,29 @@ export default function AddStory() {
                 { [styles.activeB]: language === true })}
               onClick={() => clickButton(true)}
             >{t("Admin.ru")}</button>
+          </div> */}
+
+          <div className={styles.En_Ru}>
+            <div
+              className={classNames(styles.buttonDiv1,
+                { [styles.activeBDiv1]: language === true })}
+            >
+              <button
+                className={classNames(styles.button1,
+                  { [styles.activeB1]: language === false })}
+                onClick={() => clickButton(false)}>{t("Admin.en")}</button>
+            </div>
+            <div
+              className={classNames(styles.buttonDiv,
+                { [styles.activeBDiv]: language === true })}
+            >
+
+              <button className={classNames(styles.button2,
+                { [styles.activeB2]: language === true })}
+                onClick={() => clickButton(true)}>{t("Admin.ru")}
+              </button>
+            </div>
+
           </div>
         </div>
 
@@ -199,32 +222,32 @@ export default function AddStory() {
                 className={styles.inputDescription}
                 onChange={(e) => setNameRu(e.target.value)}
                 value={nameRu}
-                placeholder='Name'
+                placeholder='Имя'
               />
               <input
                 type="text"
                 className={styles.inputDescription}
                 onChange={(e) => setSurnameRu(e.target.value)}
                 value={surnameRu}
-                placeholder='Surname'
+                placeholder='Фамилия'
               />
               <input
                 type="text"
                 className={styles.inputDescription}
                 onChange={(e) => setDescriptionRu(e.target.value)}
                 value={descriptionRu}
-                placeholder='Description'
+                placeholder='Описания'
               />
               <input
                 type="text"
                 className={styles.inputDescription}
                 onChange={(e) => setQuoteRu(e.target.value)}
                 value={quoteRu}
-                placeholder='Quote'
+                placeholder='Количество'
               />
             </div>
 
-            <div className={styles.En_RU}>
+            {/* <div className={styles.En_RU}>
               <button
                 className={classNames(styles.button,
                   { [styles.activeB]: language === false })}
@@ -235,6 +258,28 @@ export default function AddStory() {
                   { [styles.activeB]: language === true })}
                 onClick={() => clickButton(true)}
               >{t("Admin.ru")}</button>
+            </div> */}
+            <div className={styles.En_Ru}>
+              <div
+                className={classNames(styles.buttonDiv1,
+                  { [styles.activeBDiv1]: language === true })}
+              >
+                <button
+                  className={classNames(styles.button1,
+                    { [styles.activeB1]: language === false })}
+                  onClick={() => clickButton(false)}>{t("Admin.en")}</button>
+              </div>
+              <div
+                className={classNames(styles.buttonDiv,
+                  { [styles.activeBDiv]: language === true })}
+              >
+
+                <button className={classNames(styles.button2,
+                  { [styles.activeB2]: language === true })}
+                  onClick={() => clickButton(true)}>{t("Admin.ru")}
+                </button>
+              </div>
+
             </div>
           </div>
 

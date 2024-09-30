@@ -71,9 +71,8 @@ export default function StylesLogin() {
     })
       .then(response => {
         if (response.ok) {
-          // setModalActive(true);
-          navigate("/admin/statisticAdmin")
           setModalActive(true);
+          navigate("/admin/statisticAdmin")
           setError(false);
         } else {
           setModalActive(false);
@@ -84,75 +83,77 @@ export default function StylesLogin() {
   }
 
   return (
-    <div>
-
+    <div className = {styles.LoginParent} >
+      <h1 className={styles.line}></h1>
       <MyModal
         active={modalActive}
         setActive={setModalActive}
       />
       <ErrorModal
-      error={errorM}
-      setError={setError}
+        error={errorM}
+        setError={setError}
       />
+      <div>
 
-      <div className={styles.parent}>
-        <img src={logo} className={styles.img} alt="" />
-        <div className={styles.boxLang}>
-          <LanguageSelector />
-        </div>
-      </div>
-
-      <div className={styles.box}>
-        <h1 className={styles.text}>Login</h1>
-        <div className={styles.boxx}>
-
-          <div className={styles.inputBox}>
-            <div >
-              <input className={styles.input}
-                onChange={(e) => setPhone(e.target.value)}
-                value={phone}
-                type="text"
-                placeholder='Phone'
-                style={{
-                  borderColor: errorPhone ? '#FF0000' : '',
-                }}
-              />
-              {errorPhone && <p className={styles.error}>{t("Admin.error")}</p>}
-
-
-            </div>
-
-            <div style={{ position: 'relative', width: 'fit-content' }}>
-
-              <input className={styles.inputPass}
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-                // 
-                type={showPassword ? 'text' : 'password'}
-                placeholder='Password'
-                name='password'
-                style={{
-                  borderColor: errorPAssword ? '#FF0000' : '',
-                }}
-              />
-              {errorPAssword && <p className={styles.error}>{t("Admin.error")}</p>}
-              <span
-                onClick={() => setShowPassword(!showPassword)}
-                className={styles.eye}
-              >
-                {showPassword ? <GoEyeClosed className={styles.eyes} /> : <GoEye className={styles.eyes} />}
-              </span>
-            </div>
-            <Link to={'/email'} className={styles.link}>Forgote password</Link>
+        <div className={styles.parent}>
+          <img src={logo} className={styles.img} alt="" />
+          <div className={styles.boxLang}>
+            <LanguageSelector />
           </div>
         </div>
-        <div className={styles.boxSub}>
-          <button
-            onClick={Login}
-            className={styles.submit}
-          > {t("Admin.submit")}
-          </button>
 
+        <div className={styles.box1}>
+          <h1 className={styles.text}>Login</h1>
+          <div className={styles.boxx}>
+
+            <div className={styles.inputBox}>
+              <div >
+                <input className={styles.input}
+                  onChange={(e) => setPhone(e.target.value)}
+                  value={phone}
+                  type="text"
+                  placeholder='Phone'
+                  style={{
+                    borderColor: errorPhone ? '#FF0000' : '',
+                  }}
+                />
+                {errorPhone && <p className={styles.error}>{t("Admin.error")}</p>}
+
+
+              </div>
+
+              <div style={{ position: 'relative', width: 'fit-content' }}>
+
+                <input className={styles.inputPass}
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                  // 
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder='Password'
+                  name='password'
+                  style={{
+                    borderColor: errorPAssword ? '#FF0000' : '',
+                  }}
+                />
+                {errorPAssword && <p className={styles.error}>{t("Admin.error")}</p>}
+                <span
+                  onClick={() => setShowPassword(!showPassword)}
+                  className={styles.eye}
+                >
+                  {showPassword ? <GoEyeClosed className={styles.eyes} /> : <GoEye className={styles.eyes} />}
+                </span>
+              </div>
+              <Link to={'/email'} className={styles.link}>Forgote password</Link>
+            </div>
+          </div>
+          <div className={styles.boxSub}>
+            <button
+              onClick={Login}
+              className={styles.submit}
+            > {t("Admin.submit")}
+            </button>
+
+          </div>
         </div>
       </div>
     </div>

@@ -155,7 +155,7 @@ export default function AddProject() {
 
             {/* -------- */}
           </div>
-          <div className={styles.En_Ru}>
+          {/* <div className={styles.En_Ru}>
             <button
               className={classNames(styles.button,
                 { [styles.activeB]: language === false })}
@@ -164,6 +164,28 @@ export default function AddProject() {
             <button className={classNames(styles.button,
               { [styles.activeB]: language === true })}
               onClick={() => handleLanguageChange(true)}>{t("Admin.ru")}</button>
+          </div> */}
+          <div className={styles.En_Ru}>
+            <div
+              className={classNames(styles.buttonDiv1,
+                { [styles.activeBDiv1]: language === true })}
+            >
+              <button
+                className={classNames(styles.button1,
+                  { [styles.activeB1]: language === false })}
+                onClick={() => handleLanguageChange(false)}>{t("Admin.en")}</button>
+            </div>
+            <div
+              className={classNames(styles.buttonDiv,
+                { [styles.activeBDiv]: language === true })}
+            >
+
+              <button className={classNames(styles.button2,
+                { [styles.activeB2]: language === true })}
+                onClick={() => handleLanguageChange(true)}>{t("Admin.ru")}
+              </button>
+            </div>
+
           </div>
         </div>
       ) : (
@@ -195,7 +217,7 @@ export default function AddProject() {
 
 
           </div>
-          <div className={styles.En_Ru}>
+          {/* <div className={styles.En_Ru}>
             <button
               className={classNames(styles.button,
                 { [styles.activeB]: language === false })}
@@ -204,6 +226,28 @@ export default function AddProject() {
             <button className={classNames(styles.button,
               { [styles.activeB]: language === true })}
               onClick={() => handleLanguageChange(true)}>{t("Admin.ru")}</button>
+          </div> */}
+          <div className={styles.En_Ru}>
+            <div
+              className={classNames(styles.buttonDiv1,
+                { [styles.activeBDiv1]: language === true })}
+            >
+              <button
+                className={classNames(styles.button1,
+                  { [styles.activeB1]: language === false })}
+                onClick={() => handleLanguageChange(false)}>{t("Admin.en")}</button>
+            </div>
+            <div
+              className={classNames(styles.buttonDiv,
+                { [styles.activeBDiv]: language === true })}
+            >
+
+              <button className={classNames(styles.button2,
+                { [styles.activeB2]: language === true })}
+                onClick={() => handleLanguageChange(true)}>{t("Admin.ru")}
+              </button>
+            </div>
+
           </div>
         </div>
       )}

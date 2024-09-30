@@ -198,35 +198,101 @@ ul {
 
 .En_Ru {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     margin-top: 20px;
     position: relative;
-    right: 2px;
+    right: 1px;
 }
 
-.button {
+.buttonDiv1 {
+    height: 63px;
+    width: 121px;
+    border: none;
+
+}
+
+.activeBDiv1 {
+    height: 74px;
+    width: 121px;
+    border-left: 2px solid #9E9E9E;
+    border-bottom: 1px solid #9E9E9E;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.button1 {
     text-align: center;
     width: 121px;
     height: 63px;
     left: 15px;
     padding: 10px 0px 10px 0px;
-    gap: 10px;
-    border-radius: 5px;
-    border: 2px solid #9E9E9E;
-    border-left: 2px solid #9E9E9E;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    opacity: 0px;
-    background: white;
+    border-radius: 0px 5px 5px 0px;
+    border-top: 2px solid #9E9E9E;
+    border-right: 2px solid #9E9E9E;
+    border-left: none;
     font-family: Jost;
     font-size: 30px;
     font-weight: 500;
-    color: #9E9E9E;
+    border-bottom: none;
+    margin-top: 10px;
+    margin-right: 4px;
+    background: white;
 }
 
-.activeB {
-    color: black;
+.activeB1 {
+
     border-left: none;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 0px;
+}
+
+/* ---- */
+.buttonDiv {
+    height: 74px;
+    width: 121px;
+    border-left: 2px solid #9E9E9E;
+    border-top: 1px solid #9E9E9E;
+    border-top-right-radius: 5px;
+}
+
+.activeBDiv {
+    height: 63px;
+    width: 121px;
+    border: none;
+}
+
+.button2 {
+    width: 121px;
+    background: white;
+    height: 63px;
+    padding: 10px 40px 10px 40px;
+    gap: 10px;
+    border-radius: 0px 5px 5px 0px;
+    border-bottom: 2px solid #9E9E9E;
+    border-right: 2px solid #9E9E9E;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
+    border-top: none;
+    border-left: none;
+
+}
+
+.activeB2 {
+    width: 121px;
+    height: 63px;
+    left: 15px;
+    padding: 10px 40px 10px 40px;
+    gap: 10px;
+    border-radius: 0px 5px 5px 0px;
+    border-left: none;
+    font-family: Jost;
+    font-size: 30px;
+    font-weight: 500;
 }
 
 .b {
@@ -445,18 +511,34 @@ ul {
 
 /* One Services Get */
 
+
+
+.oneParent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.line {
+    position: absolute;
+    border-top: 4px solid black;
+    width: 100%;
+    top: 120px;
+}
+
+
 .parent1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 1920px;
     padding-right: 85px;
+    border-left: 4px solid #FF6262;
+    margin-left: 85px;
 }
 
 .img {
     height: 120px;
-    border-left: 4px solid #FF6262;
-    margin-left: 85px;
     padding-left: 70px;
     padding-top: 11px;
 }
@@ -470,13 +552,9 @@ ul {
 }
 
 
-.oneParent {
-    width: 1920px;
-}
-
 .boxBody {
     margin: 0px 85px 0px 85px;
-    height: 960px;
+    height: 100vh;
     border: 4px solid red;
     border-top: none;
     border-bottom: none;
@@ -487,7 +565,7 @@ ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 1609.58px;
+    width: 1688.58px;
     height: 63px;
 }
 
@@ -505,10 +583,6 @@ ul {
     color: black;
 }
 
-.line {
-    border-top: 4px solid black;
-    width: 200vh;
-}
 
 
 .divBody {
@@ -556,7 +630,8 @@ ul {
     font-weight: 400;
     margin-bottom: 25px;
 }
-.textContent{
+
+.textContent {
     font-family: Jost;
     font-size: 20px;
     font-weight: 400;
@@ -614,7 +689,7 @@ ul {
     }
 }
 
-.deleteOne{
+.deleteOne {
     text-align: center;
     border: none;
     color: white;
@@ -633,8 +708,8 @@ ul {
     width: 298.58px;
     height: 63px;
     padding: 10px 90px 10px 90px;
-    border-radius: 5px ;    
+    border-radius: 5px;
     border: 2px solid black;
     background: #FF6262;
     object-fit: cover;
-}    
+}

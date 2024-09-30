@@ -90,16 +90,16 @@ export default function AddReport() {
             body: JSON.stringify(newPartner),
             credentials: 'include', // If cookies are needed
         })
-        .then(response => {
-            if (response.ok) {
-              setModalActive(true)
-              setError(false)
-            } else {
-              setModalActive(false)
-              setError(true)
-            }
-    
-          })
+            .then(response => {
+                if (response.ok) {
+                    setModalActive(true)
+                    setError(false)
+                } else {
+                    setModalActive(false)
+                    setError(true)
+                }
+
+            })
             .catch(error => {
                 console.error("Error:", error);
             });
@@ -127,7 +127,7 @@ export default function AddReport() {
                         />
                         {/* -------- */}
                     </div>
-                    <div className={styles.En_Ru}>
+                    {/* <div className={styles.En_Ru}>
                         <button
                             className={classNames(styles.button,
                                 { [styles.activeB]: language === false })}
@@ -136,6 +136,29 @@ export default function AddReport() {
                         <button className={classNames(styles.button,
                             { [styles.activeB]: language === true })}
                             onClick={() => handleLanguageChange(true)}>{t("Admin.ru")}</button>
+                    </div> */}
+
+                    <div className={styles.En_Ru}>
+                        <div
+                            className={classNames(styles.buttonDiv1,
+                                { [styles.activeBDiv1]: language === true })}
+                        >
+                            <button
+                                className={classNames(styles.button1,
+                                    { [styles.activeB1]: language === false })}
+                                onClick={() => handleLanguageChange(false)}>{t("Admin.en")}</button>
+                        </div>
+                        <div
+                            className={classNames(styles.buttonDiv,
+                                { [styles.activeBDiv]: language === true })}
+                        >
+
+                            <button className={classNames(styles.button2,
+                                { [styles.activeB2]: language === true })}
+                                onClick={() => handleLanguageChange(true)}>{t("Admin.ru")}
+                            </button>
+                        </div>
+
                     </div>
                 </div>
             ) : (
@@ -149,7 +172,7 @@ export default function AddReport() {
                             value={titleRu}
                         />
                     </div>
-                    <div className={styles.En_Ru}>
+                    {/* <div className={styles.En_Ru}>
                         <button
                             className={classNames(styles.button,
                                 { [styles.activeB]: language === false })}
@@ -158,6 +181,29 @@ export default function AddReport() {
                         <button className={classNames(styles.button,
                             { [styles.activeB]: language === true })}
                             onClick={() => handleLanguageChange(true)}>{t("Admin.ru")}</button>
+                    </div> */}
+
+                    <div className={styles.En_Ru}>
+                        <div
+                            className={classNames(styles.buttonDiv1,
+                                { [styles.activeBDiv1]: language === true })}
+                        >
+                            <button
+                                className={classNames(styles.button1,
+                                    { [styles.activeB1]: language === false })}
+                                onClick={() => handleLanguageChange(false)}>{t("Admin.en")}</button>
+                        </div>
+                        <div
+                            className={classNames(styles.buttonDiv,
+                                { [styles.activeBDiv]: language === true })}
+                        >
+
+                            <button className={classNames(styles.button2,
+                                { [styles.activeB2]: language === true })}
+                                onClick={() => handleLanguageChange(true)}>{t("Admin.ru")}
+                            </button>
+                        </div>
+
                     </div>
                 </div>
             )}
@@ -167,7 +213,7 @@ export default function AddReport() {
 
                 <div className={styles.date}>
                     <input type="text"
-                        placeholder='Date'
+                        placeholder={t("Admin.date")}
                         value={date}
                         className={styles.time1}
                         readOnly
@@ -175,7 +221,6 @@ export default function AddReport() {
 
                     <input
                         type="datetime-local"
-                        placeholder='Date'
                         id="date-time"
                         onChange={(e) => setDate(e.target.value)}
                         value={date}

@@ -92,7 +92,17 @@
         "delete": "Delete",
         "education": "Education :",
         "additional": "Additional courses and certificates :",
-        "contact":"Contact information :",
-        "about":"About the specialist :"
+        "contact": "Contact information :",
+        "about": "About the specialist :",
+        "ad": "Additional information   ",
+        "days": "Days of the week",
+        "start": "Start time",
+        "end": "End time",
+        "date": "Date",
+        "time": "Time",
+        "des": "Description of the direction :",
+        "main": "Main services :",
+        "work": "Experience :",
+        "s":"Services provided by a specialist :"
     }
 }
