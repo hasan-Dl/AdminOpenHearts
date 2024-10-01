@@ -41,14 +41,7 @@ export default function Email() {
       },
       credentials: 'include', // Если нужно передавать cookie
     })
-      .then(response => {
-        if (response.ok) {
-          alert("susses")
-          navigate('/code')
-        } else {
-          alert("Error")
-        }
-      })
+
       .then(response => {
         if (response.ok) {
           setModalActive(true);

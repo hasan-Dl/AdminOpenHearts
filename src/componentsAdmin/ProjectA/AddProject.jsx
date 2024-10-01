@@ -75,7 +75,7 @@ export default function AddProject() {
     // Prepare the payload with the base64-encoded file
     const newPartner = {
       Photo: base64File,
-      phone: phone,
+      phone: Number(phone),
       email: email,
       "ru": {
         name: titleRu,

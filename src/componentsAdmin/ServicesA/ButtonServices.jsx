@@ -1,14 +1,30 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './services.module.css'
 import { useTranslation } from 'react-i18next'
 import AddServices from './AddServices'
 import ServicesA from './ServicesA'
 export default function ButtonServices() {
   const { t } = useTranslation()
-  const [active, setActive] = useState(false)
-  const handleButtonClick = (buttonType) => {
-      setActive(buttonType);
-  }
+//   const [active, setActive] = useState(false)
+//   const handleButtonClick = (buttonType) => {
+//       setActive(buttonType);
+//   }
+
+const getInitialActive = () => {
+    const storedValue = localStorage.getItem('active');
+    return storedValue ? JSON.parse(storedValue) : false; 
+};
+
+const [active, setActive] = useState(getInitialActive);
+
+// Обновляем localStorage при изменении activeStatistic
+useEffect(() => {
+    localStorage.setItem('active', JSON.stringify(active));
+}, [active]);
+
+const handleButtonClick = (buttonType) => {
+    setActive(buttonType);
+};
 return (
   
      <div className={styles.styleBox}>

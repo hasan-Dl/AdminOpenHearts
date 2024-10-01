@@ -34,7 +34,7 @@ export default function Code() {
         }
 
         const codeUpdate = {
-            Code: Number(otp)
+            code: Number(otp)
         }
         setOtp('')
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AddStory from './AddStory'
 import Stories from './Stories'
 import styles from './story.module.css'
@@ -6,10 +6,24 @@ import { useTranslation } from 'react-i18next'
 
 export default function ButtonStory() {
     const { t } = useTranslation()
-    const [activeStatistic, setActiveStatistic] = useState(false)
+
+   
+    const getInitialActiveStatistic = () => {
+        const storedValue = localStorage.getItem('activeStatistic');
+        return storedValue ? JSON.parse(storedValue) : false; 
+    };
+    
+    const [activeStatistic, setActiveStatistic] = useState(getInitialActiveStatistic);
+
+    // Обновляем localStorage при изменении activeStatistic
+    useEffect(() => {
+        localStorage.setItem('activeStatistic', JSON.stringify(activeStatistic));
+    }, [activeStatistic]);
+
     const handleButtonClick = (buttonType) => {
         setActiveStatistic(buttonType);
-    }
+    };
+
     return (
         <div className={styles.styleBox}>
             <div className={styles.boxButton}>

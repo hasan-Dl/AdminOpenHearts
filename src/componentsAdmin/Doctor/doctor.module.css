@@ -151,13 +151,14 @@
     flex-direction: column;
     margin-top: 20px;
     position: relative;
-    right: 1px;
+    right: 1.5px;
 }
-.buttonDiv1{
+
+.buttonDiv1 {
     height: 63px;
     width: 121px;
     border: none;
- 
+
 }
 
 .activeBDiv1 {
@@ -186,10 +187,11 @@
     margin-top: 10px;
     margin-right: 4px;
     background: white;
+    color: #9E9E9E;
 }
 
 .activeB1 {
-  
+    color: black;
     border-left: none;
     font-family: Jost;
     font-size: 30px;
@@ -226,7 +228,7 @@
     font-weight: 500;
     border-top: none;
     border-left: none;
-   
+    color: #9E9E9E;
 }
 
 .activeB2 {
@@ -240,15 +242,16 @@
     font-family: Jost;
     font-size: 30px;
     font-weight: 500;
+    color: black;
 }
 
 
 
 
 .b {
-   display: flex;
-   align-items: end;
-   gap: 76px;
+    display: flex;
+    align-items: end;
+    gap: 76px;
     /* margin-top: 80px; */
 }
 
@@ -325,6 +328,7 @@
     padding: 0px 0px 0px 30px;
     border: none;
 }
+
 .inputMain1 {
     outline: none;
     font-size: 30px;
@@ -372,7 +376,7 @@ ul {
 
 .lsDOCTORS {
     display: flex;
-    flex-wrap:wrap ;
+    flex-wrap: wrap;
     /* flex-direction: column; */
     justify-content: flex-start;
     align-items: flex-start;
@@ -384,7 +388,7 @@ ul {
 
 .lsDOCTORS1 {
     display: flex;
-    flex-wrap:wrap ;
+    flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
     gap: 15px;
@@ -392,6 +396,7 @@ ul {
     width: 820px;
 
 }
+
 .main {
     display: inline-flex;
     align-items: center;
@@ -447,14 +452,14 @@ ul {
     font-size: 30px;
     font-weight: 400;
     text-align: left;
-  
+
 }
 
 .timeStyle {
     width: 35px;
     height: 35px;
     margin-top: 10px;
-   
+
 }
 
 
@@ -598,7 +603,7 @@ ul {
 
 /* One Doctor GET */
 
-.oneParent{
+.oneParent {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -606,11 +611,11 @@ ul {
 }
 
 
-.line{
+.line {
     border: 2px solid black;
     position: absolute;
     width: 100%;
-    top:120px;
+    top: 120px;
 }
 
 .parent1 {

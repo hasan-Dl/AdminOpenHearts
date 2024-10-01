@@ -79,6 +79,7 @@
     font-size: 30px;
     font-weight: 500;
     text-align: center;
+
     color: rgb(129, 126, 126);
 }
 
@@ -87,7 +88,7 @@
     height: 63px;
     border: 2px solid rgb(0, 0, 0);
     color: black;
-    border-radius: 5px;
+    border-radius: 5px; 
 }
 
 
@@ -114,7 +115,10 @@
     border: 2px solid #9E9E9E;
     border-right: none;
     padding: 20px 80px 20px 20px;
+    position: relative;
+    left: 2px;  
 }
+
 
 
 .inputNumber {
@@ -138,6 +142,8 @@
     font-size: 30px;
     font-weight: 400;
     outline: none;
+    overflow: hidden;
+    resize: none;
 }
 
 
@@ -197,10 +203,11 @@
     margin-top: 10px;
     margin-right: 4px;
     background: white;
+    color: #9E9E9E;
 }
 
 .activeB1 {
-  
+   color: black;
     border-left: none;
     font-family: Jost;
     font-size: 30px;
@@ -237,7 +244,7 @@
     font-weight: 500;
     border-top: none;
     border-left: none;
-    /* position: relative; */
+    /* position: relative; */ color: #9E9E9E;
 }
 
 .activeB2 {
@@ -252,6 +259,7 @@
     font-family: Jost;
     font-size: 30px;
     font-weight: 500;
+    color: black;
 }
 
 

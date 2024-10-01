@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import styles from './statistic.module.css'
 import AddStatistic from './AddStatistic';
@@ -8,11 +8,27 @@ import StatisticS from './StatisticS';
 export default function ButtonsStatistic() {
 
   const { t } = useTranslation()
-  const [activeStatistic, setActiveStatistic] = useState(false)
 
-  const handleButtonClick = (buttonType) => {
+  // const [activeStatistic, setActiveStatistic] = useState(false)
+
+  // const handleButtonClick = (buttonType) => {
+  //   setActiveStatistic(buttonType);
+  // };
+  const getInitialActiveStatistic = () => {
+    const storedValue = localStorage.getItem('activeStatistic');
+    return storedValue ? JSON.parse(storedValue) : false; 
+};
+
+const [activeStatistic, setActiveStatistic] = useState(getInitialActiveStatistic);
+
+// Обновляем localStorage при изменении activeStatistic
+useEffect(() => {
+    localStorage.setItem('activeStatistic', JSON.stringify(activeStatistic));
+}, [activeStatistic]);
+
+const handleButtonClick = (buttonType) => {
     setActiveStatistic(buttonType);
-  };
+};
 
   return (
     <div className={styles.styleBox}>

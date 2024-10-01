@@ -162,10 +162,11 @@
     margin-top: 10px;
     margin-right: 4px;
     background: white;
+    color: #9E9E9E;
 }
 
 .activeB1 {
-  
+    color:black;
     border-left: none;
     font-family: Jost;
     font-size: 30px;
@@ -202,7 +203,7 @@
     font-weight: 500;
     border-top: none;
     border-left: none;
-   
+    color: #9E9E9E;
 }
 
 .activeB2 {
@@ -216,6 +217,7 @@
     font-family: Jost;
     font-size: 30px;
     font-weight: 500;
+    color: black;
 }
 
 /* 

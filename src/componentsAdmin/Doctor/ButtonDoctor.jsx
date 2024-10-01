@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './doctor.module.css'
 import { useTranslation } from 'react-i18next'
 import AddDoctor from './AddDoctor'
@@ -7,10 +7,23 @@ export default function ButtonDoctor() {
 
     const { t } = useTranslation()
 
-    const [active,setActive]= useState(false)
+  
+
+    const getInitialActive = () => {
+        const storedValue = localStorage.getItem('active');
+        return storedValue ? JSON.parse(storedValue) : false; 
+    };
+    
+    const [active, setActive] = useState(getInitialActive);
+
+    // Обновляем localStorage при изменении activeStatistic
+    useEffect(() => {
+        localStorage.setItem('active', JSON.stringify(active));
+    }, [active]);
+
     const handleButtonClick = (buttonType) => {
         setActive(buttonType);
-    }
+    };
 
   return (
     <div className={styles.styleBox}>

@@ -94,12 +94,12 @@ export default function AddServices() {
       "ru": {
         title: titleRu,
         description: descriptionRu,
-        mainServeses: servicesEn
+        mainServices: servicesEn
       },
       "en": {
         title: titleEn,
         description: descriptionEn,
-        mainServeses: servicesRu
+        mainServices : servicesRu
       },
     };
 

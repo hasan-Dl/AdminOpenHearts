@@ -7,7 +7,6 @@ import ErrorModal from '../../modal/ErrorModal';
 import MyModal from '../../modal/MyModal';
 export default function Projects() {
 
-
   const [modalActive, setModalActive] = useState(false)
   const [errorM, setError] = useState(false)
   

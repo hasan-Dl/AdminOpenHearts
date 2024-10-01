@@ -96,7 +96,6 @@ export default function AddStatistic() {
                         value={number}
                         style={{
                             borderColor: errorNumber ? '#FF0000' : '',
-
                         }}
                     />
                     {errorNumber && <p className={styles.error}>{t("Admin.error")}</p>}
@@ -104,33 +103,40 @@ export default function AddStatistic() {
 
                 <div className={styles.add}>
                     {!language ? (
-                        <div className={styles.divEN_RU}>
-                            <input
-                                type="text"
-                                className={styles.inputDescription}
-                                placeholder='Description'
-                                onChange={(e) => setDescriptionEn(e.target.value)}
-                                value={descriptionEn}
-                                style={{
-                                    borderColor: errorDescriptionEn ? '#FF0000' : '',
-                                }}
-                            />
-                            {errorDescriptionEn && <p className={styles.error}>{t("Admin.error")}</p>}
-                        </div>
-                    ) :
-                        (
+                        <div>
+
                             <div className={styles.divEN_RU}>
                                 <input
                                     type="text"
                                     className={styles.inputDescription}
-                                    onChange={(e) => setDescriptionRu(e.target.value)}
-                                    value={descriptionRu}
-                                    placeholder='Описания'
+                                    placeholder='Description'
+                                    onChange={(e) => setDescriptionEn(e.target.value)}
+                                    value={descriptionEn}
                                     style={{
-                                        borderColor: errorDescriptionRu ? '#FF0000' : '',
+                                        borderColor: errorDescriptionEn ? '#FF0000' : '',
                                     }}
                                 />
+                            </div>
+                            {errorDescriptionEn && <p className={styles.error}>{t("Admin.error")}</p>}
+                        </div>
+                    ) :
+                        (
+                            <div>
+
+                                <div className={styles.divEN_RU}>
+                                    <input
+                                        type="text"
+                                        className={styles.inputDescription}
+                                        onChange={(e) => setDescriptionRu(e.target.value)}
+                                        value={descriptionRu}
+                                        placeholder='Описания'
+                                        style={{
+                                            borderColor: errorDescriptionRu ? '#FF0000' : '',
+                                        }}
+                                    />
+                                </div>
                                 {errorDescriptionRu && <p className={styles.error}>{t("Admin.error")}</p>}
+
                             </div>
                         )}
 
