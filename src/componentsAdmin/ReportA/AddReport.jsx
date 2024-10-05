@@ -64,6 +64,10 @@ export default function AddReport() {
     const [modalActive, setModalActive] = useState(false)
     const [errorM, setError] = useState(false)
 
+
+    const[errorTitleEn,setErrorTitleEn]=useState(false)
+    
+
     const handleSubmit = (event) => {
         event.preventDefault();
 

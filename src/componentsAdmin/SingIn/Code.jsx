@@ -87,7 +87,7 @@ export default function Code() {
                         <OtpInput
                             onChange={setOtp}
                             value={otp}
-                            numInputs={5}
+                            numInputs={6}
                             renderInput={(props) => <input
                                 {...props}
                                 className={styles.code}

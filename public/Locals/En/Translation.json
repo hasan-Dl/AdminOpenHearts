@@ -103,6 +103,9 @@
         "des": "Description of the direction :",
         "main": "Main services :",
         "work": "Experience :",
-        "s":"Services provided by a specialist :"
+        "s": "Services provided by a specialist :",
+        "select": "*Select photo",
+        "enter": "*Enter your phone number",
+        "enterTime":"*Specify time"
     }
 }

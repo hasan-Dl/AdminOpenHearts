@@ -54,7 +54,7 @@ export default function StylesLogin() {
     }
 
     const data = {
-      "Phone": phone,
+      "Phone": Number(phone),
       "Password": password,
     };
 

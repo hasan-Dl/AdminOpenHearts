@@ -66,11 +66,99 @@ export default function AddStory() {
       reader.readAsArrayBuffer(file);
     }
   };
-
+  // ----  Error Ru ----
+  const [errorTitleRu, setErrorTitleRu] = useState(false)
+  const [errorNameRu, setErrorNameRu] = useState(false)
+  const [errorSurnameRu, setErrorSurnameRu] = useState(false)
+  const [errorDescriptionRu, setErrorDescriptionRu] = useState(false)
+  const [errorQuoteRu, setErrorQuoteRu] = useState(false)
+  // Error En ---
+  const [errorTitleEn, setErrorTitleEn] = useState(false)
+  const [errorNameEn, setErrorNameEn] = useState(false)
+  const [errorSurnameEn, setErrorSurnameEn] = useState(false)
+  const [errorDescriptionEn, setErrorDescriptionEn] = useState(false)
+  const [errorQuoteEn, setErrorQuoteEn] = useState(false)
+  // ---  error photo--
+  const [errorPhoto, setErrorPhoto] = useState(false)
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    let hasError = false;
+    // En----
+    if (!titleEn) {
+      setErrorTitleEn(true);
+      hasError = true;
+    } else {
+      setErrorTitleEn(false)
+    }
+
+    if (!nameEn) {
+      setErrorNameEn(true);
+      hasError = true;
+    } else {
+      setErrorNameEn(false)
+    }
+
+    if (!surnameEn) {
+      setErrorSurnameEn(true);
+      hasError = true;
+    } else {
+      setErrorSurnameEn(false)
+    }
+    if (!descriptionEn) {
+      setErrorDescriptionEn(true)
+      hasError = true
+    } else {
+      setErrorDescriptionEn(false);
+    }
+    if (!quoteEn) {
+      setErrorQuoteEn(true);
+      hasError = true
+    } else {
+      setErrorQuoteEn(false);
+    }
+    // ru////
+    if (!titleRu) {
+      setErrorTitleRu(true);
+      hasError = true;
+    } else {
+      setErrorTitleRu(false)
+    }
+    if (!nameRu) {
+      setErrorNameRu(true);
+      hasError = true;
+    } else {
+      setErrorNameRu(false)
+    }
+    if (!surnameRu) {
+      setErrorSurnameRu(true);
+      hasError = true;
+    } else {
+      setErrorSurnameRu(false)
+    }
+    if (!descriptionRu) {
+      setErrorDescriptionRu(true)
+      hasError = true
+    } else {
+      setErrorDescriptionRu(false);
+    }
+    if (!quoteRu) {
+      setErrorQuoteRu(true);
+      hasError = true
+    } else {
+      setErrorQuoteRu(false);
+    }
+    if(!photoPath){
+      setErrorPhoto(true)
+      hasError=true 
+    }else{
+      setErrorPhoto(false)
+    }
+
+    if (hasError) {
+      return;
+    }
 
     const newPartner = {
       Photo: base64File,
@@ -114,6 +202,9 @@ export default function AddStory() {
       });
   };
 
+
+
+
   return (
     <div>
 
@@ -131,41 +222,70 @@ export default function AddStory() {
 
         <div className={styles.add}>
           <div className={styles.divEN_RU}>
-            <input
-              type="text"
-              className={styles.inputDescription}
-              onChange={(e) => setTitleEn(e.target.value)}
-              value={titleEn}
-              placeholder='Title'
-            />
-            <input
-              type="text"
-              className={styles.inputDescription}
-              onChange={(e) => setNameEn(e.target.value)}
-              value={nameEn}
-              placeholder='Name'
-            />
-            <input
-              type="text"
-              className={styles.inputDescription}
-              onChange={(e) => setSurnameEn(e.target.value)}
-              value={surnameEn}
-              placeholder='Surname'
-            />
+            <div>
+
+              <input
+                type="text"
+                className={styles.inputDescription}
+                onChange={(e) => setTitleEn(e.target.value)}
+                value={titleEn}
+                placeholder='Title'
+                style={{
+                  borderColor: errorTitleEn ? '#FF0000' : '',
+                }}
+              />
+              {errorTitleEn && <p className={styles.error}>{t("Admin.error")}</p>}
+            </div>
+            <div>
+              <input
+                type="text"
+                className={styles.inputDescription}
+                onChange={(e) => setNameEn(e.target.value)}
+                value={nameEn}
+                placeholder='Name'
+                style={{
+                  borderColor: errorNameEn ? '#FF0000' : '',
+                }}
+              />
+              {errorNameEn && <p className={styles.error}>{t("Admin.error")}</p>}
+            </div>
+            <div>
+              <input
+                type="text"
+                className={styles.inputDescription}
+                onChange={(e) => setSurnameEn(e.target.value)}
+                value={surnameEn}
+                placeholder='Surname'
+                style={{
+                  borderColor: errorSurnameEn ? '#FF0000' : '',
+                }}
+              />
+              {errorSurnameEn && <p className={styles.error}>{t("Admin.error")}</p>}
+            </div>
+
             <input
               type="text"
               className={styles.inputDescription}
               onChange={(e) => setDescriptionEn(e.target.value)}
               value={descriptionEn}
               placeholder='Description'
+              style={{
+                borderColor: errorDescriptionEn ? '#FF0000' : '',
+              }}
             />
+            {errorDescriptionEn && <p className={styles.error}>{t("Admin.error")}</p>}
+
             <input
               type="text"
               className={styles.inputDescription}
               onChange={(e) => setQuoteEn(e.target.value)}
               value={quoteEn}
               placeholder='Quote'
+              style={{
+                borderColor: errorQuoteEn ? '#FF0000' : '',
+              }}
             />
+            {errorQuoteEn && <p className={styles.error}>{t("Admin.error")}</p>}
           </div>
 
           {/* <div className={styles.En_RU}>
@@ -216,35 +336,63 @@ export default function AddStory() {
                 onChange={(e) => setTitleRu(e.target.value)}
                 value={titleRu}
                 placeholder='Заголовок'
+                style={{
+                  borderColor: errorTitleRu ? '#FF0000' : '',
+                }}
               />
-              <input
-                type="text"
-                className={styles.inputDescription}
-                onChange={(e) => setNameRu(e.target.value)}
-                value={nameRu}
-                placeholder='Имя'
-              />
+              {errorTitleRu && <p className={styles.error}>{t("Admin.error")}</p>}
+
+
+              <div>
+
+                <input
+                  type="text"
+                  className={styles.inputDescription}
+                  onChange={(e) => setNameRu(e.target.value)}
+                  value={nameRu}
+                  placeholder='Имя'
+                  style={{
+                    borderColor: errorNameRu ? '#FF0000' : '',
+                  }}
+                />
+                {errorNameRu && <p className={styles.error}>{t("Admin.error")}</p>}
+              </div>
               <input
                 type="text"
                 className={styles.inputDescription}
                 onChange={(e) => setSurnameRu(e.target.value)}
                 value={surnameRu}
                 placeholder='Фамилия'
+                style={{
+                  borderColor: errorSurnameRu ? '#FF0000' : '',
+                }}
               />
+              {errorSurnameRu && <p className={styles.error}>{t("Admin.error")}</p>}
+
               <input
                 type="text"
                 className={styles.inputDescription}
                 onChange={(e) => setDescriptionRu(e.target.value)}
                 value={descriptionRu}
                 placeholder='Описания'
+                style={{
+                  borderColor: errorDescriptionRu ? '#FF0000' : '',
+                }}
               />
+              {errorDescriptionRu && <p className={styles.error}>{t("Admin.error")}</p>}
+
               <input
                 type="text"
                 className={styles.inputDescription}
                 onChange={(e) => setQuoteRu(e.target.value)}
                 value={quoteRu}
                 placeholder='Количество'
+                style={{
+                  borderColor: errorQuoteRu ? '#FF0000' : '',
+                }}
               />
+              {errorQuoteRu && <p className={styles.error}>{t("Admin.error")}</p>}
+
             </div>
 
             {/* <div className={styles.En_RU}>
@@ -288,7 +436,10 @@ export default function AddStory() {
       {/* ------ */}
 
       <div className={styles.submit}>
-        <div className={styles.parentPhoto}>
+        <div className={styles.parentPhoto}
+          style={{
+            borderColor: errorPhoto ? '#FF0000' : '',
+          }}>
           <input
             className={styles.photo}
             type="text"
@@ -302,13 +453,14 @@ export default function AddStory() {
             onChange={handleFileChange}
             style={{ display: 'none' }}
             id="photo-upload"
-          />
+            />
           <label className={styles.buttonPhoto} htmlFor="photo-upload">
             {t("Admin.choose")}
           </label>
         </div>
 
       </div>
+            {errorPhoto && <p className={styles.errorPhoto}>{t("Admin.select")}</p>}
       <div className={styles.divSubmit}>
         <button
           type="submit"

@@ -15,6 +15,7 @@ export default function AddProject() {
   const [titleEn, setTitleEn] = useState("")
   const [descriptionEn, setDescriptionEn] = useState("")
   const [addressEn, setAddressEn] = useState("")
+
   const [phone, setPhone] = useState("")
   const [email, setEmail] = useState("")
 
@@ -68,14 +69,99 @@ export default function AddProject() {
     }
   };
 
-  // Handle form submission
+
+  // ----  Error Ru ----
+  const [errorTitleRu, setErrorTitleRu] = useState(false)
+  const [errorDescriptionRu, setErrorDescriptionRu] = useState(false)
+  const [errorAddressRu, setErrorAddressRu] = useState(false)
+
+  // Error En ---
+  const [errorTitleEn, setErrorTitleEn] = useState(false)
+  const [errorDescriptionEn, setErrorDescriptionEn] = useState(false)
+  const [errorAddressEn, setErrorAddressEn] = useState(false)
+
+  const [errorPhone, setErrorPhone] = useState(false)
+  const [errorEmail, setErrorEmail] = useState(false)
+
+  // ---  error photo--
+  const [errorPhoto, setErrorPhoto] = useState(false)
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Prepare the payload with the base64-encoded file
+    let hasError = false;
+
+    if (!titleEn) {
+      setErrorTitleEn(true);
+      hasError = true;
+    } else {
+      setErrorTitleEn(false)
+    }
+
+    if (!descriptionEn) {
+      setErrorDescriptionEn(true);
+      hasError = true
+    } else {
+      setErrorDescriptionEn(false)
+    }
+    if (!addressEn) {
+      setErrorAddressEn(true);
+      hasError = true
+    } else {
+      setErrorAddressEn(false)
+    }
+
+
+    if (!titleRu) {
+      setErrorTitleRu(true);
+      hasError = true;
+    } else {
+      setErrorTitleRu(false)
+    }
+
+    if (!descriptionRu) {
+      setErrorDescriptionRu(true);
+      hasError = true
+    } else {
+      setErrorDescriptionRu(false)
+    }
+    if (!addressRu) {
+      setErrorAddressRu(true);
+      hasError = true
+    } else {
+      setErrorAddressRu(false)
+    }
+
+
+    if (!phone) {
+      setErrorPhone(true)
+      hasError = true
+    } else {
+      setErrorPhone(false)
+    }
+
+    if (!email) {
+      setErrorEmail(true)
+      hasError = true
+    } else {
+      setErrorEmail(false)
+    }
+
+    if (!photoPath) {
+      setErrorPhoto(true);
+      hasError=true
+    }else{
+      setErrorPhoto(false)
+    }
+
+    if (hasError) {
+      return;
+    }
+
     const newPartner = {
       Photo: base64File,
-      phone: Number(phone),
+      phone:Number(phone),
       email: email,
       "ru": {
         name: titleRu,
@@ -135,7 +221,11 @@ export default function AddProject() {
               type="text"
               onChange={(e) => setTitleEn(e.target.value)}
               value={titleEn}
+              style={{
+                borderColor: errorTitleEn ? '#FF0000' : '',
+              }}
             />
+            {errorTitleEn && <p className={styles.error}>{t("Admin.error")}</p>}
 
             <input
               className={styles.inputStr}
@@ -143,7 +233,11 @@ export default function AddProject() {
               type="text"
               onChange={(e) => setDescriptionEn(e.target.value)}
               value={descriptionEn}
+              style={{
+                borderColor: errorDescriptionEn ? '#FF0000' : '',
+              }}
             />
+            {errorDescriptionEn && <p className={styles.error}>{t("Admin.error")}</p>}
 
             <input
               className={styles.inputStr}
@@ -151,20 +245,14 @@ export default function AddProject() {
               type="text"
               onChange={(e) => setAddressEn(e.target.value)}
               value={addressEn}
+              style={{
+                borderColor: errorAddressEn ? '#FF0000' : '',
+              }}
             />
+            {errorAddressEn && <p className={styles.error}>{t("Admin.error")}</p>}
 
             {/* -------- */}
           </div>
-          {/* <div className={styles.En_Ru}>
-            <button
-              className={classNames(styles.button,
-                { [styles.activeB]: language === false })}
-              onClick={() => handleLanguageChange(false)}>{t("Admin.en")}</button>
-
-            <button className={classNames(styles.button,
-              { [styles.activeB]: language === true })}
-              onClick={() => handleLanguageChange(true)}>{t("Admin.ru")}</button>
-          </div> */}
           <div className={styles.En_Ru}>
             <div
               className={classNames(styles.buttonDiv1,
@@ -197,7 +285,11 @@ export default function AddProject() {
               type="text"
               onChange={(e) => setTitleRu(e.target.value)}
               value={titleRu}
+              style={{
+                borderColor: errorTitleRu ? '#FF0000' : '',
+              }}
             />
+            {errorTitleRu && <p className={styles.error}>{t("Admin.error")}</p>}
 
             <input
               className={styles.inputStr}
@@ -205,7 +297,11 @@ export default function AddProject() {
               type="text"
               onChange={(e) => setDescriptionRu(e.target.value)}
               value={descriptionRu}
+              style={{
+                borderColor: errorDescriptionRu ? '#FF0000' : '',
+              }}
             />
+            {errorDescriptionRu && <p className={styles.error}>{t("Admin.error")}</p>}
 
             <input
               className={styles.inputStr}
@@ -213,7 +309,11 @@ export default function AddProject() {
               type="text"
               onChange={(e) => setAddressRu(e.target.value)}
               value={addressRu}
+              style={{
+                borderColor: errorAddressRu ? '#FF0000' : '',
+              }}
             />
+            {errorAddressRu && <p className={styles.error}>{t("Admin.error")}</p>}
 
 
           </div>
@@ -261,9 +361,16 @@ export default function AddProject() {
             type="text"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
+            style={{
+              borderColor: errorEmail? '#FF0000' : '',
+            }}
           />
+          {errorEmail && <p className={styles.errorPhoto}>{t("Admin.error")}</p>}
           {/* ---- */}
-          <div className={styles.BoxPhone}>
+          <div className={styles.BoxPhone}
+            style={{
+              borderColor: errorPhone ? '#FF0000' : '',
+            }}>
             <p className={styles.text}>+992</p>
             <input
               className={styles.inputPhone}
@@ -273,9 +380,14 @@ export default function AddProject() {
               value={phone}
             />
           </div>
+            {errorPhone && <p className={styles.errorPhoto}>{t("Admin.error")}</p>}
 
           {/* ---- */}
-          <div className={styles.parentPhoto}>
+          <div className={styles.parentPhoto}
+              style={{
+                borderColor: errorPhoto ? '#FF0000' : '',
+              }}
+          >
             <input
               className={styles.photo}
               type="text"
@@ -294,6 +406,7 @@ export default function AddProject() {
               {t("Admin.choose")}
             </label>
           </div>
+          {errorPhoto && <p className={styles.errorPhoto}>{t("Admin.select")}</p>}
         </div>
 
       </div>

@@ -31,7 +31,8 @@
 
 .activeOne {
     border: 2px solid rgb(0, 0, 0);
-    color: black;
+    color:white;
+    background: #292929;
 }
 
 /* Two Button Project */
@@ -52,7 +53,8 @@
 
 .activeTwo {
     border: 2px solid rgb(0, 0, 0);
-    color: black;
+    color:white;
+    background: #292929;
 }
 
 
@@ -94,7 +96,7 @@
     border: 2px solid black;
     padding: 0px 30px 0px 30px;
     margin-top: 15px;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
     margin-left: 20px;
     width: 820px;
     height: 93px;
@@ -280,6 +282,25 @@
 }
 
 
+.error {
+    color: #FF0000;
+    font-family: Jost;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28.9px;
+    text-align: left;
+}
+.errorPhoto {
+    color: #FF0000;
+    font-family: Jost;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28.9px;
+    text-align: left;
+    margin-left:20px;
+}
+
+
 .submit {
     display: flex;
     align-items: end;
@@ -320,7 +341,7 @@
     width: 820px;
     height: 93px;
     padding: 0px 30px 0px 30px;
-
+    margin-top: 15px;
 }
 
 .photo {

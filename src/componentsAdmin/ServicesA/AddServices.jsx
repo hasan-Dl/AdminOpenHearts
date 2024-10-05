@@ -33,6 +33,7 @@ export default function AddServices() {
   const [photoPath, setPhotoPath] = useState(""); // Путь к фото (имя файла)
 
   // ----lang
+
   const [language, setLanguage] = useState(false);
 
 
@@ -83,11 +84,89 @@ export default function AddServices() {
     }
   };
 
-  // Handle form submission
+
+  // error Ru-----
+  const [errorTitleRu, setErrorTitleRu] = useState(false)
+  const [errorDescriptionRu, setErrorDescriptionRu] = useState(false)
+  const [errorMainRu, setErrorMainRu] = useState(false)
+
+  // Error En ---
+  const [errorTitleEn, setErrorTitleEn] = useState(false)
+  const [errorDescriptionEn, setErrorDescriptionEn] = useState(false)
+  const [errorMainEn, setErrorMainEn] = useState(false)
+
+
+  const [errorPhone, setErrorPhone] = useState(false)
+  // ---  error photo--
+  const [errorPhoto, setErrorPhoto] = useState(false)
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Prepare the payload with the base64-encoded file
+    let hasError = false;
+
+    if (!titleEn) {
+      setErrorTitleEn(true);
+      hasError = true;
+    } else {
+      setErrorTitleEn(false);
+    }
+
+    if (!descriptionEn) {
+      setErrorDescriptionEn(true);
+      hasError = true;
+    } else {
+      setErrorDescriptionEn(false)
+    }
+
+    // if (!mainEn) {
+    //   setErrorMainEn(true);
+    //   hasError = true;
+    // } else {
+    //   setErrorMainEn(false)
+    // }
+    // ----En---
+
+    if (!titleRu) {
+      setErrorTitleRu(true);
+      hasError = true;
+    } else {
+      setErrorTitleRu(false);
+    }
+
+    if (!descriptionRu) {
+      setErrorDescriptionRu(true);
+      hasError = true;
+    } else {
+      setErrorDescriptionRu(false)
+    }
+
+    // if (!mainRu) {
+    //   setErrorMainRu(true);
+    //   hasError = true;
+    // } else {
+    //   setErrorMainRu(false)
+    // }
+
+    if (!phone) {
+      setErrorPhone(true)
+      hasError = true
+    } else {
+      setErrorPhone(false)
+    }
+
+
+    if (!photoPath) {
+      setErrorPhoto(true);
+      hasError = true
+    } else {
+      setErrorPhoto(false)
+    }
+
+    if (hasError) {
+      return;
+    }
+
     const newPartner = {
       Photo: base64File,
       phone: phone,
@@ -99,7 +178,7 @@ export default function AddServices() {
       "en": {
         title: titleEn,
         description: descriptionEn,
-        mainServices : servicesRu
+        mainServices: servicesRu
       },
     };
 
@@ -112,15 +191,15 @@ export default function AddServices() {
       body: JSON.stringify(newPartner),
       credentials: 'include', // If cookies are needed
     })
-    .then(response => {
-      if (response.ok) {
-        setModalActive(true)
-        setError(false)
-      } else {
-        setModalActive(false)
-        setError(true)
-      }
-    })
+      .then(response => {
+        if (response.ok) {
+          setModalActive(true)
+          setError(false)
+        } else {
+          setModalActive(false)
+          setError(true)
+        }
+      })
 
       .catch(error => {
         console.error("Error:", error);
@@ -171,17 +250,29 @@ export default function AddServices() {
               type="text"
               onChange={(e) => setTitleEn(e.target.value)}
               value={titleEn}
+              style={{
+                borderColor: errorTitleEn ? '#FF0000' : '',
+              }}
             />
+            {errorTitleEn && <p className={styles.error}>{t("Admin.error")}</p>}
 
             <input
-              className={styles.inputStr}
+              className={styles.inputDES}
               placeholder="Description"
               type="text"
               onChange={(e) => setDescriptionEn(e.target.value)}
               value={descriptionEn}
+              style={{
+                borderColor: errorDescriptionEn ? '#FF0000' : '',
+              }}
             />
+            {errorDescriptionEn && <p className={styles.error}>{t("Admin.error")}</p>}
 
-            <div className={styles.list}>
+            <div className={styles.list}
+              style={{
+                borderColor: errorMainEn ? "#FF0000" : "",
+              }}
+            >
               <div>
                 <h3 className={styles.textList}>Main services</h3>
                 <input
@@ -194,6 +285,7 @@ export default function AddServices() {
               <img src={Plus} alt="" onClick={addServiceEn} className={styles.plus} />
 
             </div>
+            {errorMainEn && <p className={styles.error}>{t("Admin.error")}</p>}
             <ul className={styles.lsDOCTORS}>
               {servicesEn.map((children, item) => (
                 <div className={styles.main}>
@@ -207,6 +299,7 @@ export default function AddServices() {
             </ul>
 
             {/* -------- */}
+
           </div>
           {/* <div className={styles.En_Ru}>
             <button
@@ -250,17 +343,29 @@ export default function AddServices() {
               type="text"
               onChange={(e) => setTitleRu(e.target.value)}
               value={titleRu}
+              style={{
+                borderColor: errorTitleRu ? '#FF0000' : '',
+              }}
             />
+            {errorTitleRu && <p className={styles.error}>{t("Admin.error")}</p>}
 
             <input
-              className={styles.inputStr}
+              className={styles.inputDES}
               placeholder="Описания"
               type="text"
               onChange={(e) => setDescriptionRu(e.target.value)}
               value={descriptionRu}
+              style={{
+                borderColor: errorDescriptionRu ? '#FF0000' : '',
+              }}
             />
+            {errorDescriptionRu && <p className={styles.error}>{t("Admin.error")}</p>}
 
-            <div className={styles.list}>
+            <div className={styles.list}
+              style={{
+                borderColor: errorMainRu ? "#FF0000" : "",
+              }}
+            >
               <div>
                 <h3 className={styles.textList}>Глание услиги</h3>
                 <input
@@ -275,6 +380,8 @@ export default function AddServices() {
               <img onClick={addServiceRu} className={styles.plus} src={Plus} alt="" />
 
             </div>
+            {errorMainRu && <p className={styles.error}>{t("Admin.error")}</p>}
+
             <ul className={styles.lsDOCTORS}>
               {servicesRu.map((children, index) => (
                 <div className={styles.main}>
@@ -302,7 +409,7 @@ export default function AddServices() {
               { [styles.activeB]: language === true })}
               onClick={() => handleLanguageChange(true)}>{t("Admin.ru")}</button>
           </div> */}
-            <div className={styles.En_Ru}>
+          <div className={styles.En_Ru}>
             <div
               className={classNames(styles.buttonDiv1,
                 { [styles.activeBDiv1]: language === true })}
@@ -329,7 +436,11 @@ export default function AddServices() {
 
       <div className={styles.submit}>
         <div>
-          <div className={styles.BoxPhone}>
+          <div className={styles.BoxPhone}
+            style={{
+              borderColor: errorPhone ? '#FF0000' : '',
+            }}>
+
             <p className={styles.text}>+992</p>
             <input
               className={styles.inputPhone}
@@ -339,8 +450,13 @@ export default function AddServices() {
               value={phone}
             />
           </div>
+          {errorPhone && <p className={styles.errorPhoto}>{t("Admin.enter")}</p>}
           {/* ---- */}
-          <div className={styles.parentPhoto}>
+          <div className={styles.parentPhoto}
+            style={{
+              borderColor: errorPhoto ? '#FF0000' : '',
+            }}
+          >
             <input
               className={styles.photo}
               type="text"
@@ -359,6 +475,7 @@ export default function AddServices() {
               {t("Admin.choose")}
             </label>
           </div>
+          {errorPhoto && <p className={styles.errorPhoto}>{t("Admin.select")}</p>}
         </div>
       </div>
       <div className={styles.b}>

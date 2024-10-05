@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import useFetch from '../../data/useFetch';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import del from '../../assets/Vector (3).png'
 import logo from '../../assets/openHearts.png'
 import del2 from '../../assets/Admin botton (2).png'
@@ -21,8 +21,8 @@ export default function OneDoctor() {
     const [modalActive, setModalActive] = useState(false)
     const [errorM, setError] = useState(false)
 
-    const { data, loading, error, } = useFetch("http://127.0.0.1:2020/get/team")
-
+    const { data, loading, error, setData} = useFetch("http://127.0.0.1:2020/get/team")
+    const navigate = useNavigate()
     const { idDoctor } = useParams()
     const item = data.find((each) => each.Id === idDoctor)
     if (loading) return <p>Loading ...!</p>
@@ -52,6 +52,7 @@ export default function OneDoctor() {
                     setModalActive(true)
                     const updatedData = data.filter(item => item.Id !== id);
                     setData(updatedData);
+                    navigate('/admin/doctorAdmin')
                     setError(false)
                 } else {
                     setModalActive(false)

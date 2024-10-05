@@ -8,10 +8,11 @@ export default function AddPartner() {
     const { t } = useTranslation();
     const [photoPath, setPhotoPath] = useState(""); // To store file name
     const [base64File, setBase64File] = useState(""); // To store base64-encoded file
- 
+
     const [modalActive, setModalActive] = useState(false)
     const [errorM, setError] = useState(false)
-    
+    const [errorPhoto, setErrorPhoto] = useState(false)
+
     // Handle file selection and conversion to base64
     const handleFileChange = (event) => {
         const file = event.target.files[0]; // Get the first uploaded file
@@ -45,6 +46,16 @@ export default function AddPartner() {
     // Handle form submission
     const handleSubmit = (event) => {
         event.preventDefault();
+        let hasError = false;
+        if (!photoPath) {
+            setErrorPhoto(true)
+            hasError = true
+        } else {
+            setErrorPhoto(false)
+        }
+        if (hasError) {
+            return;
+        }
 
         // Prepare the payload with the base64-encoded file
         const newPartner = {
@@ -60,16 +71,16 @@ export default function AddPartner() {
             body: JSON.stringify(newPartner),
             credentials: 'include', // If cookies are needed
         })
-        .then(response => {
-            if (response.ok) {
-              setModalActive(true)
-              setError(false)
-            } else {
-              setModalActive(false)
-              setError(true)
-            }
-    
-          })
+            .then(response => {
+                if (response.ok) {
+                    setModalActive(true)
+                    setError(false)
+                } else {
+                    setModalActive(false)
+                    setError(true)
+                }
+
+            })
             .catch(error => {
                 console.error("Error:", error);
             });
@@ -87,7 +98,11 @@ export default function AddPartner() {
             />
 
             <div className={styles.submit}>
-                <div className={styles.parentPhoto}>
+                <div className={styles.parentPhoto}
+                    style={{
+                        borderColor: errorPhoto ? '#FF0000' : '',
+                    }}>
+
                     <input
                         className={styles.photo}
                         type="text"
@@ -106,6 +121,7 @@ export default function AddPartner() {
                         {t("Admin.choose")}
                     </label>
                 </div>
+                {errorPhoto && <p className={styles.errorPhoto}>{t("Admin.select")}</p>}
             </div>
             <div className={styles.divSub}>
                 <button

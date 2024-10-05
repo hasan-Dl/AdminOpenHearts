@@ -29,7 +29,7 @@ export default function Partners() {
 
 
 
-  const handleDelete = (id, Logo) => {
+  const handleDelete = (id, logoId) => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
@@ -41,7 +41,7 @@ export default function Partners() {
     };
 
     // Исправлено: используем обратные кавычки для интерполяции переменных
-    fetch(`http://127.0.0.1:2020/delete/partner?id=${id}&Path=${Logo}`, requestOptions)
+    fetch(`http://127.0.0.1:2020/delete/partner?id=${id}&Path=${logoId}`, requestOptions)
       .then(response => {
         if (response.ok) {
           setModalActive(true)
@@ -78,7 +78,7 @@ export default function Partners() {
               {!deleteShow[item.Id] && (
                 <button
                   className={`${styles.del} ${styles.fadeOut}`}
-                  onClick={() => handleFirstButtonClick(item.Id)}
+                  onClick={() => handleFirstButtonClick(item.Id,item.Logo)}
                 >
                   <img src={del2} alt="delete icon" />
                 </button>

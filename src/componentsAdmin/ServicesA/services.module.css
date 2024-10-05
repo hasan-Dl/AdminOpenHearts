@@ -38,7 +38,8 @@
     padding: 5px 0px 10px 0px;
     border-radius: 5px;
     border: 2px solid black;
-    color: black;
+    color:white;
+    background: #292929;
 }
 
 /* Two Button Services  */
@@ -63,7 +64,8 @@
     padding: 5px 0px 10px 0px;
     border-radius: 5px;
     border: 2px solid black;
-    color: black;
+    color:white;
+    background: #292929;
 }
 
 .parent {
@@ -74,14 +76,12 @@
 .boxStr {
     display: flex;
     flex-direction: column;
-    gap: 15px;
     margin-top: 20px;
     position: relative;
     padding: 10px;
     border: 2px solid #9E9E9E;
     border-right: none;
     padding: 20px 80px 20px 20px;
-    gap: 15px;
 }
 
 .boxStr::after {
@@ -105,6 +105,19 @@
     height: 93px;
     padding: 0px 0px 0px 30px;
 }
+.inputDES {
+    border: 2px solid black;
+    outline: none;
+    font-size: 30px;
+    font-weight: 400;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    width: 1045px;
+    height: 93px;
+    padding: 0px 0px 0px 30px;
+    margin-top: 15px;
+}
 
 .inputMain {
     outline: none;
@@ -126,6 +139,7 @@
     border: 2px solid black;
     width: 1044px;
     height: 93px;
+    margin-top: 15px;
 }
 
 .mainText {
@@ -170,7 +184,6 @@ ul {
     border: 2px solid black;
     padding: 0px 30px 0px 30px;
     margin-top: 15px;
-    margin-bottom: 15px;
     margin-left: 20px;
     width: 750px;
     height: 93px;
@@ -203,7 +216,7 @@ ul {
     flex-direction: column;
     margin-top: 20px;
     position: relative;
-    right: 1.5px;
+    right: 1.8px;
 }
 
 .buttonDiv1 {
@@ -332,7 +345,7 @@ ul {
     width: 750px;
     height: 93px;
     padding: 0px 30px 0px 30px;
-
+   margin-top: 15px;
 }
 
 .photo {
@@ -363,6 +376,26 @@ ul {
     background: rgb(241, 123, 123);
 }
 
+
+
+.error {
+    color: #FF0000;
+    font-family: Jost;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28.9px;
+    text-align: left;
+}
+
+.errorPhoto {
+    color: #FF0000;
+    font-family: Jost;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28.9px;
+    text-align: left;
+    margin-left:20px;
+}
 
 
 /* /* -Get------ */

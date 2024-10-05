@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import styles from './statistic.module.css'
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import MyModal from '../../modal/MyModal';
+import ErrorModal from '../../modal/ErrorModal';
 export default function AddStatistic() {
     const { t } = useTranslation()
     const [number, setNumber] = useState("")
@@ -19,7 +21,9 @@ export default function AddStatistic() {
     }
 
 
-
+    const [modalActive, setModalActive] = useState(false)
+    const [errorM, setError] = useState(false)
+  
 
 
     const Submit = (e) => {
@@ -54,7 +58,7 @@ export default function AddStatistic() {
         }
 
         const submitStatistic = {
-            quantity: Number(number),
+            quantity:Number(number),
             ru: {
                 description: descriptionRu,
             },
@@ -74,18 +78,33 @@ export default function AddStatistic() {
             body: JSON.stringify(submitStatistic),
             credentials: 'include', // Если нужно передавать cookie
         })
-            .then(response => {
-                if (response.ok) {
-                    alert("Susses")
-                } else {
-                    alert("Error")
-                }
-
-            })
+        .then(response => {
+            if (response.ok) {
+              setModalActive(true)
+              setError(false)
+            } else {
+              setModalActive(false)
+              setError(true)
+            }
+    
+          })
+          .catch(error => {
+            console.error("Error:", error);
+          });
     }
 
     return (
         <div>
+            
+      <MyModal
+        active={modalActive}
+        setActive={setModalActive}
+      />
+      <ErrorModal
+        error={errorM}
+        setError={setError}
+      />
+
             <div className={styles.inputStatistic}>
                 <div>
                     <input

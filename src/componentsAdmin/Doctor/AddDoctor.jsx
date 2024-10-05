@@ -110,11 +110,195 @@ export default function AddDoctor() {
         }
     };
 
-    // Handle form submission
+
+    // --- Error EN ---
+    const [errorNameEn, setErrorNameEn] = useState(false)
+    const [errorProfessionEn, setErrorProfessionEn] = useState(false)
+    const [errorEducationEn, setErrorEducationEn] = useState(false)
+    const [errorSpecializationEn, setErrorSpecializationEn] = useState(false)
+    const [errorAdditionalEn, setErrorAdditionalEn] = useState(false)
+    const [errorAboutEn, setErrorAboutEn] = useState(false)
+    const [errorExperienceEn, setErrorExperienceEn] = useState(false)
+    const [errorServicesEn, setErrorServicesEn] = useState(false)
+    // ---Error -- Ru ---
+    const [errorNameRu, setErrorNameRu] = useState(false)
+    const [errorProfessionRu, setErrorProfessionRu] = useState(false)
+    const [errorEducationRu, setErrorEducationRu] = useState(false)
+    const [errorSpecializationRu, setErrorSpecializationRu] = useState(false)
+    const [errorAdditionalRu, setErrorAdditionalRu] = useState(false)
+    const [errorAboutRu, setErrorAboutRu] = useState(false)
+    const [errorExperienceRu, setErrorExperienceRu] = useState(false)
+    const [errorServicesRu, setErrorServicesRu] = useState(false)
+    // ----------------
+    const [errorDays, setErrorDays] = useState(false)
+    const [errorStartTime, setErrorStartTime] = useState(false)
+    const [errorEndTime, setErrorEndTime] = useState(false)
+
+
+    const [errorPhone, setErrorPhone] = useState(false)
+    const [errorEmail, setErrorEmail] = useState(false)
+    const [errorPhoto, setErrorPhoto] = useState(false)
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        // Prepare the payload with the base64-encoded file
+        let hasError = false
+
+        if (!nameEn) {
+            setErrorNameEn(true);
+            hasError = true;
+        } else {
+            setErrorNameEn(false)
+        }
+
+        if (!professionEn) {
+            setErrorProfessionEn(true);
+            hasError = true;
+        } else {
+            setErrorProfessionEn(false)
+        }
+
+        if (!educationEn) {
+            setErrorEducationEn(true);
+            hasError = true
+        } else {
+            setErrorEducationEn(false)
+        }
+
+        if (!specializationEn) {
+            setErrorSpecializationEn(true);
+            hasError = true
+        } else {
+            setErrorSpecializationEn(false)
+        }
+        // if (!additionalEn) {
+        //     setErrorAdditionalEn(true);
+        //     hasError = true;
+        // } else {
+        //     setErrorAdditionalEn(false)
+        // }
+        if (!aboutEn) {
+            setErrorAboutEn(true)
+        } else {
+            setErrorAboutEn(false)
+        }
+
+        // if (!experienceEn) {
+        //     setErrorExperienceEn(true);
+        //     hasError = true;
+        // } else {
+        //     setErrorExperienceEn(false)
+        // }
+
+
+        // if (!servicesEn) {
+        //     setErrorServicesEn(true)
+        //     hasError = true;
+        // } else {
+        //     setErrorServicesEn(false)
+        // }
+
+        // ---Ru
+
+        if (!nameRu) {
+            setErrorNameRu(true);
+            hasError = true;
+        } else {
+            setErrorNameRu(false)
+        }
+
+        if (!professionRu) {
+            setErrorProfessionRu(true);
+            hasError = true;
+        } else {
+            setErrorProfessionRu(false)
+        }
+
+        if (!educationRu) {
+            setErrorEducationRu(true);
+            hasError = true
+        } else {
+            setErrorEducationRu(false)
+        }
+
+        if (!specializationRu) {
+            setErrorSpecializationRu(true);
+            hasError = true
+        } else {
+            setErrorSpecializationRu(false)
+        }
+        // if (!additionalRu) {
+        //     setErrorAdditionalRu(true);
+        //     hasError = true;
+        // } else {
+        //     setErrorAdditionalRu(false)
+        // }
+
+        if (!aboutRu) {
+            setErrorAboutRu(true)
+        } else {
+            setErrorAboutRu(false)
+        }
+
+        // if (!experienceRu) {
+        //     setErrorExperienceRu(true);
+        //     hasError = true;
+        // } else {
+        //     setErrorExperienceRu(false)
+        // }
+        // if (!servicesRu) {
+        //     setErrorServicesRu(true)
+        //     hasError = true;
+        // } else {
+        //     setErrorServicesRu(false)
+        // }
+
+        // -------
+        // if (!days) {
+        //     setErrorDays(true);
+        //     hasError = true;
+        // } else {
+        //     setErrorDays(false)
+        // }
+
+        if (!starTime) {
+            setErrorStartTime(true);
+            hasError = true;
+        } else {
+            setErrorStartTime(false);
+        }
+
+        if (!end) {
+            setErrorEndTime(true);
+            hasError = true;
+        } else {
+            setErrorEndTime(false)
+        }
+        if (!phone) {
+            setErrorPhone(true)
+            hasError = true
+        } else {
+            setErrorPhone(false)
+        }
+        if (!gmail) {
+            setErrorEmail(true)
+            hasError = true
+        } else {
+            setErrorEmail(false)
+        }
+
+
+        if (!photoPath) {
+            setErrorPhoto(true);
+            hasError = true
+        } else {
+            setErrorPhoto(false)
+        }
+
+        if (hasError) {
+            return;
+        }
+
         const newPartner = {
             Photo: base64File,
             phone: phone,
@@ -159,16 +343,16 @@ export default function AddDoctor() {
             body: JSON.stringify(newPartner),
             credentials: 'include', // If cookies are needed
         })
-        .then(response => {
-            if (response.ok) {
-              setModalActive(true)
-              setError(false)
-            } else {
-              setModalActive(false)
-              setError(true)
-            }
-    
-          })
+            .then(response => {
+                if (response.ok) {
+                    setModalActive(true)
+                    setError(false)
+                } else {
+                    setModalActive(false)
+                    setError(true)
+                }
+
+            })
             .catch(error => {
                 console.error("Error:", error);
             });
@@ -176,6 +360,18 @@ export default function AddDoctor() {
 
 
     const addEn = () => {
+        let hasError = false
+        if (!additionalEn) {
+            setErrorAdditionalEn(true);
+            hasError = true;
+        } else {
+            setErrorAdditionalEn(false)
+        }
+
+        if (hasError) {
+            return;
+        }
+
         if (additionalEn.trim() !== '') {
             setInfoEn([...InfoEn, additionalEn]); // Добавляем новое значение в массив
             setAdditionalEn(''); // Очищаем поле ввода после добавления
@@ -187,6 +383,17 @@ export default function AddDoctor() {
     };
     // ---Exp List En
     const addExEn = () => {
+        let hasError = false;
+
+        if (!experienceEn) {
+            setErrorExperienceEn(true);
+            hasError = true;
+        } else {
+            setErrorExperienceEn(false)
+        }
+        if (hasError) {
+            return;
+        }
         if (experienceEn.trim() !== '') {
             setExpInfoEn([...expInfoEn, experienceEn]); // Добавляем новое значение в массив
             setExperienceEn(''); // Очищаем поле ввода после добавления
@@ -201,6 +408,17 @@ export default function AddDoctor() {
 
     // --- services List --- 
     const addSerEn = () => {
+        let hasError = false;
+        if (!servicesEn) {
+            setErrorServicesEn(true)
+            hasError = true;
+        } else {
+            setErrorServicesEn(false)
+        }
+        if (hasError) {
+            return;
+        }
+
         if (servicesEn.trim() !== '') {
             setServicesInfoEn([...servicesInfoEn, servicesEn]); // Добавляем новое значение в массив
             setServicesEn(''); // Очищаем поле ввода после добавления
@@ -214,6 +432,16 @@ export default function AddDoctor() {
     // -----------
     // ---------- Ru ---
     const addRu = () => {
+
+        let hasError = false
+        if (!additionalRu) {
+            setErrorAdditionalRu(true)
+        } else {
+            setErrorAdditionalRu(false)
+        }
+        if (hasError) {
+            return;
+        }
         if (additionalRu.trim() !== '') {
             setInfoRu([...InfoRu, additionalRu]); // Добавляем новое значение в массив
             setAdditionalRu(''); // Очищаем поле ввода после добавления
@@ -228,6 +456,17 @@ export default function AddDoctor() {
     // ---Exp_LIst
 
     const addExRu = () => {
+        let hasError = false;
+        if (!experienceRu) {
+            setErrorExperienceRu(true);
+            hasError = true;
+        } else {
+            setErrorExperienceRu(false)
+        }
+        if (hasError) {
+            return;
+        }
+
         if (experienceRu.trim() !== '') {
             setExpInfoRu([...expInfoRu, experienceRu]); // Добавляем новое значение в массив
             setExperienceRu(''); // Очищаем поле ввода после добавления
@@ -240,6 +479,18 @@ export default function AddDoctor() {
 
     // --- Services List Ru
     const addSerRu = () => {
+
+        let hasError = false;
+        if (!servicesRu) {
+            setErrorServicesRu(true)
+            hasError = true;
+        } else {
+            setErrorServicesRu(false)
+        }
+        if (hasError) {
+            return;
+        }
+
         if (servicesRu.trim() !== '') {
             setServicesInfoRu([...servicesInfoRu, servicesRu]); // Добавляем новое значение в массив
             setServicesRu(''); // Очищаем поле ввода после добавления
@@ -252,6 +503,19 @@ export default function AddDoctor() {
 
     // --------------
     const addDays = () => {
+
+        let hasError = false;
+        if (!days) {
+            setErrorDays(true);
+            hasError = true;
+        } else {
+            setErrorDays(false)
+        }
+
+        if (hasError) {
+            return;
+        }
+
         if (days.trim() !== '') {
             setWeek([...week, days]); // Добавляем новое значение в массив
             setDays(''); // Очищаем поле ввода после добавления
@@ -276,20 +540,27 @@ export default function AddDoctor() {
                 <div className={styles.parent} >
                     <div className={styles.boxStr} >
                         <input
-                            className={styles.inputStr}
+                            className={styles.inputStr1}
                             placeholder="Name Surname"
                             type="text"
                             onChange={(e) => setNameEn(e.target.value)}
                             value={nameEn}
+                            style={{
+                                borderColor: errorNameEn ? '#FF0000' : '',
+                            }}
                         />
-
+                        {errorNameEn && <p className={styles.error}>{t("Admin.error")}</p>}
                         <input
                             className={styles.inputStr}
                             placeholder="Profession"
                             type="text"
                             onChange={(e) => setProfessionEn(e.target.value)}
                             value={professionEn}
+                            style={{
+                                borderColor: errorProfessionEn ? '#FF0000' : '',
+                            }}
                         />
+                        {errorProfessionEn && <p className={styles.error}>{t("Admin.error")}</p>}
 
                         <input
                             className={styles.inputStr}
@@ -297,15 +568,27 @@ export default function AddDoctor() {
                             type="text"
                             onChange={(e) => setEducationEn(e.target.value)}
                             value={educationEn}
+                            style={{
+                                borderColor: errorEducationEn ? '#FF0000' : '',
+                            }}
                         />
+                        {errorEducationEn && <p className={styles.error}>{t("Admin.error")}</p>}
                         <input
                             className={styles.inputStr}
                             placeholder="Specialization"
                             type="text"
                             onChange={(e) => setSpecializationEn(e.target.value)}
                             value={specializationEn}
+                            style={{
+                                borderColor: errorSpecializationEn ? '#FF0000' : '',
+                            }}
                         />
-                        <div className={styles.list}>
+                        {errorSpecializationEn && <p className={styles.error}>{t("Admin.error")}</p>}
+                        <div className={styles.list}
+                            style={{
+                                borderColor: errorAdditionalEn ? '#FF0000' : '',
+                            }}
+                        >
                             <div>
                                 <h3 className={styles.textList}>Additional information</h3>
                                 <input
@@ -320,6 +603,7 @@ export default function AddDoctor() {
                             <img onClick={addEn} src={Plus} alt="" className={styles.plus} />
 
                         </div>
+                        {errorAdditionalEn && <p className={styles.error}>{t("Admin.error")}</p>}
                         <ul className={styles.lsDOCTORS}>
                             {InfoEn.map((serviceEn, index) => (
                                 <div className={styles.main}>
@@ -336,8 +620,16 @@ export default function AddDoctor() {
                             type="text"
                             onChange={(e) => setAboutEn(e.target.value)}
                             value={aboutEn}
+                            style={{
+                                borderColor: errorAboutEn ? '#FF0000' : '',
+                            }}
                         />
-                        <div className={styles.list}>
+                        {errorAboutEn && <p className={styles.error}>{t("Admin.error")}</p>}
+                        <div className={styles.list}
+                            style={{
+                                borderColor: errorExperienceEn ? '#FF0000' : '',
+                            }}
+                        >
                             <div>
                                 <h3 className={styles.textList}>Expirence</h3>
                                 <input
@@ -352,6 +644,7 @@ export default function AddDoctor() {
                             <img onClick={addExEn} src={Plus} alt="" className={styles.plus} />
 
                         </div>
+                        {errorExperienceEn && <p className={styles.error}>{t("Admin.error")}</p>}
                         <ul className={styles.lsDOCTORS}>
                             {expInfoEn.map((children, index) => (
                                 <div className={styles.main}>
@@ -363,7 +656,11 @@ export default function AddDoctor() {
                             ))}
                         </ul>
 
-                        <div className={styles.list}>
+                        <div className={styles.list}
+                            style={{
+                                borderColor: errorServicesEn ? '#FF0000' : '',
+                            }}
+                        >
                             <div>
                                 <h3 className={styles.textList}>Services</h3>
                                 <input
@@ -378,6 +675,7 @@ export default function AddDoctor() {
                             <img onClick={addSerEn} src={Plus} alt="" className={styles.plus} />
 
                         </div>
+                        {errorServicesEn && <p className={styles.error}>{t("Admin.error")}</p>}
                         <ul className={styles.lsDOCTORS}>
                             {servicesInfoEn.map((serviceEn, index) => (
                                 <div className={styles.main}>
@@ -404,28 +702,28 @@ export default function AddDoctor() {
                             { [styles.activeB]: language === true })}
                             onClick={() => handleLanguageChange(true)}>{t("Admin.ru")}</button>
                     </div> */}
-                       <div className={styles.En_Ru}>
-            <div
-              className={classNames(styles.buttonDiv1,
-                { [styles.activeBDiv1]: language === true })}
-            >
-              <button
-                className={classNames(styles.button1,
-                  { [styles.activeB1]: language === false })}
-                onClick={() => handleLanguageChange(false)}>{t("Admin.en")}</button>
-            </div>
-            <div
-              className={classNames(styles.buttonDiv,
-                { [styles.activeBDiv]: language === true })}
-            >
+                    <div className={styles.En_Ru}>
+                        <div
+                            className={classNames(styles.buttonDiv1,
+                                { [styles.activeBDiv1]: language === true })}
+                        >
+                            <button
+                                className={classNames(styles.button1,
+                                    { [styles.activeB1]: language === false })}
+                                onClick={() => handleLanguageChange(false)}>{t("Admin.en")}</button>
+                        </div>
+                        <div
+                            className={classNames(styles.buttonDiv,
+                                { [styles.activeBDiv]: language === true })}
+                        >
 
-              <button className={classNames(styles.button2,
-                { [styles.activeB2]: language === true })}
-                onClick={() => handleLanguageChange(true)}>{t("Admin.ru")}
-              </button>
-            </div>
+                            <button className={classNames(styles.button2,
+                                { [styles.activeB2]: language === true })}
+                                onClick={() => handleLanguageChange(true)}>{t("Admin.ru")}
+                            </button>
+                        </div>
 
-          </div>
+                    </div>
                 </div>
             ) : (
                 <div className={styles.parent} >
@@ -437,15 +735,22 @@ export default function AddDoctor() {
                             type="text"
                             onChange={(e) => setNameRu(e.target.value)}
                             value={nameRu}
+                            style={{
+                                borderColor: errorNameRu ? '#FF0000' : '',
+                            }}
                         />
-
+                        {errorNameRu && <p className={styles.error}>{t("Admin.error")}</p>}
                         <input
                             className={styles.inputStr}
                             placeholder="Профессия "
                             type="text"
                             onChange={(e) => setProfessionRu(e.target.value)}
                             value={professionRu}
+                            style={{
+                                borderColor: errorProfessionRu ? '#FF0000' : '',
+                            }}
                         />
+                        {errorProfessionRu && <p className={styles.error}>{t("Admin.error")}</p>}
 
                         <input
                             className={styles.inputStr}
@@ -453,7 +758,11 @@ export default function AddDoctor() {
                             type="text"
                             onChange={(e) => setEducationRu(e.target.value)}
                             value={educationRu}
+                            style={{
+                                borderColor: errorEducationRu ? '#FF0000' : '',
+                            }}
                         />
+                        {errorEducationRu && <p className={styles.error}>{t("Admin.error")}</p>}
 
                         <input
                             className={styles.inputStr}
@@ -461,9 +770,17 @@ export default function AddDoctor() {
                             type="text"
                             onChange={(e) => setSpecializationRu(e.target.value)}
                             value={specializationRu}
+                            style={{
+                                borderColor: errorSpecializationRu ? '#FF0000' : '',
+                            }}
                         />
+                        {errorSpecializationRu && <p className={styles.error}>{t("Admin.error")}</p>}
 
-                        <div className={styles.list}>
+                        <div className={styles.list}
+                            style={{
+                                borderColor: errorAdditionalRu ? '#FF0000' : '',
+                            }}
+                        >
                             <div>
                                 <h3 className={styles.textList}>Дополнительная информация</h3>
                                 <input
@@ -476,6 +793,7 @@ export default function AddDoctor() {
                             </div>
                             <img onClick={addRu} src={Plus} alt="" className={styles.plus} />
                         </div>
+                        {errorAdditionalRu && <p className={styles.error}>{t("Admin.error")}</p>}
                         <ul className={styles.lsDOCTORS}>
                             {InfoRu.map((serviceRu, index) => (
                                 <div className={styles.main}>
@@ -492,8 +810,16 @@ export default function AddDoctor() {
                             type="text"
                             onChange={(e) => setAboutRu(e.target.value)}
                             value={aboutRu}
+                            style={{
+                                borderColor: errorAboutRu ? '#FF0000' : '',
+                            }}
                         />
-                        <div className={styles.list}>
+                        {errorAboutRu && <p className={styles.error}>{t("Admin.error")}</p>}
+                        <div className={styles.list}
+                            style={{
+                                borderColor: errorExperienceRu ? '#FF0000' : '',
+                            }}
+                        >
                             <div>
                                 <h3 className={styles.textList}>Опыт работы :</h3>
                                 <input
@@ -508,6 +834,7 @@ export default function AddDoctor() {
                             <img onClick={addExRu} src={Plus} alt="" className={styles.plus} />
 
                         </div>
+                        {errorExperienceRu && <p className={styles.error}>{t("Admin.error")}</p>}
                         <ul className={styles.lsDOCTORS}>
                             {expInfoRu.map((children, index) => (
                                 <div className={styles.main}>
@@ -518,7 +845,11 @@ export default function AddDoctor() {
                                 </div>
                             ))}
                         </ul>
-                        <div className={styles.list}>
+                        <div className={styles.list}
+                            style={{
+                                borderColor: errorServicesRu ? '#FF0000' : '',
+                            }}
+                        >
                             <div>
                                 <h3 className={styles.textList}>Услуги </h3>
                                 <input
@@ -533,6 +864,7 @@ export default function AddDoctor() {
                             <img onClick={addSerRu} src={Plus} alt="" className={styles.plus} />
 
                         </div>
+                        {errorServicesRu && <p className={styles.error}>{t("Admin.error")}</p>}
                         <ul className={styles.lsDOCTORS}>
                             {servicesInfoRu.map((serviceEn, index) => (
                                 <div className={styles.main}>
@@ -559,34 +891,38 @@ export default function AddDoctor() {
                             { [styles.activeB]: language === true })}
                             onClick={() => handleLanguageChange(true)}>{t("Admin.ru")}</button>
                     </div> */}
-                       <div className={styles.En_Ru}>
-            <div
-              className={classNames(styles.buttonDiv1,
-                { [styles.activeBDiv1]: language === true })}
-            >
-              <button
-                className={classNames(styles.button1,
-                  { [styles.activeB1]: language === false })}
-                onClick={() => handleLanguageChange(false)}>{t("Admin.en")}</button>
-            </div>
-            <div
-              className={classNames(styles.buttonDiv,
-                { [styles.activeBDiv]: language === true })}
-            >
+                    <div className={styles.En_Ru}>
+                        <div
+                            className={classNames(styles.buttonDiv1,
+                                { [styles.activeBDiv1]: language === true })}
+                        >
+                            <button
+                                className={classNames(styles.button1,
+                                    { [styles.activeB1]: language === false })}
+                                onClick={() => handleLanguageChange(false)}>{t("Admin.en")}</button>
+                        </div>
+                        <div
+                            className={classNames(styles.buttonDiv,
+                                { [styles.activeBDiv]: language === true })}
+                        >
 
-              <button className={classNames(styles.button2,
-                { [styles.activeB2]: language === true })}
-                onClick={() => handleLanguageChange(true)}>{t("Admin.ru")}
-              </button>
-            </div>
+                            <button className={classNames(styles.button2,
+                                { [styles.activeB2]: language === true })}
+                                onClick={() => handleLanguageChange(true)}>{t("Admin.ru")}
+                            </button>
+                        </div>
 
-          </div>
+                    </div>
                 </div>
             )}
 
             <div className={styles.submit} >
 
-                <div className={styles.BoxPhone}>
+                <div className={styles.BoxPhone}
+                    style={{
+                        borderColor: errorPhone ? '#FF0000' : '',
+                    }}
+                >
                     <p className={styles.text}>+992</p>
                     <input
                         className={styles.inputPhone}
@@ -596,14 +932,23 @@ export default function AddDoctor() {
                         value={phone}
                     />
                 </div>
+                {errorPhone && <p className={styles.errorPhoto}>{t("Admin.enter")}</p>}
                 <input
                     className={styles.inputPro}
                     placeholder={t("Admin.email")}
                     type="text"
                     onChange={(e) => setGmail(e.target.value)}
                     value={gmail}
+                    style={{
+                        borderColor: errorEmail ? '#FF0000' : '',
+                    }}
                 />
-                <div className={styles.list1}>
+                {errorPhone && <p className={styles.errorPhoto}>{t("Admin.error")}</p>}
+                <div className={styles.list1}
+                    style={{
+                        borderColor: errorDays ? '#FF0000' : '',
+                    }}
+                >
                     <div>
                         <h3 className={styles.textList}>{t("Admin.days")}</h3>
                         <input
@@ -617,6 +962,7 @@ export default function AddDoctor() {
                     <img onClick={addDays} src={Plus} alt="" className={styles.plus} />
 
                 </div>
+                {errorDays && <p className={styles.errorPhoto}>{t("Admin.error")}</p>}
                 <ul className={styles.lsDOCTORS1}>
                     {week.map((children, index) => (
                         <div className={styles.main}>
@@ -632,52 +978,75 @@ export default function AddDoctor() {
                 </ul>
 
                 <div className={styles.StartEndTime}>
-                    <div className={styles.start} >
+                    <div>
 
-                        <input
-                            className={styles.time}
-                            type="text"
-                            placeholder={t("Admin.start")}
-                            value={starTime}
-                            readOnly
-                        />
+                        <div className={styles.start}
+                            style={{
+                                borderColor: errorStartTime ? '#FF0000' : '',
+                            }}
+                        >
 
-                        <input
-                            type="time"
-                            onChange={(e) => setStartTime(e.target.value)}
-                            value={starTime}
-                            ref={timeRef}
-                            style={{ opacity: "0", width: "0px" }}
-                        />
-                        <p><RxTimer
-                            className={styles.timeStyle}
-                            onClick={() => { timeRef.current.showPicker() }}
-                        /></p>
+
+                            <input
+                                className={styles.time}
+                                type="text"
+                                placeholder={t("Admin.start")}
+                                value={starTime}
+                                readOnly
+
+                            />
+
+                            <input
+                                type="time"
+                                onChange={(e) => setStartTime(e.target.value)}
+                                value={starTime}
+                                ref={timeRef}
+                                style={{ opacity: "0", width: "0px" }}
+                            />
+                            <p><RxTimer
+                                className={styles.timeStyle}
+                                onClick={() => { timeRef.current.showPicker() }}
+                            /></p>
+
+                        </div>
+                        {errorDays && <p className={styles.errorTime}>{t("Admin.enterTime")}</p>}
+
                     </div>
-                    <div className={styles.start} >
-                        <input
-                            className={styles.time}
-                            type="text"
-                            placeholder={t("Admin.end")}
-                            value={end}
-                            readOnly
-                        />
-                        <input
-                            type='time'
-                            onChange={(e) => setEnd(e.target.value)}
-                            value={end}
-                            ref={timeRefEnd}
-                            style={{ opacity: "0", width: "0px" }}
-                        />
-                        <p>< RxTimer className={styles.timeStyle}
-                            onClick={() => { timeRefEnd.current.showPicker() }}
-                        /></p>
+                       <div>
+                        <div className={styles.start} 
+                          style={{
+                            borderColor: errorEndTime ? '#FF0000' : '',
+                        }}
+                        >
+                            <input
+                                className={styles.time}
+                                type="text"
+                                placeholder={t("Admin.end")}
+                                value={end}
+                                readOnly
+                            />
+                            <input
+                                type='time'
+                                onChange={(e) => setEnd(e.target.value)}
+                                value={end}
+                                ref={timeRefEnd}
+                                style={{ opacity: "0", width: "0px" }}
+                            />
+                            <p>< RxTimer className={styles.timeStyle}
+                                onClick={() => { timeRefEnd.current.showPicker() }}
+                            /></p>
+                        </div>
+                        {errorEndTime && <p className={styles.errorTime}>{t("Admin.enterTime")}</p>}
                     </div>
                 </div>
 
 
                 <div className={styles.b}>
-                    <div className={styles.parentPhoto}>
+                    <div className={styles.parentPhoto}
+                      style={{
+                        borderColor: errorPhoto ? '#FF0000' : '',
+                    }}
+                    >
                         <input
                             className={styles.photo}
                             type="text"
@@ -703,6 +1072,7 @@ export default function AddDoctor() {
                         {t("Admin.submit")}</button>
                 </div>
             </div>
+            {errorEndTime && <p className={styles.errorPhoto}>{t("Admin.select")}</p>}
         </div>
     )
 }

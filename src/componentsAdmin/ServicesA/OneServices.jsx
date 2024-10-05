@@ -19,7 +19,7 @@ export default function OneServices() {
     const { t } = useTranslation()
     const lng = localStorage.getItem("i18nextLng")
     const [deleteShow, setDeleteShow] = useState({});
-    const { data, loading, error } = useFetch("http://127.0.0.1:2020/get/main/diraction")
+    const { data, loading, error,setData } = useFetch("http://127.0.0.1:2020/get/main/diraction")
     const { id } = useParams()
     const item = data.find((each) => each.Id === id)
     if (loading) return <p>Loading ...!</p>
@@ -50,20 +50,14 @@ export default function OneServices() {
                     setModalActive(true)
                     const updatedData = data.filter(item => item.Id !== id);
                     setData(updatedData);
+                    navigate('/admin/servicesAdmin')
                     setError(false)
                 } else {
                     setModalActive(false)
                     setError(true)
                 }
             })
-        fetch(`http://127.0.0.1:2020/get/main/diraction`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-
-            credentials: 'include', // Если нужно передавать cookie
-        })
+  
     }
 
 
@@ -126,7 +120,7 @@ export default function OneServices() {
                             <p className={styles.TitleServices}>{t("Admin.main")}</p>
 
                             <ol className={styles.textContent}>
-                                {item[lng === "ru" ? "ru" : "en"].mainServeses.map((text, index) => (
+                                {item[lng === "ru" ? "ru" : "en"].mainServices.map((text, index) => (
                                     <li key={index}>
                                         {text}
                                     </li>

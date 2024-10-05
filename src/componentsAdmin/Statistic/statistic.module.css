@@ -5,13 +5,13 @@
     border-left: 4px solid #FF6262;
     border-right: 4px solid #FF6262;
     padding: 50px 70px 04px 70px;
-    height: 100vh;
+    height:87.5vh;
 }
 
 
 .boxSub {
     text-align: end;
-    margin-top: 540px;
+    margin-top: 420px;
 
 }
 
@@ -54,7 +54,8 @@
 
 .activeOne {
     border: 2px solid rgb(0, 0, 0);
-    color: black;
+    color:white;
+    background: #292929;
     width: 354px;
     height: 63px;
     padding: 5px 0px 10px 0px;
@@ -87,7 +88,8 @@
     width: 293px;
     height: 63px;
     border: 2px solid rgb(0, 0, 0);
-    color: black;
+    color:white;
+    background: #292929;
     border-radius: 5px; 
 }
 

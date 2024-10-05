@@ -4,7 +4,7 @@
     padding-top: 50px;
     padding-left: 70px;
     padding-right: 70px;
-    height: 106vh;
+    height: 87vh;
     width: 1415px;
 }
 
@@ -34,7 +34,8 @@
     width: 350px;
     height: 63px;
     border: 2px solid rgb(0, 0, 0);
-    color: black;
+    color:white;
+    background: #292929;
 }
 
 
@@ -57,7 +58,8 @@
     width: 282px;
     height: 63px;
     border: 2px solid rgb(0, 0, 0);
-    color: black;
+    color:white;
+    background: #292929;
 }
 
 
@@ -66,7 +68,7 @@
 
 .subDiv {
     text-align: end;
-    margin-top: 345px;
+    margin-top: 200px;
 }
 
 .buttonSubmit {
