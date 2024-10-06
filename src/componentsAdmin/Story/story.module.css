@@ -5,8 +5,7 @@
     padding-top: 50px;
     padding-left: 70px;
     padding-right: 70px;
-    height: auto;
-    height: 130vh;
+    height:113vh;
     padding-bottom: 40px;
 }
 
@@ -132,6 +131,8 @@
     position: relative;
     right: 2px;
 }
+
+
 .buttonDiv1{
     height: 63px;
     width: 121px;
@@ -292,13 +293,13 @@
     text-align: end;
     margin-top: 88px;
     padding-right: 0px;
-    padding-bottom: 40px;
+    /* padding-bottom: 40px; */
 }
 
 .buttonSubmit {
     width: 272px;
     height: 73px;
-    padding: 10px 0px 15px 0px;
+    padding: 8px 0px 15px 0px;
     border-radius: 5px;
     text-align: center;
     border: 2px solid black;
@@ -415,49 +416,42 @@
     font-weight: 500;
 }
 
-.fadeIn {
-    opacity: 0;
-    transform: translateX(0px);
-    /* Сдвиг вниз */
-    animation: fadeInAnimation 1s forwards ease-in-out;
-    border: none;
-
-}
-
-@keyframes fadeInAnimation {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-        /* Начальная позиция - сдвиг */
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0px);
-        /* Конечная позиция */
-    }
-}
-
 
 .fadeOut {
     opacity: 1;
-    transform: translateX(0px);
-    animation: fadeOutAnimation 1s;
-    border: none;
+    transform: scale(0.5); /* Исходный полный размер */
+    animation: fadeOut 0.6s forwards ease-in-out;
+    border:none;
+    margin-top: 5px;
     background: white;
-    padding-top: 5px;
 }
 
-@keyframes fadeOutAnimation {
+@keyframes fadeOut {
     from {
-        opacity: 0;
-        transform: translateX(0px);
+        opacity: 1;
+        transform: scale(0.5); /* Полный размер */
     }
-
     to {
         opacity: 1;
-        transform: translateX(0px);
-        /* Сдвиг вниз при исчезновении */
+        transform: scale(1); /* Уменьшение и исчезновение */
+    }
+}
+
+/* Анимация появления второй кнопки */
+.fadeIn{
+    opacity: 1;
+    transform: scale(0.5); /* Уменьшенное состояние */
+    animation: fadeIn 0.6s forwards ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5); /* Уменьшенное состояние */
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateX(0px)/* Полный размер */
     }
 }
 

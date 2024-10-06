@@ -54,13 +54,17 @@ export default function Reports() {
       .catch((error) => console.error(error));
   };
 
-  const handleFirstButtonClick = (id) => {
-    setDeleteShow((prevState) => ({ ...prevState, [id]: true }));
-  };
 
-  // Обработчик для возврата первой кнопки
-  const handleSecondButtonClick = (id) => {
-    setDeleteShow((prevState) => ({ ...prevState, [id]: false }));
+  const handleFirstButtonClick = (id) => {
+    setDeleteShow((prevState) => {
+      // Закрываем все кнопки перед открытием новой
+      const updatedState = Object.keys(prevState).reduce((acc, currId) => {
+        acc[currId] = false; // Все кнопки закрываем
+        return acc;
+      }, {});
+
+      return { ...updatedState, [id]: true };
+    });
   };
 
 
@@ -113,7 +117,6 @@ export default function Reports() {
                   className={`${styles.getButton} ${styles.fadeIn}`}
                 >
                   <img
-                    onClick={() => handleSecondButtonClick(item.Id)}
                     src={del} alt="delete icon" />
                   <button
                     onClick={() => handleDelete(item.Id, item.file)}

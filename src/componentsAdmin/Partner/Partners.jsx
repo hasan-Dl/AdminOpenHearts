@@ -19,12 +19,16 @@ export default function Partners() {
 
 
   const handleFirstButtonClick = (id) => {
-    setDeleteShow((prevState) => ({ ...prevState, [id]: true }));
-  };
+    setDeleteShow((prevState) => {
+      // Закрываем все кнопки перед открытием новой
+      const updatedState = Object.keys(prevState).reduce((acc, currId) => {
+        acc[currId] = false; // Все кнопки закрываем
+        return acc;
+      }, {});
 
-  // Обработчик для возврата первой кнопки
-  const handleSecondButtonClick = (id) => {
-    setDeleteShow((prevState) => ({ ...prevState, [id]: false }));
+      // Активируем только ту, на которую нажали
+      return { ...updatedState, [id]: true };
+    });
   };
 
 
@@ -89,7 +93,6 @@ export default function Partners() {
                   className={`${styles.getButton} ${styles.fadeIn}`}
                 >
                   <img
-                    onClick={() => handleSecondButtonClick(item.Id)}
                     src={del} alt="delete icon" />
                   <button
                     onClick={() => handleDelete(item.Id, item.Logo)}

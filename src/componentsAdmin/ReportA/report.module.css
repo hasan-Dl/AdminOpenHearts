@@ -4,7 +4,7 @@
     padding-top: 50px;
     padding-left: 70px;
     padding-right: 70px;
-    height: 87vh;
+    height: 90vh;
     width: 1415px;
 }
 
@@ -103,7 +103,7 @@
     border: 2px solid #9E9E9E;
     border-right: none;
     padding: 20px 80px 20px 20px;
-    gap: 15px;
+
 }
 
 .boxStr::after {
@@ -123,7 +123,7 @@
     font-family: "Jost", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    width: 1042px;
+    width: 1045px;
     height: 93px;
     padding: 0px 0px 0px 30px;
 
@@ -320,49 +320,44 @@
     font-weight: 500;
 }
 
-.fadeIn {
-    opacity: 0;
-    transform: translateX(0px);
-    animation: fadeInAnimation 0.5s forwards ease-in-out;
-    border: none;
-}
-
-@keyframes fadeInAnimation {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-        /* Начальная позиция - сдвиг */
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0px);
-        /* Конечная позиция */
-    }
-}
-
-
 .fadeOut {
     opacity: 1;
-    transform: translateX(0px);
-    animation: fadeOutAnimation 1s;
-    border: none;
-    padding-top: 5px;
+    transform: scale(0.5); /* Исходный полный размер */
+    animation: fadeOut 0.6s forwards ease-in-out;
+    border:none;
+    margin-top: 5px;
     background: white;
-}
-
-@keyframes fadeOutAnimation {
+  }
+  
+  @keyframes fadeOut {
     from {
-        opacity: 0;
-        transform: translateX(0px);
+        opacity: 1;
+        transform: scale(0.5); /* Полный размер */
     }
-
     to {
         opacity: 1;
-        transform: translateX(0px);
-        /* Сдвиг вниз при исчезновении */
+        transform: scale(1); /* Уменьшение и исчезновение */
     }
-}
+  }
+  
+  /* Анимация появления второй кнопки */
+  .fadeIn{
+    opacity: 1;
+    transform: scale(0.5); /* Уменьшенное состояние */
+    animation: fadeIn 0.6s forwards ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5); /* Уменьшенное состояние */
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) /* Полный размер */
+    }
+  }
+  
 
 
 .reportParent{

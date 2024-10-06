@@ -374,7 +374,7 @@ export default function AddStory() {
                 className={styles.inputDescription}
                 onChange={(e) => setDescriptionRu(e.target.value)}
                 value={descriptionRu}
-                placeholder='Описания'
+                placeholder='Описание'
                 style={{
                   borderColor: errorDescriptionRu ? '#FF0000' : '',
                 }}

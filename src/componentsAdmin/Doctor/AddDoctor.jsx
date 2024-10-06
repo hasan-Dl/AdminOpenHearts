@@ -631,7 +631,7 @@ export default function AddDoctor() {
                             }}
                         >
                             <div>
-                                <h3 className={styles.textList}>Expirence</h3>
+                                <h3 className={styles.textList}>Experienc</h3>
                                 <input
                                     className={styles.inputMain}
 

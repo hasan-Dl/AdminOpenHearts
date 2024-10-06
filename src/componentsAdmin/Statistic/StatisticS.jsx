@@ -18,16 +18,23 @@ export default function StatisticS() {
   if (error) return <p>Error:{error.message}</p>
 
 
+
   const handleFirstButtonClick = (id) => {
-    setDeleteShow((prevState) => ({ ...prevState, [id]: true }));
+    setDeleteShow((prevState) => {
+      // Закрываем все кнопки перед открытием новой
+      const updatedState = Object.keys(prevState).reduce((acc, currId) => {
+        acc[currId] = false; // Все кнопки закрываем
+        return acc;
+      }, {});
+
+      // Активируем только ту, на которую нажали
+      return { ...updatedState, [id]: true };
+    });
   };
 
-  // Обработчик для возврата первой кнопки
-  const handleSecondButtonClick = (id) => {
-    setDeleteShow((prevState) => ({ ...prevState, [id]: false }));
-  };
+  
 
-
+  
   const handleDelete = (id) => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -75,7 +82,8 @@ export default function StatisticS() {
       <div
         className={styles.get}>
         {data.map((item) => ((
-          <div key={item.Id} className={styles.GitItem}>
+          <div key={item.Id} className={styles.GitItem}
+          >
             <div className={styles.getBox}>
               <h1 className={styles.getText}>{item.quantity}</h1>
               <p className={styles.descriptionGet}
@@ -89,6 +97,7 @@ export default function StatisticS() {
                 >
                   <img
                     src={del2} alt="delete icon" />
+                    
                 </button>
               )}
 
@@ -97,7 +106,6 @@ export default function StatisticS() {
                   className={`${styles.getButton} ${styles.fadeIn}`}
                 >
                   <img
-                    onClick={() => handleSecondButtonClick(item.Id)}
                     src={del} alt="delete icon" />
                   <button
                     onClick={() => handleDelete(item.Id)}

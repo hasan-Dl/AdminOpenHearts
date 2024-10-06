@@ -19,15 +19,20 @@ export default function ServicesA() {
   if (loading) return <p>Loadind ...!</p>
   if (error) return <p>Error:{error.message}</p>
 
+ 
+
   const handleFirstButtonClick = (id) => {
-    setDeleteShow((prevState) => ({ ...prevState, [id]: true }));
-  };
+    setDeleteShow((prevState) => {
+      
+      const updatedState = Object.keys(prevState).reduce((acc, currId) => {
+        acc[currId] = false; // Все кнопки закрываем
+        return acc;
+      }, {});
 
-  // Обработчик для возврата первой кнопки
-  const handleSecondButtonClick = (id) => {
-    setDeleteShow((prevState) => ({ ...prevState, [id]: false }));
+     
+      return { ...updatedState, [id]: true };
+    });
   };
-
 
 
   const handleDelete = (id, Logo) => {
@@ -91,7 +96,6 @@ export default function ServicesA() {
                   className={`${styles.getButton} ${styles.fadeIn}`}
                 >
                   <img
-                    onClick={() => handleSecondButtonClick(item.Id)}
                     src={del} alt="delete icon" />
                   <button
                     onClick={() => handleDelete(item.Id, item.Logo)}

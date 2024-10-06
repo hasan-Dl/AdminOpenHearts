@@ -315,7 +315,7 @@
 .buttonSubmit {
     width: 272px;
     height: 79px;
-    padding: 7px 0px 10px 0px;
+    padding: 7px 0px 15px 0px;
     border-radius: 5px;
     border: 2px solid black;
     background: white;
@@ -368,9 +368,7 @@
     font-weight: 500;
 }
 
-.buttonPhoto:hover {
-    background: rgb(241, 123, 123);
-}
+
 
 
 
@@ -437,51 +435,45 @@
     font-weight: 500;
 }
 
-.fadeIn {
-    opacity: 0;
-    transform: translateX(0px);
-    /* Сдвиг вниз */
-    animation: fadeInAnimation 1s forwards ease-in-out;
-    border: none;
-
-}
-
-@keyframes fadeInAnimation {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-        /* Начальная позиция - сдвиг */
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0px);
-        /* Конечная позиция */
-    }
-}
-
 
 .fadeOut {
     opacity: 1;
-    transform: translateX(0px);
-    animation: fadeOutAnimation 1s;
-    border: none;
+    transform: scale(0.5); /* Исходный полный размер */
+    animation: fadeOut 0.6s forwards ease-in-out;
+    border:none;
+    margin-top: 5px;
     background: white;
-    padding-top: 5px;
-}
-
-@keyframes fadeOutAnimation {
+  }
+  
+  @keyframes fadeOut {
     from {
-        opacity: 0;
-        transform: translateX(0px);
+        opacity: 1;
+        transform: scale(0.5); /* Полный размер */
     }
-
     to {
         opacity: 1;
-        transform: translateX(0px);
-        /* Сдвиг вниз при исчезновении */
+        transform: scale(1); /* Уменьшение и исчезновение */
     }
-}
+  }
+  
+  /* Анимация появления второй кнопки */
+  .fadeIn{
+    opacity: 1;
+    transform: scale(0.5); /* Уменьшенное состояние */
+    animation: fadeIn 0.6s forwards ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5); /* Уменьшенное состояние */
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) /* Полный размер */
+    }
+  }
+  
 
 .getButton {
     display: flex;

@@ -23,14 +23,19 @@ export default function Stories() {
 
 
   const handleFirstButtonClick = (id) => {
-    setDeleteShow((prevState) => ({ ...prevState, [id]: true }));
+    setDeleteShow((prevState) => {
+      // Закрываем все кнопки перед открытием новой
+      const updatedState = Object.keys(prevState).reduce((acc, currId) => {
+        acc[currId] = false; // Все кнопки закрываем
+        return acc;
+      }, {});
+
+      // Активируем только ту, на которую нажали
+      return { ...updatedState, [id]: true };
+    });
   };
 
-  // Обработчик для возврата первой кнопки
-  const handleSecondButtonClick = (id) => {
-    setDeleteShow((prevState) => ({ ...prevState, [id]: false }));
-  };
-
+  
   const handleDelete = (id, Logo) => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -94,7 +99,6 @@ export default function Stories() {
                   className={`${styles.getButton} ${styles.fadeIn}`}
                 >
                   <img
-                    onClick={() => handleSecondButtonClick(item.Id)}
                     src={del} alt="delete icon" />
                   <button
                     onClick={() => handleDelete(item.Id, item.Photo)}
