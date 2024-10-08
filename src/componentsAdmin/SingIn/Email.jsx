@@ -14,7 +14,7 @@ export default function Email() {
 
 
   const [modalActive, setModalActive] = useState(false)
-  const [errorM, setError] = useState(false)
+  const [errorM, setErrorM] = useState(false)
 
   const Email = (e) => {
     e.preventDefault();
@@ -46,10 +46,10 @@ export default function Email() {
         if (response.ok) {
           setModalActive(true);
           navigate('/code')
-          setError(false);
+          setErrorM(false);
         } else {
           setModalActive(false);
-          setError(true);
+          setErrorM(true);
         }
 
       })
@@ -65,7 +65,7 @@ export default function Email() {
       />
       <ErrorModal
         error={errorM}
-        setError={setError}
+        setError={setErrorM}
       />
       <h1 className={styles.line}></h1>
       <div >

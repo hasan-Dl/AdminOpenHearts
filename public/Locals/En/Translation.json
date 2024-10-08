@@ -107,5 +107,15 @@
         "select": "*Select photo",
         "enter": "*Enter your phone number",
         "enterTime":"*Specify time"
+    },
+    "daysOfWeek":{
+        "T":"Tuesday",
+        "M":"Monday",
+        "W":"Wednesday",
+        "Th":"Thursday",
+        "F":"Friday",
+        "S":"Saturday",
+        "St":"Sunday"
     }
+
 }

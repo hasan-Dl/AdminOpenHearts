@@ -10,7 +10,7 @@ import ErrorModal from '../../modal/ErrorModal';
 export default function ServicesA() {
 
   const [modalActive, setModalActive] = useState(false)
-  const [errorM, setError] = useState(false)
+  const [errorM, setErrorM] = useState(false)
 
   const [deleteShow, setDeleteShow] = useState({});
   const lng = localStorage.getItem("i18nextLng")
@@ -53,10 +53,10 @@ export default function ServicesA() {
         setModalActive(true)
         const updatedData = data.filter(item => item.Id !== id);
         setData(updatedData);
-        setError(false)
+        setErrorM(false)
       } else {
         setModalActive(false)
-        setError(true)
+        setErrorM(true)
       }
     })
       .catch((error) => console.error(error));
@@ -71,7 +71,7 @@ export default function ServicesA() {
       />
       <ErrorModal
         error={errorM}
-        setError={setError}
+        setError={setErrorM}
       />
       <div className={styles.getDiv}>
         {data.map((item) => (

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import MyModal from '../../modal/MyModal';
 import ErrorModal from '../../modal/ErrorModal';
 
-export default function AddPartner() {
+export default function AddPartner({setActive}) {
     const { t } = useTranslation();
     const [photoPath, setPhotoPath] = useState(""); // To store file name
     const [base64File, setBase64File] = useState(""); // To store base64-encoded file
@@ -75,6 +75,10 @@ export default function AddPartner() {
                 if (response.ok) {
                     setModalActive(true)
                     setError(false)
+                    setTimeout(() => {
+                        setModalActive(false);
+                        setActive(true) 
+                      }, 2000);
                 } else {
                     setModalActive(false)
                     setError(true)

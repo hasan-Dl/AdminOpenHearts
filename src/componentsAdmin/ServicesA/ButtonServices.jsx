@@ -40,7 +40,7 @@ return (
               > {t("Admin.services")}
               </button>
           </div>
-          {active === false && <AddServices />}
+          {active === false && <AddServices setActive1={setActive}  />}
           {active === true && <ServicesA />}
       </div>
 

@@ -44,7 +44,7 @@ const handleButtonClick = (buttonType) => {
         >{t("Admin.statistic")}
         </button>
       </div>
-      {activeStatistic === false && <AddStatistic />}
+      {activeStatistic === false && <AddStatistic setActiveStatistic={setActiveStatistic}/>}
       {activeStatistic === true && <StatisticS />}
     </div>
   )

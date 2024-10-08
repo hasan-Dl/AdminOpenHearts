@@ -6,20 +6,20 @@ import { useTranslation } from 'react-i18next'
 import { useEffect } from 'react'
 export default function ButtonPartner() {
     const { t } = useTranslation()
-    const getInitialActiveStatistic = () => {
-        const storedValue = localStorage.getItem('activeStatistic');
+    const getInitialActive = () => {
+        const storedValue = localStorage.getItem('active');
         return storedValue ? JSON.parse(storedValue) : false;
     };
 
-    const [activeStatistic, setActiveStatistic] = useState(getInitialActiveStatistic);
+    const [active, setActive] = useState(getInitialActive);
 
-    // Обновляем localStorage при изменении activeStatistic
+    // Обновляем localStorage при изменении active
     useEffect(() => {
-        localStorage.setItem('activeStatistic', JSON.stringify(activeStatistic));
-    }, [activeStatistic]);
+        localStorage.setItem('active', JSON.stringify(active));
+    }, [active]);
 
     const handleButtonClick = (buttonType) => {
-        setActiveStatistic(buttonType);
+        setActive(buttonType);
     };
 
     return (
@@ -27,18 +27,18 @@ export default function ButtonPartner() {
             <div className={styles.styleBox}>
                 <div className={styles.boxButton}>
                     <button
-                        className={`${styles.buttonOne} ${activeStatistic === false ? styles.activeOne : ''}`}
+                        className={`${styles.buttonOne} ${active === false ? styles.activeOne : ''}`}
                         onClick={() => handleButtonClick(false)}
                     > {t("Admin.addP")}
                     </button>
                     <button
-                        className={`${styles.buttonTwo} ${activeStatistic === true ? styles.activeTwo : ''}`}
+                        className={`${styles.buttonTwo} ${active === true ? styles.activeTwo : ''}`}
                         onClick={() => handleButtonClick(true)}
                     >    {t("Admin.partner")}
                     </button>
                 </div>
-                {activeStatistic === false && <AddPartner />}
-                {activeStatistic === true && <Partners />}
+                {active === false && <AddPartner setActive={setActive} />}
+                {active === true && <Partners />}
             </div>
         </div>
     )

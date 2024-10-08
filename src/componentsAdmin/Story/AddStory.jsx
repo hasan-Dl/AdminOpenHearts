@@ -4,7 +4,7 @@ import styles from './story.module.css'
 import classNames from 'classnames';
 import MyModal from '../../modal/MyModal';
 import ErrorModal from '../../modal/ErrorModal';
-export default function AddStory() {
+export default function AddStory({setActive}) {
   const { t } = useTranslation()
   const [titleRu, setTitleRu] = useState("")
   const [nameRu, setNameRu] = useState("")
@@ -31,7 +31,7 @@ export default function AddStory() {
 
 
   const [modalActive, setModalActive] = useState(false)
-  const [errorM, setError] = useState(false)
+  const [errorM, setErrorM] = useState(false)
 
   const [base64File, setBase64File] = useState("");
 
@@ -190,10 +190,15 @@ export default function AddStory() {
       .then(response => {
         if (response.ok) {
           setModalActive(true)
-          setError(false)
+          setErrorM(false)
+          setTimeout(() => {
+            setModalActive(false);
+            setActive(true) 
+          }, 2000);
         } else {
           setModalActive(false)
-          setError(true)
+          setErrorM(true)
+          setActive(false)
         }
 
       })
@@ -214,7 +219,7 @@ export default function AddStory() {
       />
       <ErrorModal
         error={errorM}
-        setError={setError}
+        setError={setErrorM}
       />
 
 

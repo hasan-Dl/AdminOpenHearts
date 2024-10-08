@@ -270,10 +270,9 @@
 }
 
 .buttonSubmit {
-    text-align: center;
     width: 272px;
     height: 73px;
-    padding: 9.5px 0px 15px 0px;
+    padding: 10px 0px 15px 0px;
     border-radius: 5px;
     border: 2px solid black;
     background: white;
@@ -282,6 +281,7 @@
     font-family: Jost;
     font-size: 30px;
     font-weight: 500;
+    text-align: center;
 }
 
 
@@ -351,6 +351,17 @@
     height: 100%;
     padding: 0px 0px 0px 30px;
     border: none;
+    appearance: none;
+}
+.option{
+    background: white;
+    color:  #292929;
+    font-weight: 500;
+}
+.option:hover{
+    background:  #292929;
+    color: white;
+    font-weight: 500;
 }
 
 .list {
@@ -363,7 +374,6 @@
     border: 2px solid black;
     margin-top: 15px;
 }
-
 .list1 {
     width: 820px;
     height: 93px;
@@ -389,12 +399,11 @@ ul {
 .lsDOCTORS {
     display: flex;
     flex-wrap: wrap;
-    /* flex-direction: column; */
     justify-content: flex-start;
     align-items: flex-start;
     gap: 15px;
-    /* padding-left: 20px; */
     width: 971px;
+    margin-top: 10px;
 
 }
 
@@ -406,6 +415,7 @@ ul {
     gap: 15px;
     padding-left: 20px;
     width: 820px;
+    margin-top: 10px;
 
 }
 
@@ -635,6 +645,7 @@ ul {
 }
 
 .TitleGet {
+    width: 250px;
     font-family: Jost;
     font-size: 30px;
     font-weight: 400;

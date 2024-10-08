@@ -6,7 +6,7 @@ import Plus from '../../assets/Admin botton.png'
 import X from '../../assets/Group 110@2x.png'
 import MyModal from '../../modal/MyModal';
 import ErrorModal from '../../modal/ErrorModal';
-export default function AddServices() {
+export default function AddServices({setActive1}) {
 
   const { t } = useTranslation()
   // En ------
@@ -39,7 +39,7 @@ export default function AddServices() {
 
 
   const [modalActive, setModalActive] = useState(false)
-  const [errorM, setError] = useState(false)
+  const [errorM, setErrorM] = useState(false)
 
   // ----- EN-RU--Button
 
@@ -148,11 +148,14 @@ export default function AddServices() {
     //   setErrorMainRu(false)
     // }
 
-    if (!phone) {
-      setErrorPhone(true)
-      hasError = true
+
+    
+    const phoneRegex = /^[0-9]{9}$/;
+    if (!phone || !phoneRegex.test(phone)) {
+      setErrorPhone(true);
+      hasError = true;
     } else {
-      setErrorPhone(false)
+      setErrorPhone(false);
     }
 
 
@@ -194,10 +197,14 @@ export default function AddServices() {
       .then(response => {
         if (response.ok) {
           setModalActive(true)
-          setError(false)
+          setErrorM(false)
+          setTimeout(() => {
+            setModalActive(false);
+            setActive1(true) 
+           }, 2000); 
         } else {
           setModalActive(false)
-          setError(true)
+          setErrorM(true)
         }
       })
 
@@ -237,9 +244,9 @@ export default function AddServices() {
         active={modalActive}
         setActive={setModalActive}
       />
-      <ErrorModal
+   <ErrorModal
         error={errorM}
-        setError={setError}
+        setError={setErrorM}
       />
       {!language ? (
         <div className={styles.parent} >

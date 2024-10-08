@@ -11,7 +11,7 @@ export default function Reports() {
 
 
   const [modalActive, setModalActive] = useState(false)
-  const [errorM, setError] = useState(false)
+  const [errorM, setErrorM] = useState(false)
 
   const [deleteShow, setDeleteShow] = useState({});
   const lng = localStorage.getItem("i18nextLng")
@@ -42,10 +42,10 @@ export default function Reports() {
         setModalActive(true)
         const updatedData = data.filter(item => item.Id !== id);
         setData(updatedData);
-        setError(false)
+        setErrorM(false)
       } else {
         setModalActive(false)
-        setError(true)
+        setErrorM(true)
       }
 
     })
@@ -76,7 +76,7 @@ export default function Reports() {
             />
             <ErrorModal
                 error={errorM}
-                setError={setError}
+                setError={setErrorM}
             />
       {data.map((item) => (
         <div key={item.Id} className={styles.reportD}>

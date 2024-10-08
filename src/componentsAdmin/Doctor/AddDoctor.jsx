@@ -8,7 +8,7 @@ import { CiTimer } from "react-icons/ci";
 import { RxTimer } from "react-icons/rx";
 import MyModal from '../../modal/MyModal';
 import ErrorModal from '../../modal/ErrorModal';
-export default function AddDoctor() {
+export default function AddDoctor({setActive}) {
     const timeRef = useRef()
     const timeRefEnd = useRef()
     const { t } = useTranslation()
@@ -138,6 +138,10 @@ export default function AddDoctor() {
     const [errorPhone, setErrorPhone] = useState(false)
     const [errorEmail, setErrorEmail] = useState(false)
     const [errorPhoto, setErrorPhoto] = useState(false)
+
+
+    
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -274,17 +278,24 @@ export default function AddDoctor() {
         } else {
             setErrorEndTime(false)
         }
-        if (!phone) {
-            setErrorPhone(true)
-            hasError = true
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  // Регулярное выражение для проверки email
+    if (!gmail) {
+        setErrorEmail(t("Admin.error"));
+        hasError = true;
+    } else if (!emailRegex.test(gmail)) {
+        setErrorEmail("Некорректный формат email");
+        hasError = true;
+    } else {
+        setErrorEmail("");  // Очищаем ошибку, если email валидный
+    }
+      
+        
+        const phoneRegex = /^[0-9]{9}$/;
+        if (!phone || !phoneRegex.test(phone)) {
+          setErrorPhone(true);
+          hasError = true;
         } else {
-            setErrorPhone(false)
-        }
-        if (!gmail) {
-            setErrorEmail(true)
-            hasError = true
-        } else {
-            setErrorEmail(false)
+          setErrorPhone(false);
         }
 
 
@@ -347,6 +358,10 @@ export default function AddDoctor() {
                 if (response.ok) {
                     setModalActive(true)
                     setError(false)
+                    setTimeout(() => {
+                        setModalActive(false);
+                        setActive(true) 
+                      }, 2000);
                 } else {
                     setModalActive(false)
                     setError(true)
@@ -943,7 +958,7 @@ export default function AddDoctor() {
                         borderColor: errorEmail ? '#FF0000' : '',
                     }}
                 />
-                {errorPhone && <p className={styles.errorPhoto}>{t("Admin.error")}</p>}
+                {errorEmail && <p className={styles.errorPhoto}>{errorEmail}</p>}
                 <div className={styles.list1}
                     style={{
                         borderColor: errorDays ? '#FF0000' : '',
@@ -951,12 +966,20 @@ export default function AddDoctor() {
                 >
                     <div>
                         <h3 className={styles.textList}>{t("Admin.days")}</h3>
-                        <input
-                            className={styles.inputMain1}
-                            type="text"
-                            onChange={(e) => setDays(e.target.value)}
-                            value={days}
-                        />
+                        <select
+                    className={styles.inputMain1}
+                    onChange={(e) => setDays(e.target.value)}
+                    value={days}
+                >
+                    <option   value="" className={styles.option}  ></option>
+                    <option value={t("daysOfWeek.M")} className={styles.option} >{t("daysOfWeek.M")}</option>
+                    <option value={t("daysOfWeek.T")}className={styles.option} >{t("daysOfWeek.T")}</option>
+                    <option value={t("daysOfWeek.W")} className={styles.option} >{t("daysOfWeek.W")}</option>
+                    <option value={t("daysOfWeek.Th")} className={styles.option} >{t("daysOfWeek.Th")}</option>
+                    <option value={t("daysOfWeek.F")} className={styles.option} >{t("daysOfWeek.F")}</option>
+                    <option value={t("daysOfWeek.S")} className={styles.option} >{t("daysOfWeek.S")}</option>
+                    <option value={t("daysOfWeek.St")} className={styles.option} >{t("daysOfWeek.St")}</option>
+                </select>
                     </div>
 
                     <img onClick={addDays} src={Plus} alt="" className={styles.plus} />
@@ -1009,7 +1032,7 @@ export default function AddDoctor() {
                             /></p>
 
                         </div>
-                        {errorDays && <p className={styles.errorTime}>{t("Admin.enterTime")}</p>}
+                        {errorStartTime && <p className={styles.errorTime}>{t("Admin.enterTime")}</p>}
 
                     </div>
                        <div>

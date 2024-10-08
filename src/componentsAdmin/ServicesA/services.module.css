@@ -126,7 +126,7 @@
     font-family: "Jost", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    width: 100%;
+    width: 700px;
     height: 100%;
     padding: 0px 0px 0px 30px;
     border: none;
@@ -319,7 +319,7 @@ ul {
     text-align: center;
     width: 272px;
     height: 73px;
-    padding: 7px 0px 15px 0px;
+    padding: 10px 0px 15px 0px;
     border-radius: 5px;
     border: 2px solid black;
     background: white;
@@ -526,9 +526,11 @@ ul {
 
 .lsDOCTORS {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
+    gap: 15px;
+    width: 971px;
 }
 
 .main {

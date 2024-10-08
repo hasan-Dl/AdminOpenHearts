@@ -9,7 +9,7 @@ export default function Stories() {
 
   const [deleteShow, setDeleteShow] = useState({});
   const [modalActive, setModalActive] = useState(false)
-  const [errorM, setError] = useState(false)
+  const [errorM, setErrorM] = useState(false)
 
 
   const lng = localStorage.getItem("i18nextLng")
@@ -54,10 +54,10 @@ export default function Stories() {
         setModalActive(true)
         const updatedData = data.filter(item => item.Id !== id);
         setData(updatedData);
-        setError(false)
+        setErrorM(false)
       } else {
         setModalActive(false)
-        setError(true)
+        setErrorM(true)
       }
 
     })    
@@ -73,7 +73,7 @@ export default function Stories() {
       />
       <ErrorModal
         error={errorM}
-        setError={setError}
+        setError={setErrorM}
       />
 
       <div className={styles.getDiv}>

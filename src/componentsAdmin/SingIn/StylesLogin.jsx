@@ -26,7 +26,7 @@ export default function StylesLogin() {
   // Modal-----
 
   const [modalActive, setModalActive] = useState(false)
-  const [errorM, setError] = useState(false)
+  const [errorM, setErrorM] = useState(false)
 
   const Login = (e) => {
 
@@ -47,6 +47,13 @@ export default function StylesLogin() {
       setErrorPhone(false);
     }
 
+    // const phoneRegex = /^[0-9]{9}$/;
+    // if (!phone || !phoneRegex.test(phone)) {
+    //   setErrorPhone(true);
+    //   hasError = true;
+    // } else {
+    //   setErrorPhone(false);
+    // }
 
     // Если есть ошибка, отменяем отправку
     if (hasError) {
@@ -73,10 +80,10 @@ export default function StylesLogin() {
         if (response.ok) {
           setModalActive(true);
           navigate("/admin/statisticAdmin")
-          setError(false);
+          setErrorM(false);
         } else {
           setModalActive(false);
-          setError(true);
+          setErrorM(true);
         }
 
       })
@@ -91,7 +98,7 @@ export default function StylesLogin() {
       />
       <ErrorModal
         error={errorM}
-        setError={setError}
+        setError={setErrorM}
       />
       <div>
 

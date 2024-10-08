@@ -299,7 +299,7 @@
 .buttonSubmit {
     width: 272px;
     height: 73px;
-    padding: 8px 0px 15px 0px;
+    padding: 10px 0px 15px 0px;
     border-radius: 5px;
     text-align: center;
     border: 2px solid black;
@@ -308,7 +308,7 @@
     font-size: 30px;
     font-family: Jost;
     border-radius: 3px;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 

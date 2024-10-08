@@ -6,7 +6,7 @@ import date_time from "../../assets/date_time.png"
 import PDF from "../../assets/pGF.png"
 import MyModal from '../../modal/MyModal';
 import ErrorModal from '../../modal/ErrorModal';
-export default function AddReport() {
+export default function AddReport({setActive}) {
 
     const dateTimeRef = useRef()
 
@@ -62,7 +62,7 @@ export default function AddReport() {
     }
 
     const [modalActive, setModalActive] = useState(false)
-    const [errorM, setError] = useState(false)
+    const [errorM, setErrorM] = useState(false)
 
 
     const[errorTitleEn,setErrorTitleEn]=useState(false)
@@ -97,10 +97,14 @@ export default function AddReport() {
             .then(response => {
                 if (response.ok) {
                     setModalActive(true)
-                    setError(false)
+                    setErrorM(false)
+                    setTimeout(() => {
+                        setModalActive(false);
+                        setActive(true) 
+                      }, 2000);
                 } else {
                     setModalActive(false)
-                    setError(true)
+                    setErrorM(true)
                 }
 
             })
@@ -117,7 +121,7 @@ export default function AddReport() {
             />
             <ErrorModal
                 error={errorM}
-                setError={setError}
+                setError={setErrorM}
             />
             {!language ? (
                 <div className={styles.parent} >

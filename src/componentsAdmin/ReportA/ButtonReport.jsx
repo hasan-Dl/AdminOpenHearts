@@ -37,7 +37,7 @@ export default function ButtonReport() {
                 > {t("Admin.report")}
                 </button>
             </div>
-            {active === false && <AddReport />}
+            {active === false && <AddReport setActive={setActive} />}
             {active === true && <Reports />}
         </div>
     )

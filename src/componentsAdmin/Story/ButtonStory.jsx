@@ -38,7 +38,7 @@ export default function ButtonStory() {
                 > {t("Admin.story")}
                 </button>
             </div>
-            {active === false && <AddStory />}
+            {active === false && <AddStory   setActive={setActive}/>}
             {active === true && <Stories />}
         </div>
     )

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import MyModal from '../../modal/MyModal';
 import ErrorModal from '../../modal/ErrorModal';
-export default function AddStatistic() {
+export default function AddStatistic({setActiveStatistic }) {
     const { t } = useTranslation()
     const [number, setNumber] = useState("")
     const [descriptionEn, setDescriptionEn] = useState("")
@@ -22,7 +22,7 @@ export default function AddStatistic() {
 
 
     const [modalActive, setModalActive] = useState(false)
-    const [errorM, setError] = useState(false)
+    const [errorM, setErrorM] = useState(false)
   
 
 
@@ -81,16 +81,19 @@ export default function AddStatistic() {
         .then(response => {
             if (response.ok) {
               setModalActive(true)
-              setError(false)
+              setErrorM(false)
+              setTimeout(() => {
+                setModalActive(false); // Закрываем модальное окно
+                setActiveStatistic(true); // Переключаемся на компонент StatisticS
+              }, 2000);
             } else {
-              setModalActive(false)
-              setError(true)
+                setErrorM(true)
+                setModalActive(false)
+                setActiveStatistic(false);
             }
     
           })
-          .catch(error => {
-            console.error("Error:", error);
-          });
+       
     }
 
     return (
@@ -102,7 +105,7 @@ export default function AddStatistic() {
       />
       <ErrorModal
         error={errorM}
-        setError={setError}
+        setError={setErrorM}
       />
 
             <div className={styles.inputStatistic}>

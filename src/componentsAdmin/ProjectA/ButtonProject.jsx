@@ -9,37 +9,37 @@ export default function ButtonProject() {
 
 
 
-  const getInitialActiveStatistic = () => {
-    const storedValue = localStorage.getItem('activeStatistic');
+  const getInitialActive = () => {
+    const storedValue = localStorage.getItem('active');
     return storedValue ? JSON.parse(storedValue) : false;
   };
 
-  const [activeStatistic, setActiveStatistic] = useState(getInitialActiveStatistic);
+  const [active, setActive] = useState(getInitialActive);
 
-  // Обновляем localStorage при изменении activeStatistic
+  // Обновляем localStorage при изменении active
   useEffect(() => {
-    localStorage.setItem('activeStatistic', JSON.stringify(activeStatistic));
-  }, [activeStatistic]);
+    localStorage.setItem('active', JSON.stringify(active));
+  }, [active]);
 
   const handleButtonClick = (buttonType) => {
-    setActiveStatistic(buttonType);
+    setActive(buttonType);
   };
   return (
     <div className={styles.styleBox}>
       <div className={styles.boxButton}>
         <button
-          className={`${styles.buttonOne} ${activeStatistic === false ? styles.activeOne : ''}`}
+          className={`${styles.buttonOne} ${active === false ? styles.activeOne : ''}`}
           onClick={() => handleButtonClick(false)}
         >{t("Admin.addPro")}
         </button>
         <button
-          className={`${styles.buttonTwo} ${activeStatistic === true ? styles.activeTwo : ''}`}
+          className={`${styles.buttonTwo} ${active === true ? styles.activeTwo : ''}`}
           onClick={() => handleButtonClick(true)}
         >{t("Admin.project")}
         </button>
       </div>
-      {activeStatistic === false && <AddProject />}
-      {activeStatistic === true && <Projects />}
+      {active === false && <AddProject  setActive={setActive}  />}
+      {active === true && <Projects />}
     </div>
   )
 }

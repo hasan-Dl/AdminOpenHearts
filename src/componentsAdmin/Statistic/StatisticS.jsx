@@ -8,7 +8,7 @@ import ErrorModal from '../../modal/ErrorModal'
 
 export default function StatisticS() {
   const [modalActive, setModalActive] = useState(false)
-  const [errorM, setError] = useState(false)
+  const [errorM, setErrorM] = useState(false)
   
   const [deleteShow, setDeleteShow] = useState({});
 
@@ -53,10 +53,10 @@ export default function StatisticS() {
           setModalActive(true)
           const updatedData = data.filter(item => item.Id !== id);
           setData(updatedData);
-          setError(false)
+          setErrorM(false)
       } else {
           setModalActive(false)
-          setError(true)
+          setErrorM(true)
       }
 
   })
@@ -76,7 +76,7 @@ export default function StatisticS() {
       />
       <ErrorModal
         error={errorM}
-        setError={setError}
+        setError={setErrorM}
       />
 
       <div

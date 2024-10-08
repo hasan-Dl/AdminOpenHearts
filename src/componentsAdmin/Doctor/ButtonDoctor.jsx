@@ -39,7 +39,7 @@ export default function ButtonDoctor() {
               > {t("Admin.doctor")}
               </button>
           </div>
-          {active === false && <AddDoctor />}
+          {active === false && <AddDoctor  setActive={setActive}  />}
           {active === true && <Doctors />}
       </div>
   )

@@ -13,7 +13,7 @@ import MyModal from '../../modal/MyModal'
 export default function OneServices() {
 
     const [modalActive, setModalActive] = useState(false)
-    const [errorM, setError] = useState(false)
+    const [errorM, setErrorM] = useState(false)
     const navigate = useNavigate()
 
     const { t } = useTranslation()
@@ -51,10 +51,10 @@ export default function OneServices() {
                     const updatedData = data.filter(item => item.Id !== id);
                     setData(updatedData);
                     navigate('/admin/servicesAdmin')
-                    setError(false)
+                    setErrorM(false)
                 } else {
                     setModalActive(false)
-                    setError(true)
+                    setErrorM(true)
                 }
             })
   
@@ -73,7 +73,7 @@ export default function OneServices() {
                 />
                 <ErrorModal
                     error={errorM}
-                    setError={setError}
+                    setError={setErrorM}
                 />
                 <div className={styles.parent1}>
                     <div className={styles.img}>

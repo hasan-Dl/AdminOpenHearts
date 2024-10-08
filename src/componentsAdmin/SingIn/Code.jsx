@@ -13,7 +13,7 @@ export default function Code() {
     const navigate = useNavigate()
 
     const [modalActive, setModalActive] = useState(false)
-    const [errorM, setError] = useState(false)
+    const [errorM, setErrorM] = useState(false)
 
     const [otpError, setOtpError] = useState(false);
 
@@ -50,10 +50,10 @@ export default function Code() {
                 if (response.ok) {
                     setModalActive(true);
                     navigate('/login')
-                    setError(false);
+                    setErrorM(false);
                 } else {
                     setModalActive(false);
-                    setError(true);
+                    setErrorM(true);
                 }
 
             })
@@ -67,7 +67,7 @@ export default function Code() {
             />
             <ErrorModal
                 error={errorM}
-                setError={setError}
+                setError={setErrorM}
             />
             <h1 className={styles.line}></h1>
 

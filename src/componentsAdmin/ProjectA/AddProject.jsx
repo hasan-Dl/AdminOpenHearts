@@ -133,20 +133,23 @@ export default function AddProject() {
       setErrorAddressRu(false)
     }
 
-
-    if (!phone) {
-      setErrorPhone(true)
-      hasError = true
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
+      setErrorEmail(true);
+      hasError = true;
     } else {
-      setErrorPhone(false)
+      setErrorEmail(false);
     }
-
-    if (!email) {
-      setErrorEmail(true)
-      hasError = true
+  
+    
+    const phoneRegex = /^[0-9]{9}$/;
+    if (!phone || !phoneRegex.test(phone)) {
+      setErrorPhone(true);
+      hasError = true;
     } else {
-      setErrorEmail(false)
+      setErrorPhone(false);
     }
+  
 
     if (!photoPath) {
       setErrorPhoto(true);
@@ -190,6 +193,10 @@ export default function AddProject() {
         if (response.ok) {
           setModalActive(true)
           setError(false)
+          setTimeout(() => {
+           setModalActive(false);
+            setActive(true) 
+          }, 2000); 
         } else {
           setModalActive(false)
           setError(true)
